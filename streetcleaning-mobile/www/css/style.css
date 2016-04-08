@@ -1,0 +1,37 @@
+/* Menu */
+
+.streetcleaning-theme .menu,
+.streetcleaning-theme .menu .item,
+.streetcleaning-theme .menu .item .item-content {
+    background-color: #d4121b;
+}
+.streetcleaning-theme .menu .item {
+    border-color: #d4121b;
+    color: #FFFFFF;
+}
+.streetcleaning-theme .menu .item .item-content.activated {
+    color: #BCC0E7;
+}
+.streetcleaning-theme .menu .item .item-content .icon:before {
+    padding-right: 1em;
+    font-size: 2em;
+    vertical-align: middle;
+}
+
+.streetcleaning-theme .bar {
+    background-color: #f92c37;
+    border-color: #f92c37;
+    color: #FFFFFF;
+}
+
+.streetcleaning-theme .bar.bar-footer {
+    background-color: #e12d20;
+    border: 0;
+    padding: 0;
+}
+
+.streetcleaning-theme .bar .button {
+/*    border-color: #010101;*/
+/*	background-color: #cccccc;*/
+    color: #FFFFFF;	
+}
