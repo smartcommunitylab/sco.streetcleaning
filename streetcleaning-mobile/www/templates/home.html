@@ -1,14 +1,23 @@
 <ion-view>
     <ion-nav-title>{{ 'app_name' | translate }}</ion-nav-title>
-    <ion-content>
-        <h1>{{'lbl_home'| translate}}</h1>
+    <ion-content scroll="false">
+        <div class="row" style="background-color:#e12d20;color: #ffffff;">
+            <div class="col col-25 tt-day btn" ng-click="prevDate()"><a><i class="icon ion-arrow-left-b"></i></a>
+            </div>
+            <div class="col col-50 tt-day">{{runningDate | date : 'dd/MM/yyyy'}}</div>
+            <div class="col col-25 tt-day btn" ng-click="nextDate()"><a><i class="icon ion-arrow-right-b"></i></a>
+            </div>
+        </div>
+        <div id="modal-map-container" data-tap-disabled="true" >
+            <leaflet center="center" markers="markers" id="scMap" style="width: 100%; height: 900px;" ng-init="initMap()"></leaflet>
+        </div>
     </ion-content>
 
     <div class="bar bar-footer">
         <div class="button-bar">
             <button class="button button-icon ion-map"></button>
             <button class="button button-icon ion-ios-list-outline"></button>
-          <div>
-      </div>
+            <div>
+            </div>
 
 </ion-view>

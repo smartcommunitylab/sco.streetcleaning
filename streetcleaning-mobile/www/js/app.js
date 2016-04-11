@@ -9,14 +9,19 @@ angular.module('streetcleaning', [
     'ngCordova',
     'ngIOS9UIWebViewPatch',
     'pascalprecht.translate',
+    'leaflet-directive',
     'streetcleaning.controllers.home',
     'streetcleaning.controllers.search',
     'streetcleaning.controllers.preference',
     'streetcleaning.controllers.questionnaire',
-    'streetcleaning.controllers.credits'
+    'streetcleaning.controllers.credits',
+    'streetcleaning.services.filters',
+    'streetcleaning.services.config',
+    'streetcleaning.services.map',
+    'streetcleaning.services.geo'
 ])
 
-    .run(function($ionicPlatform, $state, $rootScope, $translate) {
+    .run(function($ionicPlatform, $state, $rootScope, $translate, GeoLocate, Config) {
 
         /*$rootScope.loginStarted = false;
         $rootScope.login = function() {
@@ -64,6 +69,14 @@ angular.module('streetcleaning', [
                 StatusBar.styleDefault();
             }
 
+            Config.init().then(function() {
+                if (ionic.Platform.isWebView()) {
+                    // DataManager.dbSetup();
+                } else {
+                    // DataManager.syncStopData();
+                }
+            });
+
             if (typeof navigator.globalization !== "undefined") {
                 navigator.globalization.getPreferredLanguage(function(language) {
                     var lang = language.value.split("-")[0];
@@ -85,7 +98,7 @@ angular.module('streetcleaning', [
             }
 
             // if (LoginSrv.userIsLogged()) {
-            $state.go('app.search', {}, {
+            $state.go('app.home', {}, {
                 reload: true
             });
             // } else {
@@ -177,7 +190,10 @@ angular.module('streetcleaning', [
             lbl_search: 'CERCA',
             lbl_preference: 'PREFERITI',
             lbl_questionnaire: 'QUESTIONARIO',
-            lbl_credits: 'CREDITS'
+            lbl_credits: 'CREDITS',
+            lbl_info: 'INFO',
+            lbl_close: 'CHIUDI',
+            lbl_details: 'VEDI DETTAGLI'
         });
 
         $translateProvider.translations('en', {
@@ -186,7 +202,11 @@ angular.module('streetcleaning', [
             lbl_search: 'SEARCH',
             lbl_preference: 'PREFERENCE',
             lbl_questionnaire: 'QUESTIONNAIRE',
-            lbl_credits: 'CREDITS'
+            lbl_credits: 'CREDITS',
+            lbl_info: 'INFO',
+            lbl_close: 'CLOSE',
+            lbl_details: 'VIEW DETAILS'
+
         });
 
         $translateProvider.preferredLanguage('en');

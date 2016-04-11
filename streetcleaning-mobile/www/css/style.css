@@ -35,3 +35,42 @@
 /*	background-color: #cccccc;*/
     color: #FFFFFF;	
 }
+
+.tt-day {
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    padding: 0;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.tt-day.btn {
+    font-size: 30px;
+}
+
+.popup-title {
+    font-size: 16px;
+    font-weight: bold;
+    background-color:#d4121b;
+    color: #FFFFFF;
+    height: 40px;
+    padding: 7px;
+   
+}
+
+.sc-popup-button-red {
+  background: transparent;
+  color: #FFFFFF;
+  font-weight: bold;
+  background-color:#d4121b;
+
+}
+
+.sc-popup-button-blue {
+  background: transparent;
+  color: #FFFFFF;
+  font-weight: bold;
+  background-color:#00adc2;
+
+}
