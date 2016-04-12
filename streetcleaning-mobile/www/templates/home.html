@@ -13,12 +13,18 @@
         </div>
         <div ng-show="listView">
             <ion-list>
-            <ion-item ng-repeat="marker in markers" class="marker-item" ng-click="showMarkerDetails(marker, runningDate)">
-                <h2>{{ marker.streetName }}</h2>
+            <ion-item ng-repeat="marker in markers" class="marker-item">
+                <div class="col" ng-click="showMarkerDetails(marker, runningDate)"><h2>{{ marker.streetName }}</h2>
                 <br>
                 <img ng-src="img/sign.png"> <!--style="width: 30px;height: 30px;"-->
                 <h3>{{ marker.streetSchedule }}</h3>
-                <span ng-bind-html="marker.favorite">;</span><!-- &bigstar; -->
+                </div>
+                <div class="col" ng-if="marker.favorite" ng-click="markFavorite(marker)">
+                    <span>&bigstar;</span>
+                </div>
+                <div class="col" ng-if="!marker.favorite" ng-click="markFavorite(marker)">
+                    <span>&star;</span>
+                </div>
             </ion-item>
         </ion-list>
         </div>

@@ -5,7 +5,8 @@
 		"streetName": "Castello",
         "streetSchedule": "Dalle 12:00 alle 15:30",
 		"focus": true,
-		"draggable": false
+		"draggable": false,
+        "favorite": true
 		
 	},
 	{
@@ -14,7 +15,8 @@
 		"streetName": "Via Fiume",
         "streetSchedule": "Dalle 12:00 alle 15:30",
 		"focus": true,
-		"draggable": false
+		"draggable": false,
+        "favorite": false
 		
 	}
 ]

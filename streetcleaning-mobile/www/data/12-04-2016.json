@@ -6,7 +6,7 @@
         "streetSchedule": "Dalle 12:00 alle 15:30",
 		"focus": true,
 		"draggable": false,
-        "favorite": "&bigstar;"
+        "favorite": true
 		
 	},
 	{
@@ -16,7 +16,7 @@
         "streetSchedule": "Dalle 12:00 alle 15:30",
 		"focus": true,
 		"draggable": false,
-        "favorite": "&star;"
+        "favorite": false
 		
 	}
 ]

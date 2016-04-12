@@ -137,12 +137,20 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         $scope.showMarkerDetails = function(arg1, arg2) {
-            alert(arg2);
             $state.go('app.markerDetails', {
                 marker: JSON.stringify(arg1),
                 runningDate: arg2
             });
         }
+
+        $scope.markFavorite = function(arg1) {
+            if (arg1.favorite) {
+                arg1.favorite = false;
+            } else {
+                arg1.favorite = true;
+            }
+        }
+
 
 
 
@@ -150,9 +158,20 @@ angular.module('streetcleaning.controllers.home', [])
 
     .controller('MarkerDetailsCtrl', function($scope, $state, $ionicPopup, $timeout) {
 
-        var marker = JSON.parse($state.params.marker);
+        $scope.marker = JSON.parse($state.params.marker);
 
-        alert(marker);
+        // $scope.streetName = marker.streetName;
+        // $scope.favorite = marker.favorite;
+
+        $scope.markFavorite = function() {
+            if ($scope.marker.favorite) {
+                $scope.marker.favorite = false;
+            } else {
+                $scope.marker.favorite = true;
+            }
+            // marker.favorite = $scope.favorite;
+        }
+
 
     });
 
