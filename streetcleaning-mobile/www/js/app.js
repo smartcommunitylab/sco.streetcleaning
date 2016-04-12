@@ -18,7 +18,8 @@ angular.module('streetcleaning', [
     'streetcleaning.services.filters',
     'streetcleaning.services.config',
     'streetcleaning.services.map',
-    'streetcleaning.services.geo'
+    'streetcleaning.services.geo',
+    'streetcleaning.services.home'
 ])
 
     .run(function($ionicPlatform, $state, $rootScope, $translate, GeoLocate, Config) {
@@ -176,6 +177,15 @@ angular.module('streetcleaning', [
                 }
             })
 
+            .state('app.markerDetails', {
+                url: '/apps/:marker/:runningDate'
+                , views: {
+                    'menuContent': {
+                        templateUrl: 'templates/markerDetails.html'
+                        , controller: 'MarkerDetailsCtrl'
+                    }
+                }
+            });        
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/home');

@@ -13,6 +13,7 @@
         </div>
         <div ng-show="listView">
             <ion-list>
+            <ion-item ng-repeat="marker in markers" class="marker-item" ng-click="showMarkerDetails(marker, runningDate)">
                 <h2>{{ marker.streetName }}</h2>
                 <br>
                 <img ng-src="img/sign.png"> <!--style="width: 30px;height: 30px;"-->
