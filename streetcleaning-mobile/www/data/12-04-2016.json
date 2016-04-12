@@ -1,0 +1,22 @@
+[
+	{
+		"lat": 46.07109,
+		"lng": 11.126543,
+		"streetName": "Castello",
+        "streetSchedule": "Dalle 12:00 alle 15:30",
+		"focus": true,
+		"draggable": false,
+        "favorite": "&bigstar;"
+		
+	},
+	{
+		"lat": 46.063571,
+		"lng": 11.131527,
+		"streetName": "Via Fiume",
+        "streetSchedule": "Dalle 12:00 alle 15:30",
+		"focus": true,
+		"draggable": false,
+        "favorite": "&star;"
+		
+	}
+]

@@ -6,30 +6,28 @@ angular.module('streetcleaning.services.config', [])
             timeout: 5000
         };
 
-        var mapJsonConfig = null;
+        var mapJsonConfig = { 'lat': 46.074779, 'lon': 11.126543, 'zoom': 14 };
         var ttJsonConfig = null;
-        var lat = null;
-        var lon = null;
-        var zoom = null;
+
 
         return {
             init: function() {
                 var deferred = $q.defer();
-                if (mapJsonConfig != null) deferred.resolve(true);
+                if (mapJsonConfig != null) deferred.resolve(mapJsonConfig);
                 else $http.get('data/config.json').success(function(response) {
                     mapJsonConfig = response;
                     lat = response.lat;
                     lon = response.lon;
-                    zoom = respone.zoom;
+                    zoom = response.zoom;
                     deferred.resolve(true);
                 });
                 return deferred.promise;
             },
             getMapPosition: function() {
                 return {
-                    lat: lat,
-                    lon: lon,
-                    zoom: zoom
+                    lat: mapJsonConfig.lat,
+                    lon: mapJsonConfig.lon,
+                    zoom: mapJsonConfig.zoom
                 };
             },
             getLang: function() {
