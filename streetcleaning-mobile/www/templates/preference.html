@@ -1,7 +1,15 @@
-<ion-modal-view>
-  <ion-nav-title>{{ 'app_name' | translate }}</ion-nav-title>
+<ion-view>
+    <ion-nav-title>{{ 'lbl_preference' | translate }}</ion-nav-title>
     <ion-content>
-        <h1>{{'lbl_preference'| translate}}</h1>
+        <div>
+            <ion-list>
+                <ion-item ng-repeat="marker in markers" class="marker-item">
+                    <div class="col"ng-click="showMarkerDetails(marker, runningDate)"><h2>{{ marker.streetName }}</h2></div>
+                    <div class="col" ng-click="removeFavorite(marker)">
+                            <i class="button-icon ion-close-circled" style="color: #00adc2;right: 5px;position: absolute;top: 20px;"></i>
+                     </div>
+                </ion-item>
+            </ion-list>
+        </div>
     </ion-content>
-
-</ion-modal-view>
+</ion-view>
