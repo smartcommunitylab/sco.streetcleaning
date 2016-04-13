@@ -66,71 +66,6 @@ angular.module('streetcleaning.services.map', [])
 
     };
 
-    mapService.getTripPolyline = function (trip) {
-            var listOfPoints = {};
-            for (var k = 0; k < trip.leg.length; k++) {
-                listOfPoints["p" + k] = {
-                    color: getColorByType(trip.leg[k].transport),
-                    weight: 5,
-                    latlngs: mapService.decodePolyline(trip.leg[k].legGeometery.points),
-                    message: getPopUpMessage(trip, trip.leg[k], k),
-                }
-            }
-            return listOfPoints;
-        }
-        //    var parkAndWalk = function (trip, index) {
-        //        if (index > (trip.leg.length - 2)) {
-        //            return false;
-        //        } //end of the journey
-        //        //check if trip.leg[index] trip.leg[index1]
-        //        if (trip.leg[index].type = "")
-        //            return false;
-        //    }
-        //    var getMarkerParkAndWalk = function (leg) {}
-    mapService.getTripPoints = function (trip) {
-        //manage park&walk
-        var markers = [];
-        for (i = 0; i < trip.leg.length; i++) {
-            //if (!parkAndWalk(trip, i)) {
-            markers.push({
-                    lat: parseFloat(trip.leg[i].from.lat),
-                    lng: parseFloat(trip.leg[i].from.lon),
-
-                    message: getPopUpMessage(trip, trip.leg[i], i),
-                    icon: {
-                        iconUrl: getIconByType(trip.leg[i].transport),
-                        iconSize: [36, 50],
-                        iconAnchor: [18, 50],
-                        popupAnchor: [-0, -50]
-                    },
-                    //                        focus: true
-                })
-                //            }
-                //        else {
-                //                markers.push(getMarkerParkAndWalk(trip.leg[i]));
-                //            }
-            var bound = [trip.leg[i].from.lat, trip.leg[i].from.lon];
-
-        }
-        //add the arrival place
-        markers.push({
-            lat: parseFloat(trip.leg[trip.leg.length - 1].to.lat),
-            lng: parseFloat(trip.leg[trip.leg.length - 1].to.lon),
-
-            message: $filter('translate')('pop_up_arrival'),
-            icon: {
-                iconUrl: "img/ic_arrival.png",
-                iconSize: [36, 50],
-                iconAnchor: [0, 50],
-                popupAnchor: [18, -50]
-            },
-            //                        focus: true
-        });
-
-
-
-        return markers;
-    }
     mapService.encodePolyline = function (coordinate, factor) {
         coordinate = Math.round(coordinate * factor);
         coordinate <<= 1;
@@ -167,6 +102,20 @@ angular.module('streetcleaning.services.map', [])
             map.invalidateSize();
         })
     }
+
+    mapService.formatPolyLine = function(encodedPL) {
+
+        var listOfPoints = {};
+        listOfPoints["p1"] = {
+            color: '#008000',
+            weight: 5,
+            latlngs: mapService.decodePolyline(encodedPL)
+        }
+
+        return listOfPoints;
+
+    }
+
     mapService.decodePolyline = function (str, precision) {
         var index = 0,
             lat = 0,

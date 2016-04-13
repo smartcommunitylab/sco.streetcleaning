@@ -6,10 +6,11 @@ angular.module('streetcleaning.controllers.home', [])
         $scope.runningDate = new Date();
         var mapDefaults = new Object();
         var markers = [];
-        var boundArray = [];
         var bounds = null;
+        var map = null;
 
         var successMarkers = function(dateMarkers) {
+            var boundArray = [];
             for (var i = 0; i < dateMarkers.length; i++) {
                 markers.push({
                     lat: dateMarkers[i].coordinates[0],
@@ -19,15 +20,20 @@ angular.module('streetcleaning.controllers.home', [])
                     endingTime: dateMarkers[i].endingTime,
                     cleaningDay: dateMarkers[i].cleaningDay,
                     streetSchedule: $filter('translate')('lbl_start') + ' ' + HomeSrv.formatTimeHHMM(dateMarkers[i].startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + HomeSrv.formatTimeHHMM(dateMarkers[i].endingTime),
+                    polyline: mapService.formatPolyLine(dateMarkers[i].polyline),
                     favorite: false
                 });
                 var coord = [];
-                coord.push(dateMarkers[i].lat);
-                coord.push(dateMarkers[i].lng);
+                coord.push(dateMarkers[i].coordinates[0]);
+                coord.push(dateMarkers[i].coordinates[1]);
                 boundArray.push(coord);
             }
             // bounds = leafletBoundsHelpers.createBoundsFromArray([[51.508742458803326, -0.087890625], [51.508742458803326, -0.087890625]]);
             bounds = leafletBoundsHelpers.createBoundsFromArray(boundArray);
+            mapService.getMap('scMap').then(function(map) {
+                map.fitBounds = bounds;
+            });
+        
         }
 
         var failureMarkers = function(error) {
@@ -54,12 +60,14 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         $scope.initMap = function() {
-            mapService.initMap('scMap').then(function() {
+            mapService.initMap('scMap').then(function(mapObj) {
+                map = mapObj;
                 $scope.center = {
                     lat: Config.getMapPosition().lat,//46.074779,
                     lng: Config.getMapPosition().lon,//11.121749,
                     zoom: Config.getMapPosition().zoom//18
                 };
+                // map.fitBounds(bounds);
             }
             )
         }
@@ -76,7 +84,8 @@ angular.module('streetcleaning.controllers.home', [])
         $scope.$on('leafletDirectiveMarker.scMap.click', function(e, args) {
             $scope.streetName = args.model.streetName;
             $scope.streetSchedule = args.model.streetSchedule;
-
+            $scope.pathLine = args.model.polyline;
+            
             var myPopup = $ionicPopup.show({
                 templateUrl: "templates/streetPopup.html",
                 title: $filter('translate')('lbl_info'),
@@ -85,6 +94,9 @@ angular.module('streetcleaning.controllers.home', [])
                     {
                         text: $filter('translate')('lbl_close'),
                         type: 'button-small sc-popup-button-red'
+                        , onTap: function(e) {
+                            $scope.pathLine = {};
+                        }
                     }
                     , {
                         text: $filter('translate')('lbl_details'),
@@ -120,8 +132,8 @@ angular.module('streetcleaning.controllers.home', [])
                 map: {
                     enable: ['click']
                 }
-            }
-
+            },
+            pathLine: {}
         });
 
         $scope.mapViewShow = function() {

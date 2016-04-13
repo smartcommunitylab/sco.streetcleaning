@@ -6,7 +6,8 @@
         "startingTime": 1458932400000,
         "endingTime": 1458941400000,
         "notes": "solo Centro Storico",
-        "coordinates": [46.070613, 11.121421]
+        "coordinates": [46.070613, 11.121421],
+        "polyline": "}~dxGse{bAmB^"
     },
     {
         "streetName": "VIA ALFIERI",
@@ -15,6 +16,7 @@
         "startingTime": 1458932400000,
         "endingTime": 1458941400000,
         "notes": "da via Torre Verde fino a via Gazzoletti",
-        "coordinates": [46.072175, 11.1248]
+        "coordinates": [46.072175, 11.1248],
+        "polyline": "}~dxGse{bAmB^"
     }
 ]
