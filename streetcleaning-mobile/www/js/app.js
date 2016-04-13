@@ -19,7 +19,8 @@ angular.module('streetcleaning', [
     'streetcleaning.services.config',
     'streetcleaning.services.map',
     'streetcleaning.services.geo',
-    'streetcleaning.services.home'
+    'streetcleaning.services.home',
+    'streetcleaning.services.search'
 ])
 
     .run(function($ionicPlatform, $state, $rootScope, $translate, GeoLocate, Config) {
@@ -207,8 +208,8 @@ angular.module('streetcleaning', [
             lbl_end: 'alle',
             lbl_details: 'VEDI DETTAGLI',
             lbl_calendar_title: 'Calendar Chiusere 2016',
-            lbl_inprogress: 'In costruzione'
-
+            lbl_inprogress: 'In costruzione',
+            lbl_searchresult: 'RISULTATI RICERCA'
         });
 
         $translateProvider.translations('en', {
@@ -224,8 +225,8 @@ angular.module('streetcleaning', [
             lbl_end: 'to',
             lbl_details: 'VIEW DETAILS',
             lbl_calendar_title: 'Calendar Closures 2016',
-            lbl_inprogress: 'Under construction'
-
+            lbl_inprogress: 'Under construction',
+            lbl_searchresult: 'SEARCH RESULTS'
         });
 
         $translateProvider.preferredLanguage('en');

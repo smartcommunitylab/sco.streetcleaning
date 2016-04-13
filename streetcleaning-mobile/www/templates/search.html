@@ -1,6 +1,27 @@
 <ion-view>
- <ion-nav-title>{{ 'app_name' | translate }}</ion-nav-title>
+    <ion-nav-title>{{ 'lbl_search' | translate }}</ion-nav-title>
     <ion-content>
-        <h1>{{'lbl_search'| translate}}</h1>
+        <div class="padding search">
+            <div class="row">
+                <!--<div class="col">-->
+                <input type="search" placeholder="{{'lbl_search' | translate}}" ng-model="formData.searchString">
+                <!--</div>-->
+                <!--<div class="col">-->
+                <i href="#" class="button ion-search" ng-click="doSearch()"></i>
+                <!--</div>-->
+            </div>
+        </div>
+        <div>
+            <h3 style="background-color:#e12d20;color:#ffffff;text-align:center;font-size: 16px;">{{'lbl_searchresult' | translate}}</h3>
+        </div>
+        <div>
+            <ion-list>
+                <ion-item ng-repeat="marker in markers" class="marker-item">
+                    <div class="padding" ng-click="showMarkerDetails(marker, runningDate)">
+                        <h2>{{ marker.streetName }}</h2>
+                    </div>
+                </ion-item>
+            </ion-list>
+        </div>
     </ion-content>
 </ion-view>

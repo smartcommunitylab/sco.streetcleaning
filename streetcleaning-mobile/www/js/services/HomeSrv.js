@@ -23,6 +23,21 @@ angular.module('streetcleaning.services.home', [])
             return deferred.promise;
         }
 
+        homeServices.getFavoriteMarkers = function() {
+            var deferred = $q.defer();
+
+            $http.get('data/12-04-2016.json').success(function(response) {
+                deferred.resolve(response);
+            }, function(error) {
+                deferred.resolve(null);
+                });
+
+            return deferred.promise;
+            
+        }
+
+        
+
         homeServices.formatDate = function(today) {
             var dd = today.getDate();
             var mm = today.getMonth() + 1; //January is 0!
