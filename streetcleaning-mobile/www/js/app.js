@@ -203,8 +203,11 @@ angular.module('streetcleaning', [
             lbl_credits: 'CREDITS',
             lbl_info: 'INFO',
             lbl_close: 'CHIUDI',
+            lbl_start: 'Dalle',
+            lbl_end: 'alle',
             lbl_details: 'VEDI DETTAGLI',
-            lbl_calendar_title: 'Calendar Chiusere 2016'
+            lbl_calendar_title: 'Calendar Chiusere 2016',
+            lbl_inprogress: 'In costruzione'
 
         });
 
@@ -217,8 +220,11 @@ angular.module('streetcleaning', [
             lbl_credits: 'CREDITS',
             lbl_info: 'INFO',
             lbl_close: 'CLOSE',
+            lbl_start: 'From',
+            lbl_end: 'to',
             lbl_details: 'VIEW DETAILS',
-            lbl_calendar_title: 'Calendar Closures 2016'
+            lbl_calendar_title: 'Calendar Closures 2016',
+            lbl_inprogress: 'Under construction'
 
         });
 

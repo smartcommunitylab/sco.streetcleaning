@@ -1,22 +1,20 @@
 [
 	{
-		"lat": 46.07109,
-		"lng": 11.126543,
-		"streetName": "Castello",
-        "streetSchedule": "Dalle 12:00 alle 15:30",
-		"focus": true,
-		"draggable": false,
-        "favorite": true
-		
-	},
-	{
-		"lat": 46.063571,
-		"lng": 11.131527,
-		"streetName": "Via Fiume",
-        "streetSchedule": "Dalle 12:00 alle 15:30",
-		"focus": true,
-		"draggable": false,
-        "favorite": false
-		
-	}
+        "streetName": "VIA ALFIERI",
+        "streetCode": "90",
+        "cleaningDay": 1458860400000,
+        "startingTime": 1458932400000,
+        "endingTime": 1458941400000,
+        "notes": "solo Centro Storico",
+        "coordinates": [46.070613, 11.121421]
+    },
+    {
+        "streetName": "VIA ALFIERI",
+        "streetCode": "90",
+        "cleaningDay": 1478214000000,
+        "startingTime": 1458932400000,
+        "endingTime": 1458941400000,
+        "notes": "da via Torre Verde fino a via Gazzoletti",
+        "coordinates": [46.072175, 11.1248]
+    }
 ]

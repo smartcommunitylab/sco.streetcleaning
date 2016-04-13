@@ -1,0 +1,30 @@
+[{
+	"order": 1,
+	"month": "Jan",
+	"startTime": "20:00",
+	"endTime": "07:00"
+},
+{
+	"order": 8,
+	"month": "Aug",
+	"startTime": "20:00",
+	"endTime": "07:00"
+},
+{
+	"order": 3,
+	"month": "Mar",
+	"startTime": "20:00",
+	"endTime": "07:00"
+},
+{
+	"order": 12,
+	"month": "Dec",
+	"startTime": "20:00",
+	"endTime": "07:00"
+},
+{
+	"order": 7,
+	"month": "July",
+	"startTime": "20:00",
+	"endTime": "07:00"
+}]

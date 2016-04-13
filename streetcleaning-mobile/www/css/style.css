@@ -103,3 +103,10 @@
     right: 0;
     padding-right: 10px;
 }
+
+.marker-detail-tt div {
+    text-align:center;
+     background-color:#e12d20;
+     font-size:18px;
+     color:#ffffff
+    }
