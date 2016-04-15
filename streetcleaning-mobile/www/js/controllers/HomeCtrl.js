@@ -20,7 +20,7 @@ angular.module('streetcleaning.controllers.home', [])
         // custom style.
         $scope.mapStyle = {
             "width": "100%",
-            "height":  $scope.mapWinSize + "px",
+            "height": $scope.mapWinSize + "px",
         }
 
         window.onresize = function(event) {
@@ -34,6 +34,7 @@ angular.module('streetcleaning.controllers.home', [])
                 var boundArray = [];
                 for (var i = 0; i < dateMarkers.length; i++) {
                     markers.push({
+                        coordinates: dateMarkers[i].coordinates,
                         lat: dateMarkers[i].coordinates[0],
                         lng: dateMarkers[i].coordinates[1],
                         streetName: dateMarkers[i].streetName,
@@ -42,7 +43,7 @@ angular.module('streetcleaning.controllers.home', [])
                         cleaningDay: dateMarkers[i].cleaningDay,
                         streetSchedule: $filter('translate')('lbl_start') + ' ' + HomeSrv.formatTimeHHMM(dateMarkers[i].startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + HomeSrv.formatTimeHHMM(dateMarkers[i].endingTime),
                         polyline: mapService.formatPolyLine(dateMarkers[i].polyline),
-                        favorite: false
+                        favorite: ((dateMarkers[i].favorite)?(dateMarkers[i].favorite):false)
                     });
                     var coord = [];
                     coord.push(dateMarkers[i].coordinates[0]);
@@ -95,7 +96,20 @@ angular.module('streetcleaning.controllers.home', [])
 
         $scope.$on('$ionicView.beforeEnter', function() {
             mapService.refresh('scMap');
+            HomeSrv.getMarkers($scope.runningDate).then(function(savedMarkers) {
+                $scope.markers = savedMarkers;
+            }, function(error) {
+            });
         });
+
+        // after routine.
+        $scope.$on("$ionicView.afterLeave", function() {
+            $scope.hideSearchInput = true;
+            HomeSrv.getMarkers($scope.runningDate).then(function(savedMarkers) {
+                $scope.markers = savedMarkers;
+            }, function(error) {
+            });
+        });            
 
 
         $scope.$on('leafletDirectiveMarker.scMap.click', function(e, args) {
@@ -164,7 +178,7 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         $scope.listViewShow = function() {
-             $scope.mapView = false;
+            $scope.mapView = false;
         }
 
         $scope.showMarkerDetails = function(arg1, arg2) {
@@ -175,11 +189,17 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         $scope.markFavorite = function(arg1) {
+
             if (arg1.favorite) {
                 arg1.favorite = false;
             } else {
                 arg1.favorite = true;
             }
+
+            HomeSrv.updateMarker(arg1).then(function(updated) {
+                arg1 = updated;
+            }, function error() { })
+
             mapService.refresh('scMap');
 
         }
@@ -202,7 +222,9 @@ angular.module('streetcleaning.controllers.home', [])
             } else {
                 $scope.marker.favorite = true;
             }
-            // marker.favorite = $scope.favorite;
+            HomeSrv.updateMarker($scope.marker).then(function(updated) {
+                $scope.marker = updated;
+            }, function error() { })
         }
 
         $scope.dividerFunction = function(key) {

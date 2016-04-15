@@ -52,6 +52,8 @@ angular.module('streetcleaning.services.store', [])
 
         storageService.saveSingleMarker = function(marker) {
 
+            var deferred = $q.defer();
+
             var key = null;
             var index = -1;
             var markersList = null;
@@ -60,7 +62,7 @@ angular.module('streetcleaning.services.store', [])
                 var obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
 
                 for (var j = 0; j < obj.length; j++) {
-                    if (obj[j].id === favorite) {
+                    if (obj[j].polyline = marker.polyline) {
                         index = j;
                         key = localStorage.key(i);
                         break;
@@ -74,8 +76,11 @@ angular.module('streetcleaning.services.store', [])
 
             markersList[index] = marker;
 
-            localStorage[key] = markersList;
+            localStorage[key] = JSON.stringify(markersList);
 
+            deferred.resolve(marker);
+
+            return deferred.promise;
 
         }
 

@@ -19,13 +19,13 @@ angular.module('streetcleaning.services.home', [])
                         deferred.resolve(saved);
                     }, function(unsaved) {
                         deferred.resolve(null);
-                        }
+                    }
                     )
                 }, function(error) {
                     deferred.resolve(null);
-                    });
+                });
             }
-                
+
             return deferred.promise;
         }
 
@@ -118,7 +118,19 @@ angular.module('streetcleaning.services.home', [])
             return tt;
         }
 
+        homeServices.updateMarker = function(marker) {
+            var deferred = $q.defer();
 
+            StorageSrv.saveSingleMarker(marker).then(function(savedMarker) {
+                deferred.resolve(savedMarker);
+            }, function(error) {
+                deferred.resolve(null);
+
+            })
+
+            return deferred.promise;
+
+        }
 
 
         return homeServices;
