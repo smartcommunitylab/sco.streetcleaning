@@ -1,8 +1,13 @@
 angular.module('streetcleaning.controllers.preference', [])
     .controller('PreferenceCtrl', function($scope, $state, $ionicPopup, $timeout, $filter, HomeSrv) {
 
-        var successMarkers = function(favoriteMarkers) {
-            $scope.markers = favoriteMarkers;
+        var successMarkers = function(response) {
+            if (response) {
+                favoriteMarkers = response.data;
+                $scope.markers = favoriteMarkers;
+            } else {
+                $scope.markers = [];
+            }
         }
 
         var failureMarkers = function(error) {

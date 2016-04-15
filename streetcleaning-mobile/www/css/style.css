@@ -49,6 +49,10 @@
     font-size: 30px;
 }
 
+.popup-head {
+    padding: inherit;
+}
+
 .popup-title {
     font-size: 16px;
     font-weight: bold;

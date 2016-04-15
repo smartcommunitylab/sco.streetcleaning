@@ -1,42 +1,48 @@
 angular.module('streetcleaning.services.home', [])
 
-    .factory('HomeSrv', function($q, $http, $window, $filter, $rootScope, $ionicLoading) {
+    .factory('HomeSrv', function($q, $http, $window, $filter, $rootScope, $ionicLoading, StorageSrv) {
 
         var homeServices = {};
-
-        var markers = {};
 
         homeServices.getMarkers = function(date) {
             var deferred = $q.defer();
             var formattedDate = homeServices.formatDate(date);
-            if (markers[formattedDate]) {
-                deferred.resolve(markers[formattedDate]);
 
-            } else {
-                $http.get('data/' + formattedDate + '.json').success(function(response) {
-                    markers[formattedDate] = response;
-                    deferred.resolve(markers[formattedDate]);
+            var existingMarkers = StorageSrv.getMarkers(formattedDate);
+
+            if (existingMarkers) {
+                deferred.resolve(existingMarkers);
+            }
+            else {
+                $http.get('data/' + formattedDate + '.json').then(function(response) {
+                    StorageSrv.saveMarkers(response.data, formattedDate).then(function(saved) {
+                        deferred.resolve(saved);
+                    }, function(unsaved) {
+                        deferred.resolve(null);
+                        }
+                    )
                 }, function(error) {
                     deferred.resolve(null);
-                });
+                    });
             }
+                
             return deferred.promise;
         }
 
         homeServices.getFavoriteMarkers = function() {
             var deferred = $q.defer();
 
-            $http.get('data/12-04-2016.json').success(function(response) {
+            $http.get('data/12-04-2016.json').then(function(response) {
                 deferred.resolve(response);
             }, function(error) {
                 deferred.resolve(null);
-                });
+            });
 
             return deferred.promise;
-            
+
         }
 
-        
+
 
         homeServices.formatDate = function(today) {
             var dd = today.getDate();

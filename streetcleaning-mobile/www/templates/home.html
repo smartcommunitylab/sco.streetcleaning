@@ -9,31 +9,35 @@
             </div>
         </div>
         <div id="modal-map-container" data-tap-disabled="true" ng-show="mapView">
-            <leaflet bounds="bounds" center="center" paths="pathLine" markers="markers" id="scMap" style="width: 100%; height: 900px;" ng-init="initMap()"></leaflet>
+            <!--style="width: 100%; height: 790px;" {{style()}}-->
+            <leaflet bounds="bounds" center="center" paths="pathLine" markers="markers" id="scMap" ng-style="mapStyle"
+            ng-init="initMap()"></leaflet>
         </div>
-        <div ng-show="listView">
+        <div ng-show="!mapView">
             <ion-list>
-            <ion-item ng-repeat="marker in markers" class="marker-item">
-                <div class="col" ng-click="showMarkerDetails(marker, runningDate)"><h2>{{ marker.streetName }}</h2>
-                <br>
-                <img ng-src="img/sign.png"> <!--style="width: 30px;height: 30px;"-->
-                <h3>{{ marker.streetSchedule }}</h3>
-                </div>
-                <div class="col" ng-if="marker.favorite" ng-click="markFavorite(marker)">
-                    <span>&bigstar;</span>
-                </div>
-                <div class="col" ng-if="!marker.favorite" ng-click="markFavorite(marker)">
-                    <span>&star;</span>
-                </div>
-            </ion-item>
-        </ion-list>
+                <ion-item ng-repeat="marker in markers" class="marker-item">
+                    <div class="col" ng-click="showMarkerDetails(marker, runningDate)">
+                        <h2>{{ marker.streetName }}</h2>
+                        <br>
+                        <img ng-src="img/sign.png">
+                        <!--style="width: 30px;height: 30px;"-->
+                        <h3>{{ marker.streetSchedule }}</h3>
+                    </div>
+                    <div class="col" ng-if="marker.favorite" ng-click="markFavorite(marker)">
+                        <span>&bigstar;</span>
+                    </div>
+                    <div class="col" ng-if="!marker.favorite" ng-click="markFavorite(marker)">
+                        <span>&star;</span>
+                    </div>
+                </ion-item>
+            </ion-list>
         </div>
     </ion-content>
 
     <div class="bar bar-footer">
         <div class="button-bar">
-            <button class="button button-icon ion-map" ng-click="mapViewShow()"></button>
-            <button class="button button-icon ion-ios-list-outline" ng-click="listViewShow()" </button>
+            <button class="button button-icon ion-map" ng-class="{'active': !mapView}" ng-click="mapViewShow()"></button>
+            <button class="button button-icon ion-ios-list-outline" ng-class="{'active': mapView}" ng-click="listViewShow()" </button>
         </div>
     </div>
 

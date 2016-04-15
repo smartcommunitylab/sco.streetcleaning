@@ -6,7 +6,7 @@ angular.module('streetcleaning.services.search', [])
 
         searchServices.searchStreet = function(searchText) {
             var deferred = $q.defer();
-            $http.get('data/12-04-2016.json').success(function(response) {
+            $http.get('data/12-04-2016.json').then(function(response) {
                 deferred.resolve(response);
             }, function(error) {
                 deferred.resolve(null);

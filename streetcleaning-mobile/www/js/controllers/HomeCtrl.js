@@ -5,39 +5,60 @@ angular.module('streetcleaning.controllers.home', [])
         $scope.listView = false;
         $scope.runningDate = new Date();
         var mapDefaults = new Object();
-        var markers = [];
+        var headerHeight = 43;
+        var footerHeight = 44;
+        var divHeight = 50;
         var bounds = null;
-        var map = null;
 
-        var successMarkers = function(dateMarkers) {
-            var boundArray = [];
-            for (var i = 0; i < dateMarkers.length; i++) {
-                markers.push({
-                    lat: dateMarkers[i].coordinates[0],
-                    lng: dateMarkers[i].coordinates[1],
-                    streetName: dateMarkers[i].streetName,
-                    startingTime: dateMarkers[i].startingTime,
-                    endingTime: dateMarkers[i].endingTime,
-                    cleaningDay: dateMarkers[i].cleaningDay,
-                    streetSchedule: $filter('translate')('lbl_start') + ' ' + HomeSrv.formatTimeHHMM(dateMarkers[i].startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + HomeSrv.formatTimeHHMM(dateMarkers[i].endingTime),
-                    polyline: mapService.formatPolyLine(dateMarkers[i].polyline),
-                    favorite: false
-                });
-                var coord = [];
-                coord.push(dateMarkers[i].coordinates[0]);
-                coord.push(dateMarkers[i].coordinates[1]);
-                boundArray.push(coord);
+
+        if (ionic.Platform.isIOS() && !ionic.Platform.isFullScreen) {
+            headerHeight += 20;
+        }
+
+        $scope.mapWinSize = window.innerHeight - headerHeight - footerHeight - divHeight;
+
+        // custom style.
+        $scope.mapStyle = {
+            "width": "100%",
+            "height":  $scope.mapWinSize + "px",
+        }
+
+        window.onresize = function(event) {
+            $scope.mapWinSize = window.innerHeight - 44 - 50 - 44;
+        }
+
+        var successMarkers = function(response) {
+            if (response) {
+                var dateMarkers = response;
+                $scope.markers = [];
+                var boundArray = [];
+                for (var i = 0; i < dateMarkers.length; i++) {
+                    markers.push({
+                        lat: dateMarkers[i].coordinates[0],
+                        lng: dateMarkers[i].coordinates[1],
+                        streetName: dateMarkers[i].streetName,
+                        startingTime: dateMarkers[i].startingTime,
+                        endingTime: dateMarkers[i].endingTime,
+                        cleaningDay: dateMarkers[i].cleaningDay,
+                        streetSchedule: $filter('translate')('lbl_start') + ' ' + HomeSrv.formatTimeHHMM(dateMarkers[i].startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + HomeSrv.formatTimeHHMM(dateMarkers[i].endingTime),
+                        polyline: mapService.formatPolyLine(dateMarkers[i].polyline),
+                        favorite: false
+                    });
+                    var coord = [];
+                    coord.push(dateMarkers[i].coordinates[0]);
+                    coord.push(dateMarkers[i].coordinates[1]);
+                    boundArray.push(coord);
+                }
+                // bounds = leafletBoundsHelpers.createBoundsFromArray([[51.508742458803326, -0.087890625], [51.508742458803326, -0.087890625]]);
+                $scope.bounds = leafletBoundsHelpers.createBoundsFromArray(boundArray);
+                $scope.markers = markers;
+            } else {
+                $scope.markers = [];
             }
-            // bounds = leafletBoundsHelpers.createBoundsFromArray([[51.508742458803326, -0.087890625], [51.508742458803326, -0.087890625]]);
-            bounds = leafletBoundsHelpers.createBoundsFromArray(boundArray);
-            mapService.getMap('scMap').then(function(map) {
-                map.fitBounds = bounds;
-            });
-        
         }
 
         var failureMarkers = function(error) {
-
+            $scope.markers = [];
         }
 
         HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
@@ -61,7 +82,7 @@ angular.module('streetcleaning.controllers.home', [])
 
         $scope.initMap = function() {
             mapService.initMap('scMap').then(function(mapObj) {
-                map = mapObj;
+                // map = mapObj;
                 $scope.center = {
                     lat: Config.getMapPosition().lat,//46.074779,
                     lng: Config.getMapPosition().lon,//11.121749,
@@ -76,16 +97,12 @@ angular.module('streetcleaning.controllers.home', [])
             mapService.refresh('scMap');
         });
 
-        $scope.showDetails = function(e, args) {
-            alert(args.model.lat);
-        }
-
 
         $scope.$on('leafletDirectiveMarker.scMap.click', function(e, args) {
             $scope.streetName = args.model.streetName;
             $scope.streetSchedule = args.model.streetSchedule;
             $scope.pathLine = args.model.polyline;
-            
+
             var myPopup = $ionicPopup.show({
                 templateUrl: "templates/streetPopup.html",
                 title: $filter('translate')('lbl_info'),
@@ -113,7 +130,8 @@ angular.module('streetcleaning.controllers.home', [])
                     $scope.showMarkerDetails(marker, $scope.runningDate);
                 }
             })
-        });
+        }
+        );
 
 
         angular.extend($scope, Config, {
@@ -124,7 +142,7 @@ angular.module('streetcleaning.controllers.home', [])
                 lng: Config.getMapPosition().lon, //11.121749,
                 zoom: Config.getMapPosition().zoom //18
             },
-            markers: markers,
+            markers: $scope.markers,
             defaults: {
                 scrollWheelZoom: false
             },
@@ -137,17 +155,16 @@ angular.module('streetcleaning.controllers.home', [])
         });
 
         $scope.mapViewShow = function() {
-            if ($scope.listView) {
-                $scope.listView = false;
-            }
+            // mapService.getMap('scMap').then(function(map) {
+            //     map.invalidateSize();
+            //     map.bounds = $scope.bounds;             
+            // }, function(error) {
+            //     });
             $scope.mapView = true;
         }
 
         $scope.listViewShow = function() {
-            if ($scope.mapView) {
-                $scope.mapView = false;
-            }
-            $scope.listView = true;
+             $scope.mapView = false;
         }
 
         $scope.showMarkerDetails = function(arg1, arg2) {
@@ -163,6 +180,8 @@ angular.module('streetcleaning.controllers.home', [])
             } else {
                 arg1.favorite = true;
             }
+            mapService.refresh('scMap');
+
         }
 
 

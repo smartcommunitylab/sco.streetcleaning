@@ -20,7 +20,9 @@ angular.module('streetcleaning', [
     'streetcleaning.services.map',
     'streetcleaning.services.geo',
     'streetcleaning.services.home',
-    'streetcleaning.services.search'
+    'streetcleaning.services.search',
+    'streetcleaning.services.store'
+
 ])
 
     .run(function($ionicPlatform, $state, $rootScope, $translate, GeoLocate, Config) {
