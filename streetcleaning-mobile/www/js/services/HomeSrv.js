@@ -32,7 +32,7 @@ angular.module('streetcleaning.services.home', [])
         homeServices.getFavoriteMarkers = function() {
             var deferred = $q.defer();
 
-            $http.get('data/12-04-2016.json').then(function(response) {
+            StorageSrv.getFavoriteMarkers().then(function(response) {
                 deferred.resolve(response);
             }, function(error) {
                 deferred.resolve(null);

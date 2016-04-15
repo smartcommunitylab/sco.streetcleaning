@@ -14,6 +14,8 @@ angular.module('streetcleaning.services.store', [])
 
         storageService.getFavoriteMarkers = function() {
 
+            var deferred = $q.defer();
+
             var favoriteList = [];
 
             for (var i = 0; i < localStorage.length; i++) {
@@ -26,7 +28,9 @@ angular.module('streetcleaning.services.store', [])
                 }
             }
 
-            return favoriteList;
+            deferred.resolve(favoriteList);
+
+            return deferred.promise;
 
         }
 

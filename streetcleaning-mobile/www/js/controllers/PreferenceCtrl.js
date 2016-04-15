@@ -3,7 +3,7 @@ angular.module('streetcleaning.controllers.preference', [])
 
         var successMarkers = function(response) {
             if (response) {
-                favoriteMarkers = response.data;
+                favoriteMarkers = response;
                 $scope.markers = favoriteMarkers;
             } else {
                 $scope.markers = [];
@@ -24,12 +24,19 @@ angular.module('streetcleaning.controllers.preference', [])
         }
 
         $scope.removeFavorite = function(marker) {
+
             if (marker.favorite) {
                 marker.favorite = false;
             } else {
                 marker.favorite = true;
-            } 
-        }
+            }
 
+            HomeSrv.updateMarker(marker).then(function(updated) {
+                marker = updated;
+                HomeSrv.getFavoriteMarkers().then(successMarkers, failureMarkers);
+            }, function error() {
+
+            })
+        }
 
     })
