@@ -108,11 +108,21 @@
     padding-right: 10px;
 }
 
+.marker-detail-tt {
+    padding: 0px;
+}
 .marker-detail-tt div {
     text-align:center;
-     background-color:#e12d20;
-     font-size:18px;
-     color:#ffffff
+    background-color:#e12d20;
+    font-size:18px;
+    color:#ffffff;
+    padding: 5px;
+ }
+ 
+ .marker-detail-tt h2 {
+    font-size:16px;
+    padding: 5px;
+     
  }
  
  .popup img {

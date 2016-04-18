@@ -100,6 +100,7 @@ public class RepositoryManager {
 		List<CleaningCal> tmpCleaningStreet = mongoTemplate.find(query, CleaningCal.class);
 		for(CleaningCal cc:tmpCleaningStreet){
 			CalendarDataBean cdb = new CalendarDataBean();
+			cdb.setId(cc.getId());
 			cdb.setStreetName(cc.getStreetName());
 			cdb.setStreetCode(cc.getStreetCode());
 			cdb.setCleaningDay(cc.getCleaningDay());

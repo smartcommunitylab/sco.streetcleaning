@@ -1,14 +1,22 @@
 angular.module('streetcleaning.services.config', [])
 
-    .factory('Config', function($q, $http, $window, $filter, $rootScope, $ionicLoading) {
+    .factory('Config', function($q, $http, $window, $filter, $translate, $rootScope, $ionicLoading) {
 
         var HTTP_CONFIG = {
             timeout: 5000
         };
 
+        var lang = $translate.use();
+
         var mapJsonConfig = { 'lat': 46.074779, 'lon': 11.126543, 'zoom': 14 };
         var ttJsonConfig = null;
 
+        var monthNameMap = {
+            "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+            "it": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        }
+
+        var STREETCLEANING_WEB_SERVER = "https://dev.smartcommunitylab.it/streetcleaning.web";
 
         return {
             init: function() {
@@ -22,6 +30,13 @@ angular.module('streetcleaning.services.config', [])
                     deferred.resolve(true);
                 });
                 return deferred.promise;
+            },
+            getMonthName: function(monthNumber) {
+                if (monthNameMap[lang]) {
+                    var monthNames = monthNameMap[lang];
+                    return monthNames[monthNumber];
+                }
+                return null;
             },
             getMapPosition: function() {
                 return {
@@ -55,6 +70,9 @@ angular.module('streetcleaning.services.config', [])
                     }
                 );
 
+            },
+            getSCWebURL: function() {
+                return STREETCLEANING_WEB_SERVER;
             },
             loading: function() {
                 $ionicLoading.show();

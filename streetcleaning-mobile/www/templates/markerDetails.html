@@ -5,13 +5,12 @@
         <a href="#" class="button button-icon" ng-if="!marker.favorite" ng-click="markFavorite()"><span style="font-size: 200%;" >&bigstar;</span></a>
     </ion-nav-buttons>
     <ion-content>
-        <h3 style="font-size: 16px;text-align: center;">{{ 'lbl_calendar_title' | translate }}</h3>
+        <h3 style="font-size: 20px;text-align: center;padding: 7px;">{{ 'lbl_calendar_title' | translate }}</h3>
         <ion-list>
             <ion-item auto-divider auto-divider-value="{{item.order}}" auto-divider-function="dividerFunction({{item.order}})" ng-repeat="item in items"
             class="marker-detail-tt">
              <div>{{item.month}}</div>
-             <h2>{{ item.startTime }}</h2>
-             <h2>{{ item.endTime }}</h2>
+             <h2>{{ item.formattedDate }}</h2>
             </ion-item>
         </ion-list>
     </ion-content>

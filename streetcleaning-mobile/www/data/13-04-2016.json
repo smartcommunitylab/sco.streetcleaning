@@ -1,22 +1,171 @@
 [
-	{
-        "streetName": "VIA ALFIERI",
-        "streetCode": "90",
-        "cleaningDay": 1458860400000,
-        "startingTime": 1458932400000,
-        "endingTime": 1458941400000,
-        "notes": "solo Centro Storico",
-        "coordinates": [46.070613, 11.121421],
-        "polyline": "}~dxGse{bAmB^"
+    {
+        "id": "5714dee0aeeae564b268ed3e",
+        "streetName": "CORSO 3 NOVEMBRE",
+        "streetCode": "3350",
+        "cleaningDay": 1480806000000,
+        "startingTime": 0,
+        "endingTime": 0,
+        "notes": "compresi vialetti interni",
+        "centralCoords": [
+            {
+                "lat": 46.060151632110156,
+                "lng": 11.12497997094587
+            },
+            {
+                "lat": 46.06046855250041,
+                "lng": 11.124606594114205
+            },
+            {
+                "lat": 46.06027627087717,
+                "lng": 11.125537334419493
+            },
+            {
+                "lat": 46.061748714074184,
+                "lng": 11.124034083229787
+            },
+            {
+                "lat": 46.060088195904555,
+                "lng": 11.125728959618579
+            },
+            {
+                "lat": 46.059276188428846,
+                "lng": 11.126559995551293
+            },
+            {
+                "lat": 46.059156832157214,
+                "lng": 11.12668624896277
+            },
+            {
+                "lat": 46.06103827060089,
+                "lng": 11.125071793430312
+            },
+            {
+                "lat": 46.06038636269918,
+                "lng": 11.125425200785974
+            },
+            {
+                "lat": 46.059041739993326,
+                "lng": 11.12711041085404
+            },
+            {
+                "lat": 46.06079010631673,
+                "lng": 11.125010035219555
+            },
+            {
+                "lat": 46.06038420156172,
+                "lng": 11.125749374499282
+            },
+            {
+                "lat": 46.06193069314521,
+                "lng": 11.123932976252751
+            },
+            {
+                "lat": 46.05999480443999,
+                "lng": 11.126152800290898
+            },
+            {
+                "lat": 46.05868836985726,
+                "lng": 11.127212545754217
+            },
+            {
+                "lat": 46.059390704062444,
+                "lng": 11.126780819579517
+            }
+        ],
+        "polylines": [
+            "kdcxG{|{bAd@pAFFHFJG",
+            "mfcxGyz{bATf@L\\DLFLVIJHDP",
+            "kdcxG{|{bATU",
+            "omcxGws{bAFC@ABC@ABA@CBABCtCyC",
+            "uccxGq}{bAd@e@f@i@",
+            "gacxGa`|bA@CvBwBNQ",
+            "}|bxGod|bAFGl@s@",
+            "ymcxGau{bAjDsD",
+            "mfcxGyz{bA`AaA",
+            "e~bxGke|bAdAaA",
+            "{gcxGiy{bA\\_@NO",
+            "mhcxGuz{bA`CeC",
+            "wtcxGar{bANA~Dk@B?@AB?BADABA",
+            "kdcxG{~{bAlAqA",
+            "g{bxGkf|bAn@u@",
+            "}acxGma|bAvB}B"
+        ]
     },
     {
-        "streetName": "VIA ALFIERI",
-        "streetCode": "90",
-        "cleaningDay": 1478214000000,
-        "startingTime": 1458932400000,
-        "endingTime": 1458941400000,
-        "notes": "da via Torre Verde fino a via Gazzoletti",
-        "coordinates": [46.072175, 11.1248],
-        "polyline": "}~dxGse{bAmB^"
+        "id": "5714dee0aeeae564b268ed9c",
+        "streetName": "VIA BRONZETTI",
+        "streetCode": "460",
+        "cleaningDay": 1480806000000,
+        "startingTime": 0,
+        "endingTime": 0,
+        "notes": "",
+        "centralCoords": [
+            {
+                "lat": 46.058396591428526,
+                "lng": 11.120341253047958
+            },
+            {
+                "lat": 46.05898939022894,
+                "lng": 11.120907082789053
+            },
+            {
+                "lat": 46.05889393034965,
+                "lng": 11.121220304897774
+            },
+            {
+                "lat": 46.058223000175595,
+                "lng": 11.12148393937673
+            },
+            {
+                "lat": 46.05868153376967,
+                "lng": 11.121025609853046
+            },
+            {
+                "lat": 46.05948777951391,
+                "lng": 11.120987714090177
+            },
+            {
+                "lat": 46.05838670780214,
+                "lng": 11.121150064769624
+            },
+            {
+                "lat": 46.05842483560032,
+                "lng": 11.12083193445197
+            }
+        ],
+        "polylines": [
+            "oybxGo|zbAp@S",
+            "wybxGka{bA{@V",
+            "g}bxGwa{bAdA[^K",
+            "azbxG_c{bAdBg@",
+            "azbxG_c{bAHr@",
+            "ybcxGq_{bA`Cq@n@S",
+            "wybxGka{bAz@Y",
+            "wzbxGc_{bArAa@"
+        ]
+    },
+    {
+        "id": "5714dee0aeeae564b268eda6",
+        "streetName": "VIA CHIESA",
+        "streetCode": "8322",
+        "cleaningDay": 1480806000000,
+        "startingTime": 0,
+        "endingTime": 0,
+        "notes": "",
+        "centralCoords": [
+            {
+                "lat": 46.07872569175219,
+                "lng": 11.04499330432779
+            },
+            {
+                "lat": 46.07810262843488,
+                "lng": 11.045609685867415
+            }
+        ],
+        "polylines": [
+            "mwfxG_flbAFADC\\i@Tc@",
+            "kufxGshlbAFMJGXGXMDCLIt@a@"
+        ]
     }
 ]

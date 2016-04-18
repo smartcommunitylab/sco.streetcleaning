@@ -1,6 +1,6 @@
 angular.module('streetcleaning.services.home', [])
 
-    .factory('HomeSrv', function($q, $http, $window, $filter, $rootScope, $ionicLoading, StorageSrv) {
+    .factory('HomeSrv', function($q, $http, $window, $filter, $rootScope, $translate, $ionicLoading, MapSrv, StorageSrv, Config) {
 
         var homeServices = {};
 
@@ -14,8 +14,34 @@ angular.module('streetcleaning.services.home', [])
                 deferred.resolve(existingMarkers);
             }
             else {
-                $http.get('data/' + formattedDate + '.json').then(function(response) {
-                    StorageSrv.saveMarkers(response.data, formattedDate).then(function(saved) {
+                var url = ConfigSrv.getSCWebURL() + '/rest/day?daymillis=' + date;
+
+                $http.get(url, {
+                    headers: {
+                        "Accept": "application/json"
+                    }
+                }).then(function(response) {
+                    var dateMarkers = response.data;
+                    var markers = [];
+                    for (var i = 0; i < dateMarkers.length; i++) {
+                        markers.push({
+                            id: dateMarkers[i].id,
+                            streetName: dateMarkers[i].streetName,
+                            streetCode: dateMarkers[i].streetCode,
+                            cleaningDay: dateMarkers[i].cleaningDay,
+                            startingTime: dateMarkers[i].startingTime,
+                            endingTime: dateMarkers[i].endingTime,
+                            notes: dateMarkers[i].notes,
+                            lat: dateMarkers[i].centralCoords[0].lat,
+                            lng: dateMarkers[i].centralCoords[0].lng,
+                            centralCoords: dateMarkers[i].centralCoords[0],
+                            streetSchedule: $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].endingTime),
+                            polyline: MapSrv.formatPolyLine(dateMarkers[i].polylines),
+                            favorite: ((dateMarkers[i].favorite) ? (dateMarkers[i].favorite) : false)
+                        });
+
+                    }
+                    StorageSrv.saveMarkers(markers, formattedDate).then(function(saved) {
                         deferred.resolve(saved);
                     }, function(unsaved) {
                         deferred.resolve(null);
@@ -80,16 +106,36 @@ angular.module('streetcleaning.services.home', [])
             return formatted;
         }
 
+        homeServices.getMonth = function(time) {
+            var date = new Date(time);
+            var month = Config.getMonthName(date.getMonth());
+
+            return month;
+        }
+
 
         homeServices.getTimeTable = function(marker) {
 
             var items = [];
             var deferred = $q.defer();
 
-            $http.get('data/tt.json').success(function(response) {
+            // $http.get('data/tt.json')
+            var url = ConfigSrv.getSCWebURL() + '/rest/street?streetName=' + marker.streetName;
 
-                // order items by month.
-                items = homeServices.orderByStartTime("Time", response)
+            $http.get(url, {
+                headers: {
+                    "Accept": "application/json"
+                }
+            }).then(function(response) {
+                // order items by month and format it.
+                var items = [];
+                homeServices.orderByStartTime("Time", response).forEach(function(item) {
+                    var month = homeServices.getMonth(item.cleaningDay);
+                    item.month = month;
+                    var formattedDate = homeServices.formatDate(new Date(item.cleaningDay));
+                    item.formattedDate = formattedDate;
+                    items.push(item);
+                })
 
                 deferred.resolve(items);
             }, function(error) {
@@ -102,7 +148,7 @@ angular.module('streetcleaning.services.home', [])
 
         var sorters = {
             byTime: function(a, b) {
-                return ((a.order < b.order) ? -1 : ((a.order > b.order) ? 1 : 0));
+                return ((a.startingTime < b.startingTime) ? 1 : ((a.startingTime > b.startingTime) ? -1 : 0));
             }
         }
 

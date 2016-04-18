@@ -66,7 +66,7 @@ angular.module('streetcleaning.services.store', [])
                 var obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
 
                 for (var j = 0; j < obj.length; j++) {
-                    if (obj[j].polyline = marker.polyline) {
+                    if (obj[j].id == marker.id) {
                         index = j;
                         key = localStorage.key(i);
                         break;

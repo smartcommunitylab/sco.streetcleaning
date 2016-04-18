@@ -1,6 +1,6 @@
 angular.module('streetcleaning.services.map', [])
 
-.factory('mapService', function ($q, $http, $ionicPlatform, $filter, $timeout, leafletData, GeoLocate) {
+.factory('MapSrv', function ($q, $http, $ionicPlatform, $filter, $timeout, leafletData, GeoLocate) {
     var cachedMap = {};
 
     var mapService = {};
@@ -103,15 +103,21 @@ angular.module('streetcleaning.services.map', [])
         })
     }
 
-    mapService.formatPolyLine = function(encodedPL) {
+    mapService.formatPolyLine = function(polylines) {
 
         var listOfPoints = {};
-        listOfPoints["p1"] = {
-            color: '#008000',
-            weight: 5,
-            latlngs: mapService.decodePolyline(encodedPL)
-        }
+        var i = 1;
+        polylines.forEach(function(encodedPL) {
 
+            listOfPoints["p" + i] = {
+                color: '#008000',
+                weight: 5,
+                latlngs: mapService.decodePolyline(encodedPL)
+            }
+            i++;
+        })
+
+        
         return listOfPoints;
 
     }
