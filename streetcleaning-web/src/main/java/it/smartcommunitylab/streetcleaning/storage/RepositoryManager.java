@@ -116,7 +116,7 @@ public class RepositoryManager {
 			cdb.setPolylines(cc.getPolylines());
 			calendarStreetList.add(cdb);
 		}
-		return mongoTemplate.find(query, CalendarDataBean.class);
+		return calendarStreetList;
 	}
 	
 	// Second method: used to retrieve the cleaning period data from the street name
@@ -129,6 +129,7 @@ public class RepositoryManager {
 		List<CleaningCal> tmpCleaningCal = mongoTemplate.find(query, CleaningCal.class);
 		for(CleaningCal cc:tmpCleaningCal){
 			CalendarDataBean cdb = new CalendarDataBean();
+			cdb.setId(cc.getId());
 			cdb.setStreetName(cc.getStreetName());
 			cdb.setStreetCode(cc.getStreetCode());
 			cdb.setCleaningDay(cc.getCleaningDay());
@@ -137,9 +138,11 @@ public class RepositoryManager {
 			cdb.setNotes(cc.getNotes());
 			List<Point> allCoords = cc.getCentralCoords();
 			List<PointBean> convertedCoords = new ArrayList<PointBean>();
-			for(Point p:allCoords){
-				PointBean pb = ModelConverter.convert(p, PointBean.class);
-				convertedCoords.add(pb);
+			if (allCoords != null) {
+				for (Point p : allCoords) {
+					PointBean pb = ModelConverter.convert(p, PointBean.class);
+					convertedCoords.add(pb);
+				}
 			}
 			cdb.setCentralCoords(convertedCoords);
 			cdb.setPolylines(cc.getPolylines());

@@ -3,7 +3,8 @@ package it.smartcommunitylab.streetcleaning.bean;
 import java.util.List;
 
 public class CalendarDataBean {
-	
+
+	private String id;
 	private String streetName;
 	private String streetCode;
 	private Long cleaningDay;
@@ -12,7 +13,7 @@ public class CalendarDataBean {
 	private String notes;
 	private List<PointBean> centralCoords;
 	private List<String> polylines;
-	
+
 	public String getStreetName() {
 		return streetName;
 	}
@@ -93,7 +94,7 @@ public class CalendarDataBean {
 		this.centralCoords = centralCoords;
 		this.polylines = polylines;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "CalendarDataBean [streetName=" + streetName + ", streetCode=" + streetCode + ", cleaningDay="
@@ -101,19 +102,12 @@ public class CalendarDataBean {
 				+ ", centralCoords=" + centralCoords + ", polylines=" + polylines + "]";
 	}
 
-	public String toJSON() {
-		String polylinesStrings = "[";
-		String centralCoords = "[";
-		if(polylines != null){
-			for(int i = 0; i < polylines.size(); i++){
-				polylinesStrings += "\"" + polylines.get(i) + "\",";
-			}
-			polylinesStrings = polylinesStrings.substring(0, polylinesStrings.length() - 1);
-		}
-		polylinesStrings += "]";
-		return "{\"streetName\": \"" + streetName + "\", \"streetCode\": \"" + streetCode + "\", \"cleaningDay\": "+ cleaningDay + " ,"
-				+ "\"startingTime\": " + startingTime + ", \"endingTime\": " + endingTime + ", \"notes\": \"" + notes + "\", "
-				+ "\"polylines\": " + polylinesStrings + "}";
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }
