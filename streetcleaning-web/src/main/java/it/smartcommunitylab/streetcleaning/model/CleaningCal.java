@@ -12,6 +12,7 @@ public class CleaningCal implements Serializable {
 	private Long startingTime;
 	private Long endingTime;
 	private String notes;
+	private List<Point> centralCoords;
 	private List<String> polylines;
 	
 	public String getStreetName() {
@@ -34,6 +35,14 @@ public class CleaningCal implements Serializable {
 		return notes;
 	}
 	
+	public List<Point> getCentralCoords() {
+		return centralCoords;
+	}
+
+	public void setCentralCoords(List<Point> centralCoords) {
+		this.centralCoords = centralCoords;
+	}
+
 	public void setStreetName(String streetName) {
 		this.streetName = streetName;
 	}

@@ -4,10 +4,6 @@ import it.smartcommunitylab.streetcleaning.bean.CalendarDataBean;
 import it.smartcommunitylab.streetcleaning.bean.PointBean;
 import it.smartcommunitylab.streetcleaning.bean.StreetBean;
 import it.smartcommunitylab.streetcleaning.model.Version;
-import it.smartcommunitylab.streetcleaning.security.DataSetInfo;
-import it.smartcommunitylab.streetcleaning.security.Token;
-import it.smartcommunitylab.streetcleaning.storage.DataSetSetup;
-import it.smartcommunitylab.streetcleaning.storage.RepositoryManager;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -23,8 +19,6 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.http.HttpServletRequest;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -117,53 +111,6 @@ public class Utils {
 		return result;
 	}
 
-	public static boolean validateAPIRequest(ServletRequest req, DataSetSetup dataSetSetup, 
-			RepositoryManager storage) {
-		boolean result = false;
-		HttpServletRequest request = (HttpServletRequest) req;
-		String uriPath = request.getRequestURI();
-		if (uriPath != null && !uriPath.isEmpty()) {
-			String tokenArrived = request.getHeader("X-ACCESS-TOKEN");
-			if (tokenArrived != null && !tokenArrived.isEmpty()) {
-				Token matchedToken = storage.findTokenByToken(tokenArrived);
-				if (matchedToken != null) {
-					if (matchedToken.getExpiration() > 0) {
-						//token exired
-						if(matchedToken.getExpiration() < System.currentTimeMillis()) {
-							return false;
-						}
-					}
-					String ownerId = matchedToken.getName();
-					DataSetInfo dataSetInfo = dataSetSetup.findDataSetById(ownerId);
-					//dataset config not found
-					if(dataSetInfo == null) {
-						return false;
-					}
-					//wrong API path
-					if(!uriPath.contains(ownerId)) {
-						return false;
-					}
-					// delegate resources to controller via request attribute map.
-					if (matchedToken.getResources() != null	&& !matchedToken.getResources().isEmpty()) {
-						req.setAttribute("resources",	matchedToken.getResources());
-					}
-					// check ( resources *)
-					if (matchedToken.getPaths().contains("*")) {
-						result = true;
-					} else {
-						for(String resourcePath : matchedToken.getPaths()) {
-							if(uriPath.contains(resourcePath)) {
-								result = true;
-								break;
-							}
-						}
-					}
-				}
-			}
-		}
-		return result;
-	}
-
 	public static Map<String,String> handleError(Exception exception) {
 		Map<String,String> errorMap = new HashMap<String,String>();
 		errorMap.put(Const.ERRORTYPE, exception.getClass().toString());
@@ -177,11 +124,8 @@ public class Utils {
 		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 		Document doc = (Document) dBuilder.parse(Thread.currentThread().getContextClassLoader().getResourceAsStream(src));
 		doc.getDocumentElement().normalize();
-		logger.info("Doc content: " + doc.getDocumentElement().getTagName());
-		//NodeList nList = ((Element)((Element)((Element)((Element)((Element)doc.getElementsByTagName("kml").item(0)).getElementsByTagName("Document").item(0)).getElementsByTagName("Folder").item(0)).getElementsByTagName("Placemark").item(0)).getElementsByTagName("LineString").item(0)).getElementsByTagName("coordinates");
+		logger.debug("Doc content: " + doc.getDocumentElement().getTagName());
 		NodeList streetList = ((Element)((Element)((Element)doc.getElementsByTagName("kml").item(0)).getElementsByTagName("Document").item(0)).getElementsByTagName("Folder").item(0)).getElementsByTagName("Placemark");
-		//NodeList nList = ((Element)((Element)doc.getElementsByTagName("trk").item(0)).getElementsByTagName("trkseg").item(0)).getElementsByTagName("trkpt");
-		//	NodeList nList = doc.getElementsByTagName("wpt");
 		
 		for (int temp = 0; temp < streetList.getLength(); temp++) {
 			Element e = ((Element)streetList.item(temp));
@@ -190,6 +134,7 @@ public class Utils {
 			String code = ((Element)((Element)e.getElementsByTagName("ExtendedData").item(0)).getElementsByTagName("SchemaData").item(0)).getElementsByTagName("SimpleData").item(0).getTextContent();
 			String coordinates = ((Element)e.getElementsByTagName("LineString").item(0)).getElementsByTagName("coordinates").item(0).getTextContent();
 			String poly = "";
+			PointBean centralCoords = null;
 			if(coordinates != null && coordinates.length() > 0){
 				List<PointBean> points = new ArrayList<PointBean>();
 				String[] coords = coordinates.split(" ");
@@ -197,6 +142,11 @@ public class Utils {
 					String[] coord = coords[i].split(",");
 					String lat = coord[1];
 					String lng = coord[0];
+					if(i >= coords.length/2 && centralCoords == null){
+						double lat_val = Double.parseDouble(lat);
+						double lng_val = Double.parseDouble(lng);
+						centralCoords = new PointBean(lat_val, lng_val);
+					}
 					PointBean pb = new PointBean();
 					pb.setLat(Double.parseDouble(lat));
 					pb.setLng(Double.parseDouble(lng));
@@ -204,37 +154,17 @@ public class Utils {
 				}
 				poly = PolylineEncoder.encode(points);
 			}
-			logger.info(String.format("Street name %s, description %s, code %s, polyline %s", streetName, streetDesc, code, poly));
+			logger.debug(String.format("Street name %s, description %s, code %s, polyline %s", streetName, streetDesc, code, poly));
 			if(streetName != null && streetName.compareTo("") != 0){
-				StreetBean s = new StreetBean(code, streetName, streetDesc, poly);
+				StreetBean s = new StreetBean(code, streetName, streetDesc, centralCoords, poly);
 				streets.add(s);
 			}
-			
-			
-			/*PointBean pb = new PointBean();
-			pb.setLat(Double.parseDouble(e.getAttribute("lat")));
-			pb.setLng(Double.parseDouble(e.getAttribute("lon")));
-			points.add(pb);*/
 		}
-		
-		//TreeMap<Integer,PointBean> map = new TreeMap<Integer, PointBean>();
-/*		for (int temp = 0; temp < nList.getLength(); temp++) {
-			Element e = ((Element)nList.item(temp));
-			PointBean pb = new PointBean();
-			pb.setLat(Double.parseDouble(e.getAttribute("lat")));
-			pb.setLng(Double.parseDouble(e.getAttribute("lon")));
-			points.add(pb);
-	//		String s = e.getElementsByTagName("name").item(0).getTextContent().trim();
-	//		System.err.println(s); 
-	//		if (s.startsWith("0")) points.add(pb);
-	//		if (s.indexOf(' ') > 0) s = s.substring(0, s.indexOf(' ')).trim();
-	//		int v = Integer.parseInt(s);
-	//		map.put(v, pb);
-		}*/
 		
 		return streets;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static List<CalendarDataBean> readCalendarFile(String src, Version dataVersion, List<StreetBean> streets) {
 		List<CalendarDataBean> cal_days = new ArrayList<CalendarDataBean>();
 		BufferedReader br = null;
@@ -243,8 +173,6 @@ public class Utils {
 		
 		try {
 			br = new BufferedReader(new FileReader(src));
-			//InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(src);
-			//br = new BufferedReader(is);
 			line = br.readLine();	// here I read the first line that contains information of version
 			String[] versionsData = line.split(cvsSplitBy);
 			String version = versionsData[1];
@@ -283,12 +211,14 @@ public class Utils {
 					// Here I have to find a street and get all polylines;
 					String streetCode = getCodeFromStreetName(street, streets);
 					List<String> polyline = null;
+					List<PointBean> centralCoords = null;
 					if(streetCode.compareTo("") != 0){
-						polyline = getStreetPolylinesFromCode(streetCode, streets);
+						polyline = (List<String>)getStreetPolylinesFromCode(streetCode, streets).get(0);
+						centralCoords = (List<PointBean>)getStreetPolylinesFromCode(streetCode, streets).get(1);
 					}
-					tmp_cal = new CalendarDataBean(street, streetCode, dateVal, startingTimeMillis, endingTimeMillis, note, polyline);
+					tmp_cal = new CalendarDataBean(street, streetCode, dateVal, startingTimeMillis, endingTimeMillis, note, centralCoords, polyline);
 					cal_days.add(tmp_cal);
-					logger.info(String.format("Calendar cleaning value: %s", tmp_cal.toString()));
+					logger.debug(String.format("Calendar cleaning value: %s", tmp_cal.toString()));
 				}
 			}	
 		} catch (FileNotFoundException e) {
@@ -343,14 +273,20 @@ public class Utils {
 		return "";
 	}
 	
-	private static List<String> getStreetPolylinesFromCode(String code, List<StreetBean> streets){
+	@SuppressWarnings("rawtypes")
+	private static List<List> getStreetPolylinesFromCode(String code, List<StreetBean> streets){
 		List<String> polylines = new ArrayList<String>();
+		List<PointBean> centralCoords = new ArrayList<PointBean>();
 		for(StreetBean s:streets){
 			if(s.getCode().compareTo(code.trim()) == 0){
 				polylines.add(s.getPolyline());
+				centralCoords.add(s.getCentralCoords());
 			}
 		}
-		return polylines;
+		List<List> matrixData = new ArrayList<List>();
+		matrixData.add(polylines);
+		matrixData.add(centralCoords);
+		return matrixData;
 	}
 	
 	public static Version readCalendarFileVersion(String src) {

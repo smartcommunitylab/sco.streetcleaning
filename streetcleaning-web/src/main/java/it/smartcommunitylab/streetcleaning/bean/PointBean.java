@@ -19,5 +19,16 @@ public class PointBean {
 	public void setLng(double lng) {
 		this.lng = lng;
 	}
+	
+	public PointBean() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public PointBean(double lat, double lng) {
+		super();
+		this.lat = lat;
+		this.lng = lng;
+	}
 
 }

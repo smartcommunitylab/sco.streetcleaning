@@ -5,11 +5,22 @@ import java.io.Serializable;
 public class Street implements Serializable {
 
 	private static final long serialVersionUID = 3811080805564695001L;
+	
+	private String id;
 	private String code;
 	private String name;
 	private String description;
+	private Point centralCoords;
 	private String polyline;
 	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getCode() {
 		return code;
 	}
@@ -26,6 +37,14 @@ public class Street implements Serializable {
 		return polyline;
 	}
 	
+	public Point getCentralCoords() {
+		return centralCoords;
+	}
+
+	public void setCentralCoords(Point centralCoords) {
+		this.centralCoords = centralCoords;
+	}
+
 	public void setCode(String code) {
 		this.code = code;
 	}

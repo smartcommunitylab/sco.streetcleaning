@@ -1,10 +1,12 @@
 package it.smartcommunitylab.streetcleaning.common;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
+
+import it.smartcommunitylab.streetcleaning.bean.PointBean;
+import it.smartcommunitylab.streetcleaning.bean.StreetBean;
+import it.smartcommunitylab.streetcleaning.model.Point;
+import it.smartcommunitylab.streetcleaning.model.Street;
 
 
 public class ModelConverter {
@@ -22,5 +24,17 @@ public class ModelConverter {
 	public static <T> T convert(Object o, Class<T> javaClass) {
 		return mapper.convertValue(o, javaClass);
 	}
+	
+	public Street convertStreetBeanToStreet(StreetBean street){
+		Street s = new Street();
+		s.setCode(street.getCode());
+		s.setName(street.getName());
+		s.setDescription(street.getDescription());
+		Point pb = ModelConverter.convert(s.getCentralCoords(), Point.class);
+		s.setCentralCoords(pb);
+		s.setPolyline(street.getPolyline());
+		return s;
+	}
+	
 
 }

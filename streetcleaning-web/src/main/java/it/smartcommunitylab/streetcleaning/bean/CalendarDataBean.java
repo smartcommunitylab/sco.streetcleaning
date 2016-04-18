@@ -10,6 +10,7 @@ public class CalendarDataBean {
 	private Long startingTime;
 	private Long endingTime;
 	private String notes;
+	private List<PointBean> centralCoords;
 	private List<String> polylines;
 	
 	public String getStreetName() {
@@ -68,12 +69,20 @@ public class CalendarDataBean {
 		this.polylines = polylines;
 	}
 
+	public List<PointBean> getCentralCoords() {
+		return centralCoords;
+	}
+
+	public void setCentralCoords(List<PointBean> centralCoords) {
+		this.centralCoords = centralCoords;
+	}
+
 	public CalendarDataBean() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public CalendarDataBean(String streetName, String streetCode, Long cleaningDay, Long startingTime, Long endingTime,
-			String notes, List<String> polylines) {
+			String notes, List<PointBean> centralCoords, List<String> polylines) {
 		super();
 		this.streetName = streetName;
 		this.streetCode = streetCode;
@@ -81,18 +90,20 @@ public class CalendarDataBean {
 		this.startingTime = startingTime;
 		this.endingTime = endingTime;
 		this.notes = notes;
+		this.centralCoords = centralCoords;
 		this.polylines = polylines;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "CalendarDataBean [streetName=" + streetName + ", streetCode=" + streetCode + ", cleaningDay="
 				+ cleaningDay + ", startingTime=" + startingTime + ", endingTime=" + endingTime + ", notes=" + notes
-				+ ", polylines=" + polylines + "]";
+				+ ", centralCoords=" + centralCoords + ", polylines=" + polylines + "]";
 	}
-	
+
 	public String toJSON() {
 		String polylinesStrings = "[";
+		String centralCoords = "[";
 		if(polylines != null){
 			for(int i = 0; i < polylines.size(); i++){
 				polylinesStrings += "\"" + polylines.get(i) + "\",";

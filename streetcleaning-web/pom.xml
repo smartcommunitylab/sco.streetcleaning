@@ -243,7 +243,7 @@
 			</plugin>
 
 		</plugins>
-		<finalName>streetcleaning.web</finalName>
+		<finalName>streetcleaning-web</finalName>
 	</build>
 
 </project>
