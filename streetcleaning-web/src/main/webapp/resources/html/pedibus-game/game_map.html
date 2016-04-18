@@ -1,0 +1,141 @@
+<div class="row" ng-controller="ViewCtrlGmap" ng-init="initWs()">
+				<div class="col-md-9">
+					<map id="viewMap" class="angular-google-map-container" center="{{ mapOption.center }}" zoom="{{ mapOption.zoom }}" styles="{{ mapOption.styles }}" disable-default-u-i="true" >
+						<marker ng-repeat="glm in mapGameLegMarkers" id="{{ glm.id }}" visible="{{ glm.options.visible }}" position="{{ glm.position }}" icon="{{ glm.icon }}" on-click="showInfoWindow(event, 'glm')" ><!-- icon="{{ pm.icon }}" -->
+							<info-window id="glm" visible-on-marker="{{ glm.id }}">
+						        <div ng-non-bindable="">
+						          	<div id="siteNotice"></div>
+						          	<h4 id="firstHeading" class="firstHeading" ng-if="glm.data">
+						          		<span ng-if="!glm.isActualMarker">{{ 'label_leg_iw' | i18n }} {{ glm.data.position }}</span>
+						          		<span ng-if="glm.isActualMarker">{{ 'label_actual_state_iw' | i18n }}</span>
+						          	</h4>
+						          	<h4 id="firstHeading" class="firstHeading" ng-if="!glm.data">
+						          		<span>{{ 'label_start_point_iw' | i18n }}</span>
+						          	</h4>
+							        <div id="bodyContent" ng-if="glm.data">
+							        	<table>
+							        		<tr ng-if="!glm.isActualMarker">
+							        			<td><strong>{{ 'label_leg_name_iw' | i18n }}:</strong></td>
+							        			<td>&nbsp;{{ glm.data.name }}</td>
+							        		</tr>
+											<tr ng-if="!glm.isActualMarker">
+							        			<td><strong>{{ 'label_leg_description_iw' | i18n }}:</strong></td>
+							        			<td>&nbsp;{{ glm.data.description }}</td>	
+							        		</tr>
+							        		<tr ng-if="!glm.isActualMarker">
+							        			<td><strong>{{ 'label_leg_scores_iw' | i18n }}:</strong></td>
+							        			<td>&nbsp;{{ glm.data.score }}</td>	
+							        		</tr>
+							        		<tr ng-if="glm.isActualMarker">
+							        			<td><strong>{{ 'label_leg_scores_iw' | i18n }}:</strong></td>
+							        			<td align="right">&nbsp;{{ glm.data.scores }}</td>	
+							        		</tr>
+							        		<tr ng-if="glm.isActualMarker && glm.data.scoresToNext">
+							        			<td><strong>{{ 'label_leg_scores_to_next_iw' | i18n }}:</strong></td>
+							        			<td align="right">&nbsp;{{ glm.data.scoresToNext }}</td>	
+							        		</tr>
+							        		<tr ng-if="glm.isActualMarker && glm.data.scoresToEnd > 0">
+							        			<td><strong>{{ 'label_leg_scores_to_end_iw' | i18n }}:</strong></td>
+							        			<td align="right">&nbsp;{{ glm.data.scoresToEnd }}</td>	
+							        		</tr>
+							        		<tr>
+							        			<td><strong>{{ 'label_leg_link_iw' | i18n }}:</strong></td>
+							        			<td>&nbsp;<a href="{{ glm.data.externalUrl }}" target="_blank">{{ glm.data.externalUrl }}</a></td>
+							        		</tr>
+							        	</table>
+							        </div>
+						        </div>
+						    </info-window>
+						</marker>
+						<shape name="polyline" ng-repeat="gp in mapGamePolylines" id="{{ gp.id }}" path="{{ gp.path }}" visible="{{ gp.visible }}"
+         					geodesic="{{ gp.geodesic }}" stroke-color="{{ gp.stroke.color }}" stroke-opacity="1.0" stroke-weight="{{ gp.stroke.weight }}" on-click="showInfoWindow(event, gp.info_windows_cod)">
+     						<info-window id="{{ gp.info_windows_cod }}" data-position="{{ gp.info_windows_pos }}" visible-on-marker="{{ gp.id }}">
+						        <div ng-non-bindable="">
+						          	<div id="siteNotice"></div>
+						          	<h4 id="firstHeading" class="firstHeading"><span>{{ 'label_poly_iw' | i18n }} {{ gp.data.position }}</span></h4>
+							        <div id="bodyContent">
+							        	<table>
+							        		<tr>
+							        			<td><strong>{{ 'label_leg_scores_iw' | i18n }}:</strong></td>
+							        			<td align="right">&nbsp;{{ gp.data.score }}</td>	
+							        		</tr>
+							        		<tr>
+							        			<td><strong>{{ 'poly_length_label' | i18n }}:</strong></td>
+							        			<td align="right">&nbsp;m {{ gp.data.length | doubleToInt }}</td>
+							        		</tr>
+							        	</table>
+							        </div>
+						        </div>
+						    </info-window>
+     					</shape>
+					</map>
+				</div>
+				<div class="col-md-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h5 class="panel-title">{{ 'show_map_objects' | i18n }}</h5>
+						</div>
+						<div class="panel-body">
+							<table width="100%">
+								<tr>
+									<td align="left" colspan="2">
+									<label for="team">{{ 'scool_class_label' | i18n }}</label>
+									<select id="team" name="sTeam" class="form-control" ng-options="t as t.classRoom for t in allTeams | orderBy: 'classRoom'" ng-change="setSelectedTeam(myTeam)" ng-model="myTeam" ng-required="true">
+										<option value="">{{ 'scool_class_select_placeholder' | i18n }}</option>
+									</select>
+									</td>
+								</tr>
+								<!-- <tr>
+									<td></td>
+									<td></td>
+								</tr>
+								<tr>
+									<td align="center"><input id="streets" type="checkbox" ng-model="mapelements.gamepolys" ng-click="changeGamePolylines()"></td>
+									<td align="left"><label for="streets">{{ 'polys_map_objects' | i18n }}</label></td>
+								</tr>
+								<tr>
+									<td align="center"><input id="pLegs" type="checkbox" ng-model="mapelements.legmarkers" ng-click="changeLegMarkers()"></td>
+									<td align="left"><label for="pLegs">{{ 'legs_map_objects' | i18n }}</label></td>
+								</tr> -->
+							</table>
+						</div>
+					</div>
+					<div class="panel panel-default" ng-if="myTeam">
+						<div class="panel-body">
+							<table>
+								<tr>
+									<td align="left" colspan="2"><strong>Stato Attuale</strong></td>
+								</tr>
+								<tr ng-if="myTeamBadges.length > 0">
+									<td align="left" colspan="2"><strong>Tappe raggiunte: </strong>
+										<div  ng-repeat="m in myTeamBadges track by $index">
+							        		<div class="col-md-12"><i class="glyphicon glyphicon-ok"></i> {{ m }}</div>
+							        	</div>
+									</td>
+								</tr>
+								<tr ng-if="myTeamBadges.length == 0">
+									<td><strong>Tappe raggiunte: </strong></td>
+									<td align="right">&nbsp;nessuna</td>
+								</tr>
+								<tr>
+									<td><strong>{{ 'label_leg_scores_iw' | i18n }}:</strong></td>
+							        <td align="right">&nbsp;{{ myTeam.score }}</td>
+								</tr>
+								<tr ng-if="myTeam.scoreToNext">
+									<td><strong>{{ 'label_leg_scores_to_next_iw' | i18n }}:</strong></td>
+							        <td align="right">&nbsp;{{ myTeam.scoreToNext }}</td>
+								</tr>
+							    <tr ng-if="myTeam.scoreToEnd > 0">
+							        <td><strong>{{ 'label_leg_scores_to_end_iw' | i18n }}:</strong></td>
+							        <td align="right">&nbsp;{{ myTeam.scoreToEnd }}</td>	
+							    </tr>
+							</table>
+							<p>
+								<button type="button" class="btn btn-primary" data-ng-click="setSelectedTeam(myTeam)">
+									<span class="glyphicon glyphicon-refresh"></span> {{ 'label_btn_refresh' | i18n }}
+								</button>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>

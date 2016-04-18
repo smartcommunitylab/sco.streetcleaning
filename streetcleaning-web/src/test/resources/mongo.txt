@@ -1,0 +1,3 @@
+create database 'ClimbGameDashboard'
+create collection 'token'
+create collection 'dataSetInfo'

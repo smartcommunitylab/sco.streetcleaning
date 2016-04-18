@@ -1,0 +1,35 @@
+<div class="row" ng-init="getAllGames()">
+	<div class="col-md-12">
+		<form role="form" name="form">
+			<label for="game">{{ 'game_label' | i18n }}</label>
+			<select id="game" name="sGame" class="form-control" ng-options="g as g.gameName for g in allGames | orderBy: 'gameName'" ng-change="setSelectedGame(myGame)" ng-model="myGame" ng-required="true">
+				<option value="">{{ 'game_select_placeholder' | i18n }}</option>
+			</select>
+			<div class="alert alert-danger" ng-show="form.sGame.required">{{ 'game_selection_required_error' | i18n }}</div>
+		</form>
+		<div class="panel panel-default data-wrapper" ng-show="myGame">
+			<div class="panel-body">
+				<div class="raw">
+					<div class="col-md-2"><strong>{{ 'game_name_label' | i18n }}</strong></div>
+					<div class="col-md-10">{{ myGame.gameName }}</div>
+				</div>	
+				<div class="raw">	
+					<div class="col-md-2"><strong>{{ 'school_name_label' | i18n }}</strong></div>
+					<div class="col-md-10">{{ myGame.schoolName }}</div>
+				</div>	
+				<div class="raw">	
+					<div class="col-md-2"><strong>{{ 'game_description_label' | i18n }}</strong></div>
+					<div class="col-md-10">{{ myGame.gameDescription }}</div>
+				</div>	
+				<div class="raw">	
+					<div class="col-md-2"><strong>{{ 'game_creation_data_label' | i18n }}</strong></div>
+					<div class="col-md-10">{{ myGame.creationDate | date }}</div>
+				</div>	
+				<div class="raw">	
+					<div class="col-md-2"><strong>{{ 'game_duration_label' | i18n }}</strong></div>
+					<div class="col-md-10">{{ 'from_label' | i18n }} {{ myGame.from | date }} {{ 'to_label' | i18n }} {{ myGame.to | date }}</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>				
