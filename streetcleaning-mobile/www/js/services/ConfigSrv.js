@@ -16,6 +16,9 @@ angular.module('streetcleaning.services.config', [])
             "it": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         }
 
+        var LANGUAGES = ["it", "en"];
+
+
         var STREETCLEANING_WEB_SERVER = "https://dev.smartcommunitylab.it/streetcleaning";
 
         return {
@@ -73,6 +76,9 @@ angular.module('streetcleaning.services.config', [])
             },
             getSCWebURL: function() {
                 return STREETCLEANING_WEB_SERVER;
+            },
+            getSupportedLanguages: function() {
+                return LANGUAGES;
             },
             loading: function() {
                 $ionicLoading.show();
