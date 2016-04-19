@@ -3,9 +3,9 @@
     <ion-content>
         <div>
             <ion-list>
-                <ion-item ng-repeat="marker in markers" class="marker-item">
-                    <div class="col"ng-click="showMarkerDetails(marker, runningDate)"><h2>{{ marker.streetName }}</h2></div>
-                    <div class="col" ng-click="removeFavorite(marker)">
+                <ion-item ng-repeat="streetName in sNames" class="marker-item">
+                    <div class="col"ng-click="showMarkerDetails(streetName, runningDate)"><h2>{{ streetName }}</h2></div>
+                    <div class="col" ng-click="removeFavorite(streetName)">
                             <i class="button-icon ion-close-circled" style="color: #00adc2;right: 5px;position: absolute;top: 20px;"></i>
                      </div>
                 </ion-item>

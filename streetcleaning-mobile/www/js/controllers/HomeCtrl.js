@@ -96,6 +96,7 @@ angular.module('streetcleaning.controllers.home', [])
                 $scope.markers = savedMarkers;
             }, function(error) {
             });
+            HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
         });
 
         // after routine.
@@ -105,7 +106,7 @@ angular.module('streetcleaning.controllers.home', [])
                 $scope.markers = savedMarkers;
             }, function(error) {
             });
-        });            
+        });
 
 
         $scope.$on('leafletDirectiveMarker.scMap.click', function(e, args) {
@@ -179,8 +180,9 @@ angular.module('streetcleaning.controllers.home', [])
 
         $scope.showMarkerDetails = function(arg1, arg2) {
             $state.go('app.markerDetails', {
-                marker: JSON.stringify(arg1),
-                runningDate: arg2
+                // marker: JSON.stringify(arg1),
+                // runningDate: arg2
+                streetName: arg1.streetName
             });
         }
 
@@ -191,8 +193,7 @@ angular.module('streetcleaning.controllers.home', [])
             } else {
                 arg1.favorite = true;
             }
-
-            HomeSrv.updateMarker(arg1).then(function(updated) {
+            HomeSrv.addFavorite(arg1.streetName).then(function(updated) {
                 arg1 = updated;
             }, function error() { })
 
@@ -201,39 +202,27 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
 
-
-
     })
 
     .controller('MarkerDetailsCtrl', function($scope, $state, $ionicPopup, $timeout, HomeSrv) {
 
-        $scope.marker = JSON.parse($state.params.marker);
+        $scope.streetName = $state.params.streetName;
 
-        // $scope.streetName = marker.streetName;
-        // $scope.favorite = marker.favorite;
-
-        $scope.markFavorite = function() {
-            if ($scope.marker.favorite) {
-                $scope.marker.favorite = false;
-            } else {
-                $scope.marker.favorite = true;
-            }
-            HomeSrv.updateMarker($scope.marker).then(function(updated) {
-                $scope.marker = updated;
+        $scope.markFavorite = function(streetName) {
+            HomeSrv.addFavorite(streetName).then(function(updated) {
+                $scope.favorite = HomeSrv.isFavoriteStreet(streetName);
             }, function error() { })
         }
 
-        HomeSrv.getTimeTable($scope.marker).then(function(hashMap) {
+        $scope.favorite = HomeSrv.isFavoriteStreet($scope.streetName);
+
+        HomeSrv.getTimeTable($scope.streetName).then(function(hashMap) {
             // order map keys;
             $scope.associatedMap = hashMap;
 
             $scope.keys = HomeSrv.orderMapKeys(hashMap);
 
-            // $scope.arrItems = items;
         });
-
-
-
 
     });
 

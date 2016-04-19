@@ -8,49 +8,54 @@ angular.module('streetcleaning.services.home', [])
             var deferred = $q.defer();
             var formattedDate = homeServices.formatDate(date);
 
-            var existingMarkers = StorageSrv.getMarkers(formattedDate);
+            // var existingMarkers = StorageSrv.getMarkers(formattedDate);
 
-            if (existingMarkers && existingMarkers.length > 0) {
-                deferred.resolve(existingMarkers);
-            }
-            else {
-                var url = Config.getSCWebURL() + '/rest/day?daymillis=' + date.getTime();
+            // if (existingMarkers && existingMarkers.length > 0) {
+            //     deferred.resolve(existingMarkers);
+            // }
+            // else {
+            var url = Config.getSCWebURL() + '/rest/day?daymillis=' + date.getTime();
 
-                $http.get(url, {
-                    headers: {
-                        "Accept": "application/json"
-                    }
-                }).then(function(response) {
-                    var dateMarkers = response.data;
-                    var markers = [];
-                    for (var i = 0; i < dateMarkers.length; i++) {
-                        markers.push({
-                            id: dateMarkers[i].id,
-                            streetName: dateMarkers[i].streetName,
-                            streetCode: dateMarkers[i].streetCode,
-                            cleaningDay: dateMarkers[i].cleaningDay,
-                            startingTime: dateMarkers[i].startingTime,
-                            endingTime: dateMarkers[i].endingTime,
-                            notes: dateMarkers[i].notes,
-                            lat: dateMarkers[i].centralCoords[0].lat,
-                            lng: dateMarkers[i].centralCoords[0].lng,
-                            centralCoords: dateMarkers[i].centralCoords[0],
-                            streetSchedule: $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].endingTime),
-                            polyline: MapSrv.formatPolyLine(dateMarkers[i].polylines),
-                            favorite: ((dateMarkers[i].favorite) ? (dateMarkers[i].favorite) : false)
-                        });
+            $http.get(url, {
+                headers: {
+                    "Accept": "application/json"
+                }
+            }).then(function(response) {
+                var dateMarkers = response.data;
+                var markers = [];
+                var isFavorite = false;
+                for (var i = 0; i < dateMarkers.length; i++) {
 
-                    }
-                    StorageSrv.saveMarkers(markers, formattedDate).then(function(saved) {
-                        deferred.resolve(saved);
-                    }, function(unsaved) {
-                        deferred.resolve(null);
-                    }
-                    )
-                }, function(error) {
-                    deferred.resolve(null);
-                });
-            }
+                    isFavorite = StorageSrv.isFavorite(dateMarkers[i].streetName)
+
+                    markers.push({
+                        id: dateMarkers[i].id,
+                        streetName: dateMarkers[i].streetName,
+                        streetCode: dateMarkers[i].streetCode,
+                        cleaningDay: dateMarkers[i].cleaningDay,
+                        startingTime: dateMarkers[i].startingTime,
+                        endingTime: dateMarkers[i].endingTime,
+                        notes: dateMarkers[i].notes,
+                        lat: dateMarkers[i].centralCoords[0].lat,
+                        lng: dateMarkers[i].centralCoords[0].lng,
+                        centralCoords: dateMarkers[i].centralCoords[0],
+                        streetSchedule: $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].endingTime),
+                        polyline: MapSrv.formatPolyLine(dateMarkers[i].polylines),
+                        favorite: isFavorite
+                    });
+
+                }
+                deferred.resolve(markers);
+                // StorageSrv.saveMarkers(markers, formattedDate).then(function(saved) {
+                //     deferred.resolve(saved);
+                // }, function(unsaved) {
+                //     deferred.resolve(null);
+                // }
+                // )
+            }, function(error) {
+                deferred.resolve(null);
+            });
+            // }
 
             return deferred.promise;
         }
@@ -68,7 +73,10 @@ angular.module('streetcleaning.services.home', [])
 
         }
 
-
+        homeServices.isFavoriteStreet = function(streetName) {
+            return StorageSrv.isFavorite(streetName);
+        }
+        
 
         homeServices.formatDate = function(today) {
             var dd = today.getDate();
@@ -132,12 +140,12 @@ angular.module('streetcleaning.services.home', [])
 
             return key;
 
-        }        
+        }
 
-        homeServices.getTimeTable = function(marker) {
+        homeServices.getTimeTable = function(streetName) {
 
             var deferred = $q.defer();
-            
+
             /** two dimensional 1.
             var arrItems = [];
             arrItems[0] = [];
@@ -186,7 +194,7 @@ angular.module('streetcleaning.services.home', [])
             // associative map.
             var associativeMap = {};
 
-            var url = Config.getSCWebURL() + '/rest/street?streetName=' + marker.streetName;
+            var url = Config.getSCWebURL() + '/rest/street?streetName=' + streetName;
 
             $http.get(url, {
                 headers: {
@@ -209,8 +217,8 @@ angular.module('streetcleaning.services.home', [])
                 })
 
                 deferred.resolve(associativeMap);
-                }
-            );
+            }
+                );
 
             return deferred.promise;
 
@@ -222,7 +230,7 @@ angular.module('streetcleaning.services.home', [])
                 keys.push(k);
             }
             return keys.sort();
-        }        
+        }
 
         var sorters = {
             byTime: function(a, b) {
@@ -242,15 +250,15 @@ angular.module('streetcleaning.services.home', [])
             return tt;
         }
 
-        homeServices.updateMarker = function(marker) {
+        homeServices.addFavorite = function(streetName) {
             var deferred = $q.defer();
 
-            StorageSrv.saveSingleMarker(marker).then(function(savedMarker) {
-                deferred.resolve(savedMarker);
-            }, function(error) {
-                deferred.resolve(null);
+            StorageSrv.addFavorite(streetName).then(function(streetName) {
+                 deferred.resolve(streetName);
+             }, function(error) {
+                 deferred.resolve(null);
 
-            })
+             })
 
             return deferred.promise;
 

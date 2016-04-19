@@ -1,8 +1,8 @@
 <ion-view>
-    <ion-nav-title>{{marker.streetName}}</ion-nav-title>
+    <ion-nav-title>{{streetName}}</ion-nav-title>
     <ion-nav-buttons side="right">
-        <a href="#" class="button button-icon" ng-if="marker.favorite" ng-click="markFavorite()"><span style="font-size: 200%;" >&star;</span></a>
-        <a href="#" class="button button-icon" ng-if="!marker.favorite" ng-click="markFavorite()"><span style="font-size: 200%;" >&bigstar;</span></a>
+        <a href="#" class="button button-icon" ng-if="favorite" ng-click="markFavorite(streetName)"><span style="font-size: 200%;" >&star;</span></a>
+        <a href="#" class="button button-icon" ng-if="!favorite" ng-click="markFavorite(streetName)"><span style="font-size: 200%;" >&bigstar;</span></a>
     </ion-nav-buttons>
     <ion-content>
         <h3 style="font-size: 20px;text-align: center;padding: 7px;">{{ 'lbl_calendar_title' | translate }}</h3>

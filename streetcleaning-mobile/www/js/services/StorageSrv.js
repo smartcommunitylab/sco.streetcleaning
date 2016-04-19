@@ -19,11 +19,9 @@ angular.module('streetcleaning.services.store', [])
             var favoriteList = [];
 
             for (var i = 0; i < localStorage.length; i++) {
-                var obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
-
-                for (var j = 0; j < obj.length; j++) {
-                    if (obj[j].favorite) {
-                        favoriteList.push(obj[j]);
+                if (localStorage.getItem(localStorage.key(i))) {
+                    if (JSON.parse(localStorage.getItem(localStorage.key(i)))) {
+                        favoriteList.push(localStorage.key(i));
                     }
                 }
             }
@@ -34,81 +32,117 @@ angular.module('streetcleaning.services.store', [])
 
         }
 
-        storageService.search = function(searchText) {
-
+        storageService.addFavorite = function(streetName) {
             var deferred = $q.defer();
 
-            var searchList = [];
-
-            for (var i = 0; i < localStorage.length; i++) {
-
-                var obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
-
-                for (var j = 0; j < obj.length; j++) {
-                    if (obj[j].streetName.toUpperCase().indexOf(searchText.toUpperCase()) > -1) {
-                        searchList.push(obj[j]);
+            if (!!streetName) {
+                if (localStorage.getItem(streetName)) {
+                    if (JSON.parse(localStorage[streetName])) {
+                        localStorage[streetName] = false;
+                    } else {
+                        localStorage[streetName] = true;
                     }
+                } else {
+                    localStorage[streetName] = true;
                 }
             }
 
-            deferred.resolve(searchList);
-
-            return deferred.promise;
-        }
-
-
-        var findMarkerIndexInArray = function(markerArray, marker) {
-            return markerArray.indexOf(marker);
-        }
-
-
-        storageService.saveMarkers = function(markers, date) {
-            var deferred = $q.defer();
-
-            if (!!markers) {
-                localStorage[date] = JSON.stringify(markers);
-            } else {
-                localStorage.removeItem(date);
-            }
-
-            deferred.resolve(markers);
+            deferred.resolve(streetName);
             return deferred.promise;
 
         }
 
-        storageService.saveSingleMarker = function(marker) {
+        storageService.isFavorite = function(streetName) {
 
-            var deferred = $q.defer();
+            var isFavorite = false;
 
-            var key = null;
-            var index = -1;
-            var markersList = null;
-
-            for (var i = 0; i < localStorage.length; i++) {
-                var obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
-
-                for (var j = 0; j < obj.length; j++) {
-                    if (obj[j].id == marker.id) {
-                        index = j;
-                        key = localStorage.key(i);
-                        break;
-                    }
-                }
-                if (index > -1) {
-                    markersList = obj;
-                    break;
+            if (!!streetName) {
+                if (localStorage.getItem(streetName)) {
+                    isFavorite = JSON.parse(localStorage.getItem(streetName));
                 }
             }
 
-            markersList[index] = marker;
 
-            localStorage[key] = JSON.stringify(markersList);
-
-            deferred.resolve(marker);
-
-            return deferred.promise;
+            return isFavorite;
 
         }
+
+
+        // storageService.search = function(searchText) {
+
+        //     var deferred = $q.defer();
+
+        //     var searchList = [];
+
+        //     for (var i = 0; i < localStorage.length; i++) {
+
+        //         var obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
+
+        //         for (var j = 0; j < obj.length; j++) {
+        //             if (obj[j].streetName.toUpperCase().indexOf(searchText.toUpperCase()) > -1) {
+        //                 searchList.push(obj[j]);
+        //             }
+        //         }
+        //     }
+
+        //     deferred.resolve(searchList);
+
+        //     return deferred.promise;
+        // }
+
+
+        // var findMarkerIndexInArray = function(markerArray, marker) {
+        //     return markerArray.indexOf(marker);
+        // }
+
+
+        // storageService.saveMarkers = function(markers, date) {
+        //     var deferred = $q.defer();
+
+        //     if (!!markers) {
+        //         localStorage[date] = JSON.stringify(markers);
+        //     } else {
+        //         localStorage.removeItem(date);
+        //     }
+
+        //     deferred.resolve(markers);
+        //     return deferred.promise;
+
+        // }
+
+        // storageService.saveSingleMarker = function(marker) {
+
+        //     var deferred = $q.defer();
+
+        //     var key = null;
+        //     var index = -1;
+        //     var markersList = null;
+
+        //     for (var i = 0; i < localStorage.length; i++) {
+        //         var obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
+
+        //         for (var j = 0; j < obj.length; j++) {
+        //             if (obj[j].id == marker.id) {
+        //                 index = j;
+        //                 key = localStorage.key(i);
+        //                 break;
+        //             }
+        //         }
+        //         if (index > -1) {
+        //             markersList = obj;
+        //             break;
+        //         }
+        //     }
+
+        //     markersList[index] = marker;
+
+        //     localStorage[key] = JSON.stringify(markersList);
+
+        //     deferred.resolve(marker);
+
+        //     return deferred.promise;
+
+        // }
 
 
         return storageService;

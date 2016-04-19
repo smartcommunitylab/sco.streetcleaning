@@ -181,7 +181,8 @@ angular.module('streetcleaning', [
             })
 
             .state('app.markerDetails', {
-                url: '/apps/:marker/:runningDate'
+                // url: '/apps/:marker/:runningDate'
+                url: '/apps/:streetName'
                 , views: {
                     'menuContent': {
                         templateUrl: 'templates/markerDetails.html'
