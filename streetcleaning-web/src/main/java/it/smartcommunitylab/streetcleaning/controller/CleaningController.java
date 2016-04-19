@@ -1,5 +1,6 @@
 package it.smartcommunitylab.streetcleaning.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import it.smartcommunitylab.streetcleaning.bean.CalendarDataBean;
+import it.smartcommunitylab.streetcleaning.bean.StreetBean;
 import it.smartcommunitylab.streetcleaning.storage.RepositoryManager;
 
 @Controller
@@ -62,5 +64,17 @@ public class CleaningController {
 		List<CalendarDataBean> cleaningDays = storage.getCleanedStreetsInDay(day_millis, starting_time, ending_time);
 		return cleaningDays;
 	}
+	
+	@RequestMapping(value = "/rest/search", method = RequestMethod.GET)
+	public @ResponseBody List<StreetBean> searchStreets(@RequestParam(required=true) String searchText,
+			HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+		List<StreetBean> searchStreet = new ArrayList<StreetBean>();
+		
+		searchStreet = storage.searchStreet(searchText);
+		
+		return searchStreet;
+	}
+	
 }
+	
