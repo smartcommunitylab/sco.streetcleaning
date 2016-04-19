@@ -6,9 +6,9 @@
     </ion-nav-buttons>
     <ion-content>
         <h3 style="font-size: 20px;text-align: center;padding: 7px;">{{ 'lbl_calendar_title' | translate }}</h3>
-        <div class="marker-detail-tt" ng-repeat="itemList in arrItems">
-            <div class="item item-divider" ng-show="arrItems[$index][0].month">{{arrItems[$index][0].month}}</div>
-            <ion-item class="marker-detail-tt" ng-repeat="item in arrItems[$index]">
+        <div class="marker-detail-tt" ng-repeat="key in keys">
+            <div class="item item-divider" >{{key | date:'MMMM'}}</div>
+            <ion-item class="marker-detail-tt" ng-repeat="item in associatedMap[key]">
                 <h2>{{ item.formattedDate }}</h2>
             </ion-item>
         </div>

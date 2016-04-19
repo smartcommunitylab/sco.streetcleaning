@@ -120,9 +120,25 @@ angular.module('streetcleaning.services.home', [])
 
         }
 
+        homeServices.generateKey = function(today) {
+            var dd = today.getDate();
+            var mm = today.getMonth() + 1; //January is 0!
+            var yyyy = today.getFullYear();
+
+            if (mm < 10) {
+                mm = '0' + mm
+            }
+            var key = mm + '-' + yyyy;
+
+            return key;
+
+        }        
 
         homeServices.getTimeTable = function(marker) {
 
+            var deferred = $q.defer();
+            
+            /** two dimensional 1.
             var arrItems = [];
             arrItems[0] = [];
             arrItems[1] = [];
@@ -138,7 +154,7 @@ angular.module('streetcleaning.services.home', [])
             arrItems[11] = [];
 
 
-            var deferred = $q.defer();
+            
 
             // $http.get('data/tt.json')
             var url = Config.getSCWebURL() + '/rest/street?streetName=' + marker.streetName;
@@ -165,12 +181,48 @@ angular.module('streetcleaning.services.home', [])
                 deferred.resolve(arrItems);
             }, function(error) {
                 deferred.resolve(null);
-            });
+            });**/
+
+            // associative map.
+            var associativeMap = {};
+
+            var url = Config.getSCWebURL() + '/rest/street?streetName=' + marker.streetName;
+
+            $http.get(url, {
+                headers: {
+                    "Accept": "application/json"
+                }
+            }).then(function(response) {
+
+                var arr = [];
+
+                response.data.forEach(function(item) {
+                    var formattedDate = homeServices.formatDate(new Date(item.cleaningDay));
+                    item.formattedDate = formattedDate;
+                    var dateOfMonth = new Date(item.cleaningDay);
+                    dateOfMonth.setDate(1);
+                    var key = $filter('date')(dateOfMonth, 'yyyy-MM-dd');
+                    if (associativeMap[key] == null) {
+                        associativeMap[key] = [];
+                    }
+                    associativeMap[key].push(item);
+                })
+
+                deferred.resolve(associativeMap);
+                }
+            );
 
             return deferred.promise;
 
-
         }
+
+        homeServices.orderMapKeys = function(h) {
+            var keys = [];
+            for (var k in h) {
+                keys.push(k);
+            }
+            return keys.sort();
+        }        
 
         var sorters = {
             byTime: function(a, b) {

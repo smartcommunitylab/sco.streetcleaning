@@ -223,12 +223,13 @@ angular.module('streetcleaning.controllers.home', [])
             }, function error() { })
         }
 
-        // $scope.dividerFunction = function(key) {
-        //     return key;
-        // }
+        HomeSrv.getTimeTable($scope.marker).then(function(hashMap) {
+            // order map keys;
+            $scope.associatedMap = hashMap;
 
-        HomeSrv.getTimeTable($scope.marker).then(function(items) {
-            $scope.arrItems = items
+            $scope.keys = HomeSrv.orderMapKeys(hashMap);
+
+            // $scope.arrItems = items;
         });
 
 
