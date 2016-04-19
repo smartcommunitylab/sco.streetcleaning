@@ -32,20 +32,19 @@ angular.module('streetcleaning.controllers.home', [])
             if (response) {
                 var dateMarkers = response;
                 $scope.markers = dateMarkers;
-                var boundArray = [];
+                var boundsArray = [];
+
                 for (var i = 0; i < dateMarkers.length; i++) {
-                    var coord = [];
-                    coord.push(dateMarkers[i].lat);
-                    coord.push(dateMarkers[i].lng);
-                    boundArray.push(coord);
+                    var coord = [dateMarkers[i].lat, dateMarkers[i].lng];
+                    boundsArray.push(coord);
                 }
-                // bounds = leafletBoundsHelpers.createBoundsFromArray([[51.508742458803326, -0.087890625], [51.508742458803326, -0.087890625]]);
-                $scope.bounds = leafletBoundsHelpers.createBoundsFromArray(boundArray);
-                MapSrv.getMap('scMap').then(function(map) {
-                    map.fitBounds = boundArray;
-                    map.bounds = boundArray;
+
+                if (boundsArray.length > 0) {
+                    var bounds = L.latLngBounds(boundsArray);
+                    MapSrv.getMap('scMap').then(function(map) {
+                        map.fitBounds(bounds);
+                    });
                 }
-                )
 
             } else {
                 $scope.markers = [];

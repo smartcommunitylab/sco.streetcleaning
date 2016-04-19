@@ -8,12 +8,12 @@
             <div class="col col-25 tt-day btn" ng-click="nextDate()"><a><i class="icon ion-arrow-right-b"></i></a>
             </div>
         </div>
-        <div id="modal-map-container" data-tap-disabled="true" ng-show="mapView">
+        <div id="modal-map-container" data-tap-disabled="true" ng-if="mapView">
             <!--style="width: 100%; height: 790px;" {{style()}}-->
             <leaflet bounds="bounds" center="center" paths="pathLine" markers="markers" id="scMap" ng-style="mapStyle" ng-init="initMap()"></leaflet>
         </div>
 
-        <div ng-show="!mapView">
+        <div ng-if="!mapView">
             <ion-scroll ng-style="mapStyle">
                 <ion-list>
                     <ion-item ng-repeat="marker in markers" class="marker-item">
