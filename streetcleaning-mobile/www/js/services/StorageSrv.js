@@ -34,6 +34,28 @@ angular.module('streetcleaning.services.store', [])
 
         }
 
+        storageService.search = function(searchText) {
+
+            var deferred = $q.defer();
+
+            var searchList = [];
+
+            for (var i = 0; i < localStorage.length; i++) {
+
+                var obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
+
+                for (var j = 0; j < obj.length; j++) {
+                    if (obj[j].streetName.toUpperCase().indexOf(searchText.toUpperCase()) > -1) {
+                        searchList.push(obj[j]);
+                    }
+                }
+            }
+
+            deferred.resolve(searchList);
+
+            return deferred.promise;
+        }
+
 
         var findMarkerIndexInArray = function(markerArray, marker) {
             return markerArray.indexOf(marker);

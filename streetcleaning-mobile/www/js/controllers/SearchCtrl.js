@@ -6,7 +6,8 @@ angular.module('streetcleaning.controllers.search', [])
             if ($scope.formData.searchString) {
                 SearchSrv.searchStreet($scope.formData.searchString).then(function(response) {
                     if (response) {
-                        $scope.markers = response.data;
+                        found = response;
+                        $scope.markers = found;
                     } else {
                         $scope.markers = [];
                     }
