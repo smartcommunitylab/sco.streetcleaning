@@ -4,6 +4,7 @@ angular.module('streetcleaning.controllers.home', [])
         $scope.mapView = true;
         $scope.listView = false;
         $scope.runningDate = new Date();
+        $scope.runningDate.setHours(0, 0, 0, 0);
         var mapDefaults = new Object();
         var headerHeight = 43;
         var footerHeight = 44;
@@ -60,6 +61,7 @@ angular.module('streetcleaning.controllers.home', [])
         // go to next date
         $scope.nextDate = function() {
             markers = [];
+            $scope.runningDate.setHours(0, 0, 0, 0);
             $scope.runningDate.setDate($scope.runningDate.getDate() + 1);
             //$scope.getTT($scope.runningDate.getTime());
             HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
@@ -68,6 +70,7 @@ angular.module('streetcleaning.controllers.home', [])
         // go to prev date
         $scope.prevDate = function() {
             markers = [];
+            $scope.runningDate.setHours(0, 0, 0, 0);
             $scope.runningDate.setDate($scope.runningDate.getDate() - 1);
             // $scope.getTT($scope.runningDate.getTime());
             HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
@@ -220,12 +223,12 @@ angular.module('streetcleaning.controllers.home', [])
             }, function error() { })
         }
 
-        $scope.dividerFunction = function(key) {
-            return key;
-        }
+        // $scope.dividerFunction = function(key) {
+        //     return key;
+        // }
 
         HomeSrv.getTimeTable($scope.marker).then(function(items) {
-            $scope.items = items
+            $scope.arrItems = items
         });
 
 

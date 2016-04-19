@@ -16,7 +16,7 @@ angular.module('streetcleaning.services.config', [])
             "it": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
         }
 
-        var STREETCLEANING_WEB_SERVER = "https://dev.smartcommunitylab.it/streetcleaning.web";
+        var STREETCLEANING_WEB_SERVER = "https://dev.smartcommunitylab.it/streetcleaning";
 
         return {
             init: function() {

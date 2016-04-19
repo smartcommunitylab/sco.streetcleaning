@@ -10,11 +10,11 @@ angular.module('streetcleaning.services.home', [])
 
             var existingMarkers = StorageSrv.getMarkers(formattedDate);
 
-            if (existingMarkers) {
+            if (existingMarkers && existingMarkers.length > 0) {
                 deferred.resolve(existingMarkers);
             }
             else {
-                var url = ConfigSrv.getSCWebURL() + '/rest/day?daymillis=' + date;
+                var url = Config.getSCWebURL() + '/rest/day?daymillis=' + date.getTime();
 
                 $http.get(url, {
                     headers: {
@@ -106,21 +106,42 @@ angular.module('streetcleaning.services.home', [])
             return formatted;
         }
 
-        homeServices.getMonth = function(time) {
+        homeServices.getMonthName = function(time) {
             var date = new Date(time);
             var month = Config.getMonthName(date.getMonth());
 
             return month;
         }
 
+        homeServices.getMonthNumber = function(time) {
+            var date = new Date(time);
+
+            return date.getMonth();
+
+        }
+
 
         homeServices.getTimeTable = function(marker) {
 
-            var items = [];
+            var arrItems = [];
+            arrItems[0] = [];
+            arrItems[1] = [];
+            arrItems[2] = [];
+            arrItems[3] = [];
+            arrItems[4] = [];
+            arrItems[5] = [];
+            arrItems[6] = [];
+            arrItems[7] = [];
+            arrItems[8] = [];
+            arrItems[9] = [];
+            arrItems[10] = [];
+            arrItems[11] = [];
+
+
             var deferred = $q.defer();
 
             // $http.get('data/tt.json')
-            var url = ConfigSrv.getSCWebURL() + '/rest/street?streetName=' + marker.streetName;
+            var url = Config.getSCWebURL() + '/rest/street?streetName=' + marker.streetName;
 
             $http.get(url, {
                 headers: {
@@ -128,21 +149,26 @@ angular.module('streetcleaning.services.home', [])
                 }
             }).then(function(response) {
                 // order items by month and format it.
-                var items = [];
-                homeServices.orderByStartTime("Time", response).forEach(function(item) {
-                    var month = homeServices.getMonth(item.cleaningDay);
+                i = 0;
+                homeServices.orderByStartTime("Time", response.data).forEach(function(item) {
+                    var month = homeServices.getMonthName(item.cleaningDay);
                     item.month = month;
+                    item.order = homeServices.getMonthNumber(item.cleaningDay);
                     var formattedDate = homeServices.formatDate(new Date(item.cleaningDay));
                     item.formattedDate = formattedDate;
-                    items.push(item);
+                    if (!arrItems[item.order]) {
+                        arrItems[item.order] = [];
+                    }
+                    arrItems[item.order].push(item)
                 })
 
-                deferred.resolve(items);
+                deferred.resolve(arrItems);
             }, function(error) {
                 deferred.resolve(null);
             });
 
             return deferred.promise;
+
 
         }
 
