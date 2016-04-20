@@ -5,6 +5,7 @@
         <a href="#" class="button button-icon" ng-if="!favorite" ng-click="markFavorite(streetName)"><span style="font-size: 200%;" >&bigstar;</span></a>
     </ion-nav-buttons>
     <ion-content>
+        
         <h3 style="font-size: 20px;text-align: center;padding: 7px;">{{ 'lbl_calendar_title' | translate }}</h3>
         <div class="marker-detail-tt" ng-repeat="key in keys">
             <div class="item item-divider" >{{key | date:'MMMM'}}</div>

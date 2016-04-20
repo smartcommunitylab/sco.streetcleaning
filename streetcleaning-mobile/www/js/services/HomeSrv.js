@@ -254,7 +254,7 @@ angular.module('streetcleaning.services.home', [])
             var deferred = $q.defer();
 
             StorageSrv.addFavorite(streetName).then(function(streetName) {
-                 deferred.resolve(streetName);
+                deferred.resolve(streetName);
              }, function(error) {
                  deferred.resolve(null);
 

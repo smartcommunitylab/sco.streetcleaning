@@ -21,43 +21,12 @@ angular.module('streetcleaning', [
     'streetcleaning.services.geo',
     'streetcleaning.services.home',
     'streetcleaning.services.search',
-    'streetcleaning.services.store'
+    'streetcleaning.services.store',
+    'streetcleaning.services.notification'
 
 ])
 
     .run(function($ionicPlatform, $state, $rootScope, $translate, GeoLocate, Config) {
-
-        /*$rootScope.loginStarted = false;
-        $rootScope.login = function() {
-
-            if ($rootScope.loginStarted) return;
-
-            $rootScope.loginStarted = true;
-            LoginSrv.login().then(
-                function(profile) {
-                    $rootScope.loginStarted = false;
-
-                    $state.go('app.home', {}, {
-                        reload: true
-                    });
-                }
-                , function(error) {
-                    $rootScope.loginStarted = false;
-                    Utils.toast();
-                    StorageSrv.saveUser(null);
-                    ionic.Platform.exitApp();
-                }
-            );
-        };
-
-        $rootScope.logout = function() {
-            LoginSrv.logout().then(
-                function(data) {
-                    window.location.reload(true);
-                }
-                , function(error) { }
-            );
-        };*/
 
         $ionicPlatform.ready(function() {
 
@@ -101,21 +70,9 @@ angular.module('streetcleaning', [
                 }, null);
             }
 
-            // if (LoginSrv.userIsLogged()) {
             $state.go('app.home', {}, {
                 reload: true
             });
-            // } else {
-            // $rootScope.login();
-            // }
-
-            // LOG EVENT (PlayerAccess)
-            // var jsonPlayerAccess = Config.getPlayerAccessJson();
-            // var userId = StorageSrv.getLoggedInUserId();
-            // jsonPlayerAccess.custom_attr.UserID = userId;
-
-
-            // Utils.log(jsonPlayerAccess);
 
         });
     })
@@ -189,7 +146,7 @@ angular.module('streetcleaning', [
                         , controller: 'MarkerDetailsCtrl'
                     }
                 }
-            });        
+            });
 
         // if none of the above states are matched, use this as the fallback
         $urlRouterProvider.otherwise('/app/home');
@@ -212,7 +169,11 @@ angular.module('streetcleaning', [
             lbl_details: 'VEDI DETTAGLI',
             lbl_calendar_title: 'Calendar Chiusere 2016',
             lbl_inprogress: 'In costruzione',
-            lbl_searchresult: 'RISULTATI RICERCA'
+            lbl_searchresult: 'RISULTATI RICERCA',
+            no_markers_available: 'Nessuna strada per pulire.',
+            no_favorite_selected: 'Nessuna favorite strada. Schegli strada come perferiti.',
+            lbl_msg_notification: 'in programma per la pulizia domani'
+
         });
 
         $translateProvider.translations('en', {
@@ -229,7 +190,11 @@ angular.module('streetcleaning', [
             lbl_details: 'VIEW DETAILS',
             lbl_calendar_title: 'Calendar Closures 2016',
             lbl_inprogress: 'Under construction',
-            lbl_searchresult: 'SEARCH RESULTS'
+            lbl_searchresult: 'SEARCH RESULTS',
+            no_markers_available: 'No streets to be cleaned.',
+            no_favorite_selected: 'No favorite street. Mark street as favorite.',
+            lbl_msg_notification: 'scheduled for cleaning tomorrow'
+
         });
 
         $translateProvider.preferredLanguage('en');
