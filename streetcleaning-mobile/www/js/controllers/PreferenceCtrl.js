@@ -1,5 +1,5 @@
 angular.module('streetcleaning.controllers.preference', [])
-    .controller('PreferenceCtrl', function($scope, $state, $ionicPopup, $timeout, $filter, HomeSrv) {
+    .controller('PreferenceCtrl', function($scope, $state, $ionicPopup, $timeout, $filter, HomeSrv, NotifSrv) {
 
         var successMarkers = function(response) {
             if (response) {
@@ -24,6 +24,7 @@ angular.module('streetcleaning.controllers.preference', [])
 
         $scope.removeFavorite = function(streetName) {
             HomeSrv.addFavorite(streetName).then(function(updated) {
+                NotifSrv.update().then(function(success) { });
                 HomeSrv.getFavoriteMarkers().then(successMarkers, failureMarkers);
             })
         }
