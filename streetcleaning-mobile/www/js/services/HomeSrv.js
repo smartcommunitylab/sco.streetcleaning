@@ -4,6 +4,16 @@ angular.module('streetcleaning.services.home', [])
 
         var homeServices = {};
 
+        var marker_icon = {
+            iconUrl: 'img/ic_location.png',
+            iconSize:     [40, 50], // size of the icon
+            // shadowSize:   [50, 64], // size of the shadow
+            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+            shadowAnchor: [4, 62],  // the same for the shadow
+            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+        }
+
+
         homeServices.getMarkers = function(date) {
             var deferred = $q.defer();
             var formattedDate = homeServices.formatDate(date);
@@ -41,7 +51,8 @@ angular.module('streetcleaning.services.home', [])
                         centralCoords: dateMarkers[i].centralCoords[0],
                         streetSchedule: $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].endingTime),
                         polyline: MapSrv.formatPolyLine(dateMarkers[i].polylines),
-                        favorite: isFavorite
+                        favorite: isFavorite,
+                        icon: marker_icon
                     });
 
                 }
