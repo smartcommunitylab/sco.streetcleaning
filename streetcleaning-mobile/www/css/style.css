@@ -87,13 +87,14 @@
 .marker-item h2 {
   font-size: 18px;
   font-weight: bold;
+  white-space: normal;
 }
 
 .marker-item h3 {
   font-size: 16px;
-  position: absolute;
-  top: 70px;
-  left: 55px;
+  /*position: absolute;*/
+  /*top: inherit;*/
+  /*left: 65px;*/
 }
 .marker-item img {
   width: 28px;
