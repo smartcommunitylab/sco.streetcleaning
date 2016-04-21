@@ -172,7 +172,8 @@ angular.module('streetcleaning', [
             lbl_searchresult: 'RISULTATI RICERCA',
             no_markers_available: 'Nessuna strada per pulire.',
             no_favorite_selected: 'Nessuna favorite strada. Schegli strada come perferiti.',
-            lbl_msg_notification: 'in programma per la pulizia domani'
+            lbl_msg_notification: 'in programma per la pulizia domani',
+            lbl_version: 'Versione'
 
         });
 
@@ -193,7 +194,8 @@ angular.module('streetcleaning', [
             lbl_searchresult: 'SEARCH RESULTS',
             no_markers_available: 'No streets to be cleaned.',
             no_favorite_selected: 'No favorite street. Mark street as favorite.',
-            lbl_msg_notification: 'scheduled for cleaning tomorrow'
+            lbl_msg_notification: 'scheduled for cleaning tomorrow',
+            lbl_version: 'Version'
 
         });
 

@@ -1,15 +1,18 @@
 angular.module('streetcleaning.controllers.search', [])
-    .controller('SearchCtrl', function($scope, $state, $ionicPopup, $timeout, $filter, SearchSrv) {
+    .controller('SearchCtrl', function($scope, $state, $ionicPopup, $timeout, $filter, SearchSrv, Config) {
 
         $scope.formData = {};
         $scope.doSearch = function() {
             if ($scope.formData.searchString) {
+                Config.loading();
                 SearchSrv.searchStreet($scope.formData.searchString).then(function(response) {
                     if (response) {
                         found = response;
                         $scope.markers = found;
+                        Config.loaded();
                     } else {
                         $scope.markers = [];
+                        Config.loaded();
                     }
                 });
             }

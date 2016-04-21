@@ -56,12 +56,15 @@ angular.module('streetcleaning.controllers.home', [])
             } else {
                 $scope.markers = [];
             }
+            Config.loaded();
         }
 
         var failureMarkers = function(error) {
             $scope.markers = [];
+            Config.loaded();
         }
 
+        // Config.loading();
         HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
 
         // go to next date
@@ -82,6 +85,7 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         $scope.initMap = function() {
+            Config.loading();
             MapSrv.initMap('scMap').then(function(map) {
                 $scope.center = {
                     lat: Config.getMapPosition().lat,//46.074779,
@@ -94,6 +98,7 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         $scope.$on('$ionicView.beforeEnter', function() {
+            Config.loading();
             HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
         });
 
@@ -165,6 +170,7 @@ angular.module('streetcleaning.controllers.home', [])
 
         $scope.markFavorite = function(arg1) {
 
+            Config.loading();
             if (arg1.favorite) {
                 arg1.favorite = false;
             } else {
@@ -172,35 +178,54 @@ angular.module('streetcleaning.controllers.home', [])
             }
             HomeSrv.addFavorite(arg1.streetName).then(function(updated) {
                 arg1 = updated;
-                NotifSrv.update().then(function(success) {});
-            }, function error() { })
+                NotifSrv.update().then(function(success) {
+                    Config.loaded();
+                },
+                    function(error) {
+                        Config.loaded();
+                    }
+                );
+            }, function error() {
+                Config.loaded();
+            }
+            )
 
-            MapSrv.refresh('scMap');
+            // MapSrv.refresh('scMap');
 
         }
 
 
     })
 
-    .controller('MarkerDetailsCtrl', function($scope, $state, $ionicPopup, $timeout, HomeSrv, NotifSrv) {
+    .controller('MarkerDetailsCtrl', function($scope, $state, $ionicPopup, $timeout, HomeSrv, NotifSrv, Config) {
 
         $scope.streetName = $state.params.streetName;
 
         $scope.markFavorite = function(streetName) {
+            Config.loading();
             HomeSrv.addFavorite(streetName).then(function(updated) {
                 $scope.favorite = HomeSrv.isFavoriteStreet(streetName);
-                NotifSrv.update().then(function(success) {});
-            }, function error() { })
+                NotifSrv.update().then(function(success) {
+                    Config.loaded();
+                }, function(error) {
+                    Config.loaded();
+                });
+            },
+                function error() {
+                    Config.loaded();
+                }
+            )
+
         }
 
         $scope.favorite = HomeSrv.isFavoriteStreet($scope.streetName);
 
+        Config.loading();
         HomeSrv.getTimeTable($scope.streetName).then(function(hashMap) {
             // order map keys;
             $scope.associatedMap = hashMap;
-
             $scope.keys = HomeSrv.orderMapKeys(hashMap);
-
+            Config.loaded();
         });
 
     });

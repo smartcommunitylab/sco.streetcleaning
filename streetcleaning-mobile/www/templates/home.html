@@ -9,7 +9,7 @@
             </div>
         </div>
 
-        <div class="text-center" ng-if="!!markers && markers.length == 0">
+        <div class="text-center" ng-if="!!markers && markers.length == 0  && !mapView">
             <h4>{{'no_markers_available' | translate}}</h4>
         </div>
 
