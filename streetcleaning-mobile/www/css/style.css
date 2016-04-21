@@ -1,3 +1,41 @@
+@font-face {
+    font-family: 'welive';
+    src:    url('../fonts/welive.eot');
+    src:    url('../fonts/welive.eot') format('embedded-opentype'),
+        url('../fonts/welive.ttf') format('truetype'),
+        url('../fonts/welive.woff') format('woff'),
+        url('../fonts/welive.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+[class^="welive-"], [class*=" welive-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'welive' !important;
+    /*speak: none;*/
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.welive-credits:before {
+    content: "\e900";
+}
+.welive-list:before {
+    content: "\e901";
+}
+.welive-star_outline:before {
+    content: "\e902";
+}
+.welive-star:before {
+    content: "\e903";
+}
+
 /* Menu */
 
 .streetcleaning-theme .menu,
@@ -6,9 +44,17 @@
     background-color: #d4121b;
 }
 .streetcleaning-theme .menu .item {
+    font-family: welive;
     border-color: #d4121b;
     color: #FFFFFF;
 }
+.streetcleaning-theme .menu .item h2 {
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    color: #FFFFFF;
+}
+
 .streetcleaning-theme .menu .item .item-content.activated {
     color: #BCC0E7;
 }
