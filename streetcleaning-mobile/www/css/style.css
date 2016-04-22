@@ -146,8 +146,8 @@
   width: 28px;
   height: 28px;
 }
-.marker-item span {
-    font-size: 200%;
+.marker-item-star {
+    font-size: 150%;
     color: red;
     position: absolute;
     top: 10px;

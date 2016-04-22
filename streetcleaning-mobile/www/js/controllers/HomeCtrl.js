@@ -189,15 +189,11 @@ angular.module('streetcleaning.controllers.home', [])
                 Config.loaded();
             }
             )
-
-            // MapSrv.refresh('scMap');
-
         }
-
 
     })
 
-    .controller('MarkerDetailsCtrl', function($scope, $state, $ionicPopup, $timeout, HomeSrv, NotifSrv, Config) {
+    .controller('MarkerDetailsCtrl', function($scope, $state, $ionicPopup,$filter, $timeout, HomeSrv, NotifSrv, Config) {
 
         $scope.streetName = $state.params.streetName;
 
@@ -227,6 +223,13 @@ angular.module('streetcleaning.controllers.home', [])
             $scope.keys = HomeSrv.orderMapKeys(hashMap);
             Config.loaded();
         });
+
+        $scope.getLocale = function(date) {
+            var locale = $filter('translate')('lbl_' + $filter('date')(date, "MMM"));
+            return locale;
+        }
+
+        
 
     });
 

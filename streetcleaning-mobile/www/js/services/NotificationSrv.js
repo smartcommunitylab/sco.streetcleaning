@@ -66,7 +66,9 @@ angular.module('streetcleaning.services.notification', [])
                 var arr = [];
                 response.data.forEach(function(item) {
                     var date = new Date(item.cleaningDay);
-                    if (isNaN(date) == false) {
+                    var now = new Date();
+                   
+                    if (isNaN(date) == false && date > now) {
                         // day before (6 PM).
                         date.setDate(date.getDate() - 1);
                         date.setHours(18);
@@ -80,6 +82,7 @@ angular.module('streetcleaning.services.notification', [])
                         n.led = "FF0000";
                         notifs.push(n);
                     }
+
                 })
                 deferred.resolve(notifs);
             }, function(error) {

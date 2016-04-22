@@ -29,11 +29,13 @@
                                 <h3 class="col col-center">{{ marker.streetSchedule }}</h3>
                             </div>
                         </div>
-                        <div ng-if="marker.favorite" ng-click="markFavorite(marker)">
-                            <span>&bigstar;</span>
+                        <div ng-if="marker.favorite" class="marker-item-star" ng-click="markFavorite(marker)">
+                            <i class="icon welive-star"></i>
+                            <!--<span>&bigstar;</span>-->
                         </div>
-                        <div ng-if="!marker.favorite" ng-click="markFavorite(marker)">
-                            <span>&star;</span>
+                        <div ng-if="!marker.favorite" class="marker-item-star" ng-click="markFavorite(marker)">
+                            <i class="icon welive-star_outline"></i>
+                            <!--<span>&star;</span>-->
                         </div>
                     </ion-item>
                 </ion-list>
