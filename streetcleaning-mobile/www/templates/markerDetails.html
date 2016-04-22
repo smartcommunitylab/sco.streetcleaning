@@ -1,14 +1,15 @@
 <ion-view>
     <ion-nav-title>{{streetName}}</ion-nav-title>
     <ion-nav-buttons side="right">
-        <a href="#" class="button button-icon" ng-if="favorite" ng-click="markFavorite(streetName)"><span style="font-size: 200%;" >&star;</span></a>
-        <a href="#" class="button button-icon" ng-if="!favorite" ng-click="markFavorite(streetName)"><span style="font-size: 200%;" >&bigstar;</span></a>
+        <a href="#" class="button button-icon" ng-if="favorite" ng-click="markFavorite(streetName)"><span style="font-size: 200%;" >&bigstar;</span></a>
+        <a href="#" class="button button-icon" ng-if="!favorite" ng-click="markFavorite(streetName)"><span style="font-size: 200%;" >&star;</span></a>
     </ion-nav-buttons>
     <ion-content>
         
         <h3 style="font-size: 20px;text-align: center;padding: 7px;">{{ 'lbl_calendar_title' | translate }}</h3>
         <div class="marker-detail-tt" ng-repeat="key in keys">
-            <div class="item item-divider" >{{key | date:'MMMM'}}</div>
+            <!--{{getLocale(key)}}-->
+            <div class="item item-divider" ng-bind-html="getLocale(key)"></div>
             <ion-item class="marker-detail-tt" ng-repeat="item in associatedMap[key]">
                 <h2>{{ item.formattedDate }}</h2>
             </ion-item>
