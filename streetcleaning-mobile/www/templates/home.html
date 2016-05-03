@@ -10,7 +10,7 @@
         </div>
 
         <div class="text-center" ng-if="!!markers && markers.length == 0  && !mapView">
-            <h4>{{'no_markers_available' | translate}}</h4>
+            <h4 style="padding: 16px;text-align: center;">{{'no_markers_available' | translate}}</h4>
         </div>
 
         <div id="modal-map-container" data-tap-disabled="true" ng-if="mapView">
@@ -23,7 +23,7 @@
                 <ion-list>
                     <ion-item ng-repeat="marker in markers" class="marker-item">
                         <div ng-click="showMarkerDetails(marker, runningDate)">
-                            <h2>{{ marker.streetName }}</h2>
+                            <h2>{{ marker.streetName.toLowerCase() }}</h2>
                             <div class="row">
                                 <img ng-src="img/ic_noEntry.png" style="width: 38px;height: 38px;">
                                 <h3 class="col col-center">{{ marker.streetSchedule }}</h3>
@@ -45,8 +45,8 @@
 
     <div class="bar bar-footer">
         <div class="button-bar">
-            <button class="button button-icon ion-map" ng-class="{'active': !mapView}" ng-click="mapViewShow()"></button>
-            <button class="button button-icon welive-list" ng-class="{'active': mapView}" ng-click="listViewShow()" </button>
+            <button class="button button-icon ion-map" ng-class="{'active': mapView}" ng-click="mapViewShow()"></button>
+            <button class="button button-icon welive-list" ng-class="{'active': !mapView}" ng-click="listViewShow()" </button>
         </div>
     </div>
 

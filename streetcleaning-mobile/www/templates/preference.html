@@ -1,14 +1,14 @@
 <ion-view>
     <ion-nav-title>{{ 'lbl_preference' | translate }}</ion-nav-title>
     <ion-content>
-        <div class="text-center" ng-if="!!sNames && sNames.length == 0">
-            <h4>{{'no_favorite_selected' | translate}}</h4>
+        <div ng-if="!!sNames && sNames.length == 0">
+            <h4 style="padding: 16px;text-align: center;">{{'no_favorite_selected1' | translate}}<i class="icon welive-star_outline"></i>{{'no_favorite_selected2' | translate}}</h4>
         </div>
         <div>
             <ion-list>
-                <ion-item ng-repeat="streetName in sNames" class="marker-item">
+                <ion-item ng-repeat="streetName in sNames" class="marker-item-search">
                     <div class="col" ng-click="showMarkerDetails(streetName, runningDate)">
-                        <h2>{{ streetName }}</h2></div>
+                        <h2>{{ streetName.toLowerCase() }}</h2></div>
                     <div class="col" ng-click="removeFavorite(streetName)">
                         <i class="button-icon ion-close-circled" style="color: #00adc2;right: 5px;position: absolute;top: 20px;"></i>
                     </div>

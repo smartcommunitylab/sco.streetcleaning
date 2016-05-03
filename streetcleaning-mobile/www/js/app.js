@@ -159,7 +159,7 @@ angular.module('streetcleaning', [
             app_name: 'Street Cleaning',
             lbl_home: 'HOME',
             lbl_search: 'CERCA',
-            lbl_search_placeholder: 'Perfavore entrare nome di una strada.',
+            lbl_search_placeholder: 'Inserisci il nome di una via.',
             lbl_preference: 'PREFERITI',
             lbl_questionnaire: 'QUESTIONARIO',
             lbl_credits: 'CREDITS',
@@ -171,8 +171,10 @@ angular.module('streetcleaning', [
             lbl_calendar_title: 'Calendario delle pulizie',
             lbl_inprogress: 'In costruzione',
             lbl_searchresult: 'RISULTATI RICERCA',
-            no_markers_available: 'Nessuna strada per pulire.',
-            no_favorite_selected: 'Nessuna favorite strada. Schegli strada come perferiti.',
+            no_markers_available: 'In questa giornata non sono previste pulizie stradali.',
+            no_favorite_selected1: 'Definisci una strada come preferita toccando il pulsante ',
+            no_favorite_selected2: ' nella scheda di tuo interesse.',
+            no_timetable_found: 'Nessuno calendario disponible.',
             lbl_msg_notification: 'in programma per la pulizia domani',
             lbl_Jan: 'Gennaio',
             lbl_Feb: 'Febbraio',
@@ -186,6 +188,7 @@ angular.module('streetcleaning', [
             lbl_Oct: 'Ottobre',
             lbl_Nov: 'Novembre',
             lbl_Dec: 'Dicembre',
+            lbl_error: 'oops errore',
             lbl_version: 'Versione'
 
         });
@@ -194,7 +197,7 @@ angular.module('streetcleaning', [
             app_name: 'Street Cleaning',
             lbl_home: 'HOME',
             lbl_search: 'SEARCH',
-            lbl_search_placeholder: 'Please enter a street name.',
+            lbl_search_placeholder: 'Enter a street name.',
             lbl_preference: 'PREFERENCE',
             lbl_questionnaire: 'QUESTIONNAIRE',
             lbl_credits: 'CREDITS',
@@ -207,7 +210,9 @@ angular.module('streetcleaning', [
             lbl_inprogress: 'Under construction',
             lbl_searchresult: 'SEARCH RESULTS',
             no_markers_available: 'No streets to be cleaned.',
-            no_favorite_selected: 'No favorite street. Mark street as favorite.',
+            no_favorite_selected1: 'Select a favorite street by tapping  ',
+            no_favorite_selected2: ' in the card of your choice.',
+            no_timetable_found: 'No calendar available.',
             lbl_msg_notification: 'scheduled for cleaning tomorrow',
             lbl_Jan: 'January',
             lbl_Feb: 'Febrary',
@@ -221,6 +226,7 @@ angular.module('streetcleaning', [
             lbl_Oct: 'October',
             lbl_Nov: 'November',
             lbl_Dec: 'Dicember',
+            lbl_error: 'oops error',
             lbl_version: 'Version'
 
         });

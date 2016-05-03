@@ -127,14 +127,21 @@
 
 .marker-item {
   border: 0;
-  margin-top: 10px;
+  margin: 15px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 .marker-item h2 {
   font-size: 18px;
-  font-weight: bold;
+  /*font-weight: bold;*/
   white-space: normal;
 }
+
+.marker-item-search {
+  border: 0;
+  margin: 15px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
 
 .marker-item h3 {
   font-size: 16px;
@@ -157,6 +164,7 @@
 
 .marker-detail-tt {
     padding: 0px;
+    border-style: hidden;
 }
 .marker-detail-tt div {
     text-align:center;

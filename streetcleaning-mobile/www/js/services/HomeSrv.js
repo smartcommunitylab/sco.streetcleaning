@@ -275,6 +275,36 @@ angular.module('streetcleaning.services.home', [])
 
         }
 
+        homeServices.toast = function(message, duration, position) {
+            message = message || $filter('translate')('toast_error_generic');
+            duration = duration || 'short';
+            position = position || 'bottom';
+
+            if (!!window.cordova) {
+                // Use the Cordova Toast plugin
+                //$cordovaToast.show(message, duration, position);
+                window.plugins.toast.show(message, duration, position);
+            } else {
+                if (duration == 'short') {
+                    duration = 2000;
+                } else {
+                    duration = 5000;
+                }
+
+                var myPopup = $ionicPopup.show({
+                    template: '<div class="toast">' + message + '</div>'
+                    , scope: $rootScope
+                    , buttons: []
+                });
+
+                $timeout(
+                    function() {
+                        myPopup.close();
+                    }
+                    , duration
+                );
+            }
+        };        
 
         return homeServices;
     });

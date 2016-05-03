@@ -36,7 +36,7 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         var successMarkers = function(response) {
-            if (response) {
+            if (response && response.length > 0) {
                 var dateMarkers = response;
                 $scope.markers = dateMarkers;
                 var boundsArray = [];
@@ -55,6 +55,7 @@ angular.module('streetcleaning.controllers.home', [])
 
             } else {
                 $scope.markers = [];
+                HomeSrv.toast($filter('translate')('no_markers_available'));
             }
             Config.loaded();
         }
@@ -62,6 +63,8 @@ angular.module('streetcleaning.controllers.home', [])
         var failureMarkers = function(error) {
             $scope.markers = [];
             Config.loaded();
+            HomeSrv.toast($filter('translate')('lbl_error'));
+
         }
 
         // Config.loading();

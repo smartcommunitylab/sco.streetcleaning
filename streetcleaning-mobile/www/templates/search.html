@@ -4,7 +4,7 @@
         <div class="padding search">
             <div class="row">
                 <!--<div class="col">-->
-                <input type="search" placeholder="{{'lbl_search_placeholder' | translate}}" ng-model="formData.searchString">
+                <input type="search" placeholder="{{'lbl_search_placeholder' | translate}}" ng-model="formData.searchString" style="line-height: 30px;">
                 <!--</div>-->
                 <!--<div class="col">-->
                 <i href="#" class="button ion-search" ng-click="doSearch()"></i>
@@ -16,9 +16,9 @@
         </div>
         <div>
             <ion-list>
-                <ion-item ng-repeat="marker in markers" class="marker-item">
+                <ion-item ng-repeat="marker in markers" class="marker-item-search">
                     <div class="padding" ng-click="showMarkerDetails(marker, runningDate)">
-                        <h2>{{ marker.name }}</h2>
+                        <h2>{{ marker.name.toLowerCase() }}</h2>
                     </div>
                 </ion-item>
             </ion-list>
