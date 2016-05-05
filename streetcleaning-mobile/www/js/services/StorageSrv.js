@@ -1,8 +1,14 @@
 angular.module('streetcleaning.services.store', [])
 
-    .factory('StorageSrv', function($q, $http, $window, $filter, $rootScope, $ionicLoading) {
+    .factory('StorageSrv', function($q, $http, $window, $filter, $rootScope, $ionicLoading, Config) {
 
         var storageService = {};
+
+        var customAttr = {
+            "action": "personal",
+            "subaction": ""
+        }
+        
 
         storageService.getMarkers = function(date) {
             if (!!localStorage[date]) {
@@ -39,12 +45,18 @@ angular.module('streetcleaning.services.store', [])
                 if (localStorage.getItem(streetName)) {
                     if (JSON.parse(localStorage[streetName])) {
                         localStorage[streetName] = false;
+                        customAttr.subaction = "remove";
                     } else {
                         localStorage[streetName] = true;
+                        customAttr.subaction = "add";
                     }
                 } else {
                     localStorage[streetName] = true;
+                    customAttr.subaction = "add";
                 }
+
+                Config.log(customAttr);
+                
             }
 
             deferred.resolve(streetName);

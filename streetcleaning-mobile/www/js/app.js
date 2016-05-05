@@ -74,6 +74,14 @@ angular.module('streetcleaning', [
                 reload: true
             });
 
+            //log.
+            var customAttr = {
+                "action": "start",
+                "uuid" : ionic.Platform.device().uuid
+            }
+
+            Config.log(customAttr);
+            
         });
     })
 

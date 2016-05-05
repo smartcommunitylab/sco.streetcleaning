@@ -183,17 +183,16 @@ angular.module('streetcleaning.controllers.home', [])
                 arg1 = updated;
                 NotifSrv.update().then(function(success) {
                     Config.loaded();
-                },
-                    function(error) {
-                        Config.loaded();
+                }, function (error) {
+                    Config.loaded();
                     }
                 );
             }, function error() {
                 Config.loaded();
-            }
+                }
             )
         }
-
+       
     })
 
     .controller('MarkerDetailsCtrl', function($scope, $state, $ionicPopup,$filter, $timeout, HomeSrv, NotifSrv, Config) {

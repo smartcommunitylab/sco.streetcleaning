@@ -1,6 +1,6 @@
 angular.module('streetcleaning.services.config', [])
 
-    .factory('Config', function($q, $http, $window, $filter, $translate, $rootScope, $ionicLoading) {
+    .factory('Config', function ($q, $http, $window, $filter, $translate, $rootScope, $ionicLoading) {
 
         var HTTP_CONFIG = {
             timeout: 5000
@@ -10,6 +10,8 @@ angular.module('streetcleaning.services.config', [])
 
         var mapJsonConfig = { 'lat': 46.074779, 'lon': 11.126543, 'zoom': 14 };
         var ttJsonConfig = null;
+        var weliveLoggingToken = '';
+        var weliveAppId = 'trento_streetcleaning';
 
         var monthNameMap = {
             "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -17,15 +19,13 @@ angular.module('streetcleaning.services.config', [])
         }
 
         var LANGUAGES = ["it", "en"];
-
-
         var STREETCLEANING_WEB_SERVER = "https://dev.smartcommunitylab.it/streetcleaning";
 
         return {
-            init: function() {
+            init: function () {
                 var deferred = $q.defer();
                 if (mapJsonConfig != null) deferred.resolve(mapJsonConfig);
-                else $http.get('data/config.json').success(function(response) {
+                else $http.get('data/config.json').success(function (response) {
                     mapJsonConfig = response;
                     lat = response.lat;
                     lon = response.lon;
@@ -34,21 +34,21 @@ angular.module('streetcleaning.services.config', [])
                 });
                 return deferred.promise;
             },
-            getMonthName: function(monthNumber) {
+            getMonthName: function (monthNumber) {
                 if (monthNameMap[lang]) {
                     var monthNames = monthNameMap[lang];
                     return monthNames[monthNumber];
                 }
                 return null;
             },
-            getMapPosition: function() {
+            getMapPosition: function () {
                 return {
                     lat: mapJsonConfig.lat,
                     lon: mapJsonConfig.lon,
                     zoom: mapJsonConfig.zoom
                 };
             },
-            getLang: function() {
+            getLang: function () {
                 var browserLanguage = '';
                 // works for earlier version of Android (2.3.x)
                 var androidLang;
@@ -62,28 +62,40 @@ angular.module('streetcleaning.services.config', [])
                 if (lang != 'it' && lang != 'en' && lang != 'de') lang = 'en';
                 return lang;
             },
-            getLanguage: function() {
+            getLanguage: function () {
 
                 navigator.globalization.getLocaleName(
-                    function(locale) {
+                    function (locale) {
                         alert('locale: ' + locale.value + '\n');
                     },
-                    function() {
+                    function () {
                         alert('Error getting locale\n');
                     }
                 );
 
             },
-            getSCWebURL: function() {
+            getSCWebURL: function () {
                 return STREETCLEANING_WEB_SERVER;
             },
-            getSupportedLanguages: function() {
+            getSupportedLanguages: function () {
                 return LANGUAGES;
             },
-            loading: function() {
+            log: function (customAttrs) {
+                $http.post('https://dev.welive.eu/dev/api/log/' + weliveAppId, {
+                    appId: weliveAppId,
+                    type: 'AppCustom',
+                    timestamp: new Date().getTime(),
+                    custom_attr: customAttrs
+                }, { headers: { Authorization: 'Bearer ' + weliveLoggingToken } }).then(function () {
+                }, function (err) {
+                    console.log('Logging error: ', err);
+                    $ionicLoading.hide();
+                });
+            },
+            loading: function () {
                 $ionicLoading.show();
             },
-            loaded: function() {
+            loaded: function () {
                 $ionicLoading.hide();
             }
 
