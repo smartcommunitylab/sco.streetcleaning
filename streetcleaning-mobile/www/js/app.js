@@ -164,7 +164,7 @@ angular.module('streetcleaning', [
         $ionicConfigProvider.backButton.text('');
         $ionicConfigProvider.backButton.previousTitleText(false);
         $translateProvider.translations('it', {
-            app_name: 'Street Cleaning',
+            app_name: 'Trento Pulizia Strade',
             lbl_home: 'HOME',
             lbl_search: 'CERCA',
             lbl_search_placeholder: 'Inserisci il nome di una via.',
@@ -202,7 +202,7 @@ angular.module('streetcleaning', [
         });
 
         $translateProvider.translations('en', {
-            app_name: 'Street Cleaning',
+            app_name: 'Trento Pulizia Strade',
             lbl_home: 'HOME',
             lbl_search: 'SEARCH',
             lbl_search_placeholder: 'Enter a street name.',
