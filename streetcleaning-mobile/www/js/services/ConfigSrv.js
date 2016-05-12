@@ -12,6 +12,7 @@ angular.module('streetcleaning.services.config', [])
         var ttJsonConfig = null;
         var weliveLoggingToken = '';
         var weliveAppId = 'trento_streetcleaning';
+        var defaultBound = [[46.074779,11.121749], [46.068039,11.116973], [46.066967,11.128582], [46.074779,11.121749]];
 
         var monthNameMap = {
             "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -79,6 +80,9 @@ angular.module('streetcleaning.services.config', [])
             },
             getSupportedLanguages: function () {
                 return LANGUAGES;
+            },
+            getDefaultBound: function () {
+                return defaultBound;
             },
             log: function (customAttrs) {
                 $http.post('https://dev.welive.eu/dev/api/log/' + weliveAppId, {

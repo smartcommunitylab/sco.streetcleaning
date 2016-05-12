@@ -1,5 +1,5 @@
 angular.module('streetcleaning.controllers.home', [])
-    .controller('HomeCtrl', function($scope, $state, $ionicPopup, $timeout, leafletBoundsHelpers, $filter, MapSrv, GeoLocate, Config, HomeSrv, NotifSrv) {
+    .controller('HomeCtrl', function ($scope, $state, $ionicPopup, $timeout, leafletBoundsHelpers, $filter, MapSrv, GeoLocate, Config, HomeSrv, NotifSrv) {
 
         $scope.mapView = true;
         $scope.listView = false;
@@ -24,7 +24,7 @@ angular.module('streetcleaning.controllers.home', [])
             "height": $scope.mapWinSize + "px",
         }
 
-        window.onresize = function(event) {
+        window.onresize = function (event) {
             $scope.mapWinSize = window.innerHeight - 44 - 50 - 44;
             $scope.center = {
                 lat: Config.getMapPosition().lat,
@@ -35,7 +35,7 @@ angular.module('streetcleaning.controllers.home', [])
 
         }
 
-        var successMarkers = function(response) {
+        var successMarkers = function (response) {
             if (response && response.length > 0) {
                 var dateMarkers = response;
                 $scope.markers = dateMarkers;
@@ -48,30 +48,43 @@ angular.module('streetcleaning.controllers.home', [])
 
                 if (boundsArray.length > 0) {
                     var bounds = L.latLngBounds(boundsArray);
-                    MapSrv.getMap('scMap').then(function(map) {
+                    MapSrv.getMap('scMap').then(function (map) {
                         map.fitBounds(bounds);
                     });
                 }
 
             } else {
                 $scope.markers = [];
+                Config.loaded();
                 HomeSrv.toast($filter('translate')('no_markers_available'));
+                var boundsArray = Config.getDefaultBound();
+                if (boundsArray.length > 0) {
+                    var bounds = L.latLngBounds(boundsArray);
+                    MapSrv.getMap('scMap').then(function (map) {
+                        map.fitBounds(bounds);
+                    });
+                }
             }
-            Config.loaded();
         }
-
-        var failureMarkers = function(error) {
+        
+        var failureMarkers = function (error) {
             $scope.markers = [];
             Config.loaded();
             HomeSrv.toast($filter('translate')('lbl_error'));
-
+            var boundsArray = Config.getDefaultBound();
+            if (boundsArray.length > 0) {
+                var bounds = L.latLngBounds(boundsArray);
+                MapSrv.getMap('scMap').then(function (map) {
+                    map.fitBounds(bounds);
+                });
+            }
         }
-
+        
         // Config.loading();
         HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
 
         // go to next date
-        $scope.nextDate = function() {
+        $scope.nextDate = function () {
             markers = [];
             $scope.runningDate.setHours(0, 0, 0, 0);
             $scope.runningDate.setDate($scope.runningDate.getDate() + 1);
@@ -79,7 +92,7 @@ angular.module('streetcleaning.controllers.home', [])
 
         }
         // go to prev date
-        $scope.prevDate = function() {
+        $scope.prevDate = function () {
             markers = [];
             $scope.runningDate.setHours(0, 0, 0, 0);
             $scope.runningDate.setDate($scope.runningDate.getDate() - 1);
@@ -87,9 +100,9 @@ angular.module('streetcleaning.controllers.home', [])
 
         }
 
-        $scope.initMap = function() {
+        $scope.initMap = function () {
             Config.loading();
-            MapSrv.initMap('scMap').then(function(map) {
+            MapSrv.initMap('scMap').then(function (map) {
                 $scope.center = {
                     lat: Config.getMapPosition().lat,//46.074779,
                     lng: Config.getMapPosition().lon,//11.121749,
@@ -100,12 +113,12 @@ angular.module('streetcleaning.controllers.home', [])
             )
         }
 
-        $scope.$on('$ionicView.beforeEnter', function() {
+        $scope.$on('$ionicView.beforeEnter', function () {
             Config.loading();
             HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
         });
 
-        $scope.$on('leafletDirectiveMarker.scMap.click', function(e, args) {
+        $scope.$on('leafletDirectiveMarker.scMap.click', function (e, args) {
             $scope.streetName = args.model.streetName;
             $scope.streetSchedule = args.model.streetSchedule;
             $scope.pathLine = args.model.polyline;
@@ -118,20 +131,20 @@ angular.module('streetcleaning.controllers.home', [])
                     {
                         text: $filter('translate')('lbl_close'),
                         type: 'button-small sc-popup-button-red'
-                        , onTap: function(e) {
+                        , onTap: function (e) {
                             $scope.pathLine = {};
                         }
                     }
                     , {
                         text: $filter('translate')('lbl_details'),
                         type: 'button-small sc-popup-button-blue'
-                        , onTap: function(e) {
+                        , onTap: function (e) {
                             return args.model;
                         }
                     }
                 ]
             });
-            myPopup.then(function(marker) {
+            myPopup.then(function (marker) {
                 if (marker) {
                     $scope.showMarkerDetails(marker, $scope.runningDate);
                 }
@@ -155,15 +168,15 @@ angular.module('streetcleaning.controllers.home', [])
             pathLine: {}
         });
 
-        $scope.mapViewShow = function() {
+        $scope.mapViewShow = function () {
             $scope.mapView = true;
         }
 
-        $scope.listViewShow = function() {
+        $scope.listViewShow = function () {
             $scope.mapView = false;
         }
 
-        $scope.showMarkerDetails = function(arg1, arg2) {
+        $scope.showMarkerDetails = function (arg1, arg2) {
             $state.go('app.markerDetails', {
                 // marker: JSON.stringify(arg1),
                 // runningDate: arg2
@@ -171,7 +184,7 @@ angular.module('streetcleaning.controllers.home', [])
             });
         }
 
-        $scope.markFavorite = function(arg1) {
+        $scope.markFavorite = function (arg1) {
 
             Config.loading();
             if (arg1.favorite) {
@@ -179,33 +192,33 @@ angular.module('streetcleaning.controllers.home', [])
             } else {
                 arg1.favorite = true;
             }
-            HomeSrv.addFavorite(arg1.streetName).then(function(updated) {
+            HomeSrv.addFavorite(arg1.streetName).then(function (updated) {
                 arg1 = updated;
-                NotifSrv.update().then(function(success) {
+                NotifSrv.update().then(function (success) {
                     Config.loaded();
                 }, function (error) {
                     Config.loaded();
-                    }
+                }
                 );
             }, function error() {
                 Config.loaded();
-                }
+            }
             )
         }
-       
+
     })
 
-    .controller('MarkerDetailsCtrl', function($scope, $state, $ionicPopup,$filter, $timeout, HomeSrv, NotifSrv, Config) {
+    .controller('MarkerDetailsCtrl', function ($scope, $state, $ionicPopup, $filter, $timeout, HomeSrv, NotifSrv, Config) {
 
         $scope.streetName = $state.params.streetName;
 
-        $scope.markFavorite = function(streetName) {
+        $scope.markFavorite = function (streetName) {
             Config.loading();
-            HomeSrv.addFavorite(streetName).then(function(updated) {
+            HomeSrv.addFavorite(streetName).then(function (updated) {
                 $scope.favorite = HomeSrv.isFavoriteStreet(streetName);
-                NotifSrv.update().then(function(success) {
+                NotifSrv.update().then(function (success) {
                     Config.loaded();
-                }, function(error) {
+                }, function (error) {
                     Config.loaded();
                 });
             },
@@ -219,19 +232,19 @@ angular.module('streetcleaning.controllers.home', [])
         $scope.favorite = HomeSrv.isFavoriteStreet($scope.streetName);
 
         Config.loading();
-        HomeSrv.getTimeTable($scope.streetName).then(function(hashMap) {
+        HomeSrv.getTimeTable($scope.streetName).then(function (hashMap) {
             // order map keys;
             $scope.associatedMap = hashMap;
             $scope.keys = HomeSrv.orderMapKeys(hashMap);
             Config.loaded();
         });
 
-        $scope.getLocale = function(date) {
+        $scope.getLocale = function (date) {
             var locale = $filter('translate')('lbl_' + $filter('date')(date, "MMM"));
             return locale;
         }
 
-        
+
 
     });
 
