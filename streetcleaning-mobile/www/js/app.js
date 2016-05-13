@@ -13,7 +13,6 @@ angular.module('streetcleaning', [
     'streetcleaning.controllers.home',
     'streetcleaning.controllers.search',
     'streetcleaning.controllers.preference',
-    'streetcleaning.controllers.questionnaire',
     'streetcleaning.controllers.credits',
     'streetcleaning.services.filters',
     'streetcleaning.services.config',
@@ -24,12 +23,73 @@ angular.module('streetcleaning', [
     'streetcleaning.services.store',
     'streetcleaning.services.notification',
     'streetcleaning.controllers.terms'
-    
+
 ])
 
-    .run(function($ionicPlatform, $state, $rootScope, $translate, GeoLocate, Config) {
+    .run(function ($ionicPlatform, $state, $rootScope, $q, $translate, GeoLocate, Config, HomeSrv) {
 
-        $ionicPlatform.ready(function() {
+
+        $rootScope.questionnaireWindow = function () {
+
+            var deferred = $q.defer();
+            var questionnaireWindow = null;
+            // open questionnaire page.
+            var authapi = {
+                authorize: function (url) {
+                    var deferred = $q.defer();
+
+                    var processThat = false;
+
+                    var authUrl = 'https://in-app.welive.smartcommunitylab.it/html/index.html?app=' + Config.getAppId() + '&callback=' + Config.getRedirectUri() + '&lang=' + $translate.use().toUpperCase();
+
+                    //Open the questionnaire page in the InAppBrowser
+                    if (!questionnaireWindow) {
+                        questionnaireWindow = window.open(authUrl, '_blank', 'location=no,toolbar=no');
+                        processThat = !!questionnaireWindow;
+                    }
+
+                    var processURL = function (url, deferred, w) {
+                        var status = /http:\/\/localhost(\/)?\?questionnaire-status=(.+)$/.exec(url);
+
+                        if (w && (status)) {
+                            if (status == 'error') {
+                                HomeSrv.toast($filter('translate')('lbl_error'));
+                            }
+                            //Always close the browser when match is found
+                            w.close();
+                            questionnaireWindow = null;
+                        }
+                    }
+
+                    if (ionic.Platform.isWebView()) {
+                        if (processThat) {
+                            questionnaireWindow.addEventListener('loadstart', function (e) {
+                                //console.log(e);
+                                var url = e.url;
+                                processURL(url, deferred, questionnaireWindow);
+                            });
+                        }
+                    } else {
+                        angular.element($window).bind('message', function (event) {
+                            $rootScope.$apply(function () {
+                                processURL(event.data, deferred);
+                            });
+                        });
+                    }
+
+                    return deferred.promise;
+                }
+            };
+
+            authapi.authorize().then(
+                function (success) { }, function (failure) { }
+            );
+
+            return deferred.promise;
+        }
+
+
+        $ionicPlatform.ready(function () {
 
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -43,7 +103,7 @@ angular.module('streetcleaning', [
                 StatusBar.styleDefault();
             }
 
-            Config.init().then(function() {
+            Config.init().then(function () {
                 if (ionic.Platform.isWebView()) {
                     // DataManager.dbSetup();
                 } else {
@@ -52,18 +112,18 @@ angular.module('streetcleaning', [
             });
 
             if (typeof navigator.globalization !== "undefined") {
-                navigator.globalization.getPreferredLanguage(function(language) {
+                navigator.globalization.getPreferredLanguage(function (language) {
                     var lang = language.value.split("-")[0];
                     if (Config.getSupportedLanguages().indexOf(lang) > -1) {
-                        $translate.use((language.value).split("-")[0]).then(function(data) {
+                        $translate.use((language.value).split("-")[0]).then(function (data) {
                             console.log("SUCCESS -> " + data);
-                        }, function(error) {
+                        }, function (error) {
                             console.log("ERROR -> " + error);
                         });
                     } else {
-                        $translate.use("en").then(function(data) {
+                        $translate.use("en").then(function (data) {
                             console.log("SUCCESS -> " + data);
-                        }, function(error) {
+                        }, function (error) {
                             console.log("ERROR -> " + error);
                         });
                     }
@@ -78,21 +138,22 @@ angular.module('streetcleaning', [
             //log.
             var customAttr = {
                 "action": "start",
-                "uuid" : ionic.Platform.device().uuid
+                "uuid": ionic.Platform.device().uuid
             }
 
             Config.log(customAttr);
-            
+
         });
     })
 
-    .config(function($stateProvider, $urlRouterProvider) {
+    .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
 
             .state('app', {
                 url: '/app',
                 abstract: true,
                 templateUrl: 'templates/menu.html',
+
             })
 
             .state('app.home', {
@@ -126,16 +187,6 @@ angular.module('streetcleaning', [
                 }
             })
 
-            .state('app.questionnaire', {
-                url: '/questionnaire',
-                views: {
-                    'menuContent': {
-                        templateUrl: 'templates/questionnaire.html',
-                        controller: 'QuestionnaireCtrl'
-                    }
-                }
-            })
-
             .state('app.termine', {
                 url: '/termine'
                 , views: {
@@ -150,7 +201,6 @@ angular.module('streetcleaning', [
                 url: '/credits',
                 views: {
                     'menuContent': {
-                        templateUrl: 'templates/credits.html',
                         controller: 'CreditsCtrl'
                     }
                 }
@@ -176,10 +226,10 @@ angular.module('streetcleaning', [
                 return '/app/termine';
             }
         });
-        
+
     })
 
-    .config(function($translateProvider, $ionicConfigProvider) {
+    .config(function ($translateProvider, $ionicConfigProvider) {
         $ionicConfigProvider.backButton.text('');
         $ionicConfigProvider.backButton.previousTitleText(false);
         $translateProvider.translations('it', {
@@ -271,6 +321,4 @@ angular.module('streetcleaning', [
         $translateProvider.preferredLanguage('en');
         $translateProvider.useSanitizeValueStrategy('escape');
     }
-
-
     );

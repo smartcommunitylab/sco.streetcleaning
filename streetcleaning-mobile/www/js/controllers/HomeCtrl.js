@@ -75,13 +75,15 @@ angular.module('streetcleaning.controllers.home', [])
             $scope.markers = [];
             Config.loaded();
             HomeSrv.toast($filter('translate')('lbl_error'));
-            var boundsArray = Config.getDefaultBound();
-            if (boundsArray.length > 0) {
-                var bounds = L.latLngBounds(boundsArray);
-                MapSrv.getMap('scMap').then(function (map) {
-                    map.fitBounds(bounds);
-                });
-            }
+            $ionicPlatform.ready(function () {
+                var boundsArray = Config.getDefaultBound();
+                if (boundsArray.length > 0) {
+                    var bounds = L.latLngBounds(boundsArray);
+                    MapSrv.getMap('scMap').then(function (map) {
+                        map.fitBounds(bounds);
+                    });
+                }
+            })
         }
 
         // Config.loading();
@@ -119,6 +121,7 @@ angular.module('streetcleaning.controllers.home', [])
 
         $scope.$on('$ionicView.beforeEnter', function () {
             Config.loading();
+            $scope.initMap();
             HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
         });
 

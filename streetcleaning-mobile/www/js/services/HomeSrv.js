@@ -275,6 +275,65 @@ angular.module('streetcleaning.services.home', [])
 
         }
 
+
+        // homeServices.questionnaireWindow = function () {
+        //     var deferred = $q.defer();
+        //     var questionnaireWindow = null;
+        //     // open questionnaire page.
+        //     var authapi = {
+        //         authorize: function (url) {
+        //             var deferred = $q.defer();
+
+        //             var processThat = false;
+
+        //             var authUrl = 'https://in-app.welive.smartcommunitylab.it/html/index.html?app=' + Config.getAppId() + '&callback=' + Config.getRedirectUri() + '&lang=' + $translate.use().toUpperCase();
+
+        //             //Open the questionnaire page in the InAppBrowser
+        //             if (!questionnaireWindow) {
+        //                 questionnaireWindow = window.open(authUrl, '_blank', 'location=no,toolbar=no');
+        //                 processThat = !!questionnaireWindow;
+        //             }
+
+        //             var processURL = function (url, deferred, w) {
+        //                 var status = /http:\/\/localhost(\/)?\?questionnaire-status=(.+)$/.exec(url);
+
+        //                 if (w && (status)) {
+        //                     if (status == 'error') {
+        //                         homeServices.toast($filter('translate')('lbl_error'));
+        //                     }
+        //                     //Always close the browser when match is found
+        //                     w.close();
+        //                     questionnaireWindow = null;
+        //                 }
+        //             }
+
+        //             if (ionic.Platform.isWebView()) {
+        //                 if (processThat) {
+        //                     questionnaireWindow.addEventListener('loadstart', function (e) {
+        //                         //console.log(e);
+        //                         var url = e.url;
+        //                         processURL(url, deferred, questionnaireWindow);
+        //                     });
+        //                 }
+        //             } else {
+        //                 angular.element($window).bind('message', function (event) {
+        //                     $rootScope.$apply(function () {
+        //                         processURL(event.data, deferred);
+        //                     });
+        //                 });
+        //             }
+
+        //             return deferred.promise;
+        //         }
+        //     };
+
+        //     authapi.authorize().then(
+        //         function (success) { }, function (failure) { }
+        //     );
+
+        //     return deferred.promise;
+        // };
+
         homeServices.toast = function(message, duration, position) {
             message = message || $filter('translate')('toast_error_generic');
             duration = duration || 'short';

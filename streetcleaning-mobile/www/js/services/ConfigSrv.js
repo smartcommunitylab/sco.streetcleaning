@@ -27,6 +27,8 @@ angular.module('streetcleaning.services.config', [])
             "en": "The WeLive project has been financed under European Commission's H2020 programme for research, development and innovation under agreement #64584",
         }
 
+        var REDIRECT_URI = "http://localhost";
+
         return {
             init: function () {
                 var deferred = $q.defer();
@@ -105,6 +107,12 @@ angular.module('streetcleaning.services.config', [])
                 if (CREDITINFOP1[lang]) {
                     return CREDITINFOP1[lang];
                 }
+            },
+            getAppId: function () {
+                return weliveAppId;
+            },
+            getRedirectUri: function () {
+                return REDIRECT_URI;
             },
             loading: function () {
                 $ionicLoading.show();
