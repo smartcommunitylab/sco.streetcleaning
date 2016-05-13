@@ -1,6 +1,6 @@
 angular.module('streetcleaning.services.store', [])
 
-    .factory('StorageSrv', function($q, $http, $window, $filter, $rootScope, $ionicLoading, Config) {
+    .factory('StorageSrv', function ($q, $http, $window, $filter, $rootScope, $ionicLoading, Config) {
 
         var storageService = {};
 
@@ -8,9 +8,9 @@ angular.module('streetcleaning.services.store', [])
             "action": "personal",
             "subaction": ""
         }
-        
 
-        storageService.getMarkers = function(date) {
+
+        storageService.getMarkers = function (date) {
             if (!!localStorage[date]) {
                 var markers = JSON.parse(localStorage[date]);
                 return markers;
@@ -18,7 +18,7 @@ angular.module('streetcleaning.services.store', [])
             return null;
         }
 
-        storageService.getFavoriteMarkers = function() {
+        storageService.getFavoriteMarkers = function () {
 
             var deferred = $q.defer();
 
@@ -38,7 +38,7 @@ angular.module('streetcleaning.services.store', [])
 
         }
 
-        storageService.addFavorite = function(streetName) {
+        storageService.addFavorite = function (streetName) {
             var deferred = $q.defer();
 
             if (!!streetName) {
@@ -56,7 +56,7 @@ angular.module('streetcleaning.services.store', [])
                 }
 
                 Config.log(customAttr);
-                
+
             }
 
             deferred.resolve(streetName);
@@ -64,7 +64,7 @@ angular.module('streetcleaning.services.store', [])
 
         }
 
-        storageService.isFavorite = function(streetName) {
+        storageService.isFavorite = function (streetName) {
 
             var isFavorite = false;
 
@@ -79,83 +79,16 @@ angular.module('streetcleaning.services.store', [])
 
         }
 
+        storageService.get = function (privacyKey) {
+            if (localStorage.getItem(privacyKey)) {
+                return localStorage[privacyKey];
+            }
+            return null;
+        }
 
-        // storageService.search = function(searchText) {
-
-        //     var deferred = $q.defer();
-
-        //     var searchList = [];
-
-        //     for (var i = 0; i < localStorage.length; i++) {
-
-        //         var obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
-
-        //         for (var j = 0; j < obj.length; j++) {
-        //             if (obj[j].streetName.toUpperCase().indexOf(searchText.toUpperCase()) > -1) {
-        //                 searchList.push(obj[j]);
-        //             }
-        //         }
-        //     }
-
-        //     deferred.resolve(searchList);
-
-        //     return deferred.promise;
-        // }
-
-
-        // var findMarkerIndexInArray = function(markerArray, marker) {
-        //     return markerArray.indexOf(marker);
-        // }
-
-
-        // storageService.saveMarkers = function(markers, date) {
-        //     var deferred = $q.defer();
-
-        //     if (!!markers) {
-        //         localStorage[date] = JSON.stringify(markers);
-        //     } else {
-        //         localStorage.removeItem(date);
-        //     }
-
-        //     deferred.resolve(markers);
-        //     return deferred.promise;
-
-        // }
-
-        // storageService.saveSingleMarker = function(marker) {
-
-        //     var deferred = $q.defer();
-
-        //     var key = null;
-        //     var index = -1;
-        //     var markersList = null;
-
-        //     for (var i = 0; i < localStorage.length; i++) {
-        //         var obj = JSON.parse(localStorage.getItem(localStorage.key(i)));
-
-        //         for (var j = 0; j < obj.length; j++) {
-        //             if (obj[j].id == marker.id) {
-        //                 index = j;
-        //                 key = localStorage.key(i);
-        //                 break;
-        //             }
-        //         }
-        //         if (index > -1) {
-        //             markersList = obj;
-        //             break;
-        //         }
-        //     }
-
-        //     markersList[index] = marker;
-
-        //     localStorage[key] = JSON.stringify(markersList);
-
-        //     deferred.resolve(marker);
-
-        //     return deferred.promise;
-
-        // }
-
+        storageService.set = function (privacyKey, flag) {
+            localStorage[privacyKey] = flag;
+        }
 
         return storageService;
 

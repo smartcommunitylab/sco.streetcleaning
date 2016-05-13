@@ -12,7 +12,7 @@ angular.module('streetcleaning.services.config', [])
         var ttJsonConfig = null;
         var weliveLoggingToken = '';
         var weliveAppId = 'trento_streetcleaning';
-        var defaultBound = [[46.074779,11.121749], [46.068039,11.116973], [46.066967,11.128582], [46.074779,11.121749]];
+        var defaultBound = [[46.074779, 11.121749], [46.068039, 11.116973], [46.066967, 11.128582], [46.074779, 11.121749]];
 
         var monthNameMap = {
             "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
@@ -21,6 +21,11 @@ angular.module('streetcleaning.services.config', [])
 
         var LANGUAGES = ["it", "en"];
         var STREETCLEANING_WEB_SERVER = "https://dev.smartcommunitylab.it/streetcleaning";
+
+        var CREDITINFOP1 = {
+            "it": "The WeLive project has been financed under European Commission's H2020 programme for research, development and innovation under agreement #64584",
+            "en": "The WeLive project has been financed under European Commission's H2020 programme for research, development and innovation under agreement #64584",
+        }
 
         return {
             init: function () {
@@ -95,6 +100,11 @@ angular.module('streetcleaning.services.config', [])
                     console.log('Logging error: ', err);
                     $ionicLoading.hide();
                 });
+            },
+            getCreditInfoP1: function (lang) {
+                if (CREDITINFOP1[lang]) {
+                    return CREDITINFOP1[lang];
+                }
             },
             loading: function () {
                 $ionicLoading.show();

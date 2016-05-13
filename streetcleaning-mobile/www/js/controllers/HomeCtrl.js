@@ -1,5 +1,5 @@
 angular.module('streetcleaning.controllers.home', [])
-    .controller('HomeCtrl', function ($scope, $state, $ionicPopup, $timeout, leafletBoundsHelpers, $filter, MapSrv, GeoLocate, Config, HomeSrv, NotifSrv) {
+    .controller('HomeCtrl', function ($scope, $state, $ionicPopup, $ionicPlatform, $timeout, leafletBoundsHelpers, $filter, MapSrv, GeoLocate, Config, HomeSrv, NotifSrv) {
 
         $scope.mapView = true;
         $scope.listView = false;
@@ -39,34 +39,38 @@ angular.module('streetcleaning.controllers.home', [])
             if (response && response.length > 0) {
                 var dateMarkers = response;
                 $scope.markers = dateMarkers;
-                var boundsArray = [];
+                $ionicPlatform.ready(function () {
+                    var boundsArray = [];
 
-                for (var i = 0; i < dateMarkers.length; i++) {
-                    var coord = [dateMarkers[i].lat, dateMarkers[i].lng];
-                    boundsArray.push(coord);
-                }
+                    for (var i = 0; i < dateMarkers.length; i++) {
+                        var coord = [dateMarkers[i].lat, dateMarkers[i].lng];
+                        boundsArray.push(coord);
+                    }
 
-                if (boundsArray.length > 0) {
-                    var bounds = L.latLngBounds(boundsArray);
-                    MapSrv.getMap('scMap').then(function (map) {
-                        map.fitBounds(bounds);
-                    });
-                }
+                    if (boundsArray.length > 0) {
+                        var bounds = L.latLngBounds(boundsArray);
+                        MapSrv.getMap('scMap').then(function (map) {
+                            map.fitBounds(bounds);
+                        });
+                    }
+                })
 
             } else {
                 $scope.markers = [];
                 Config.loaded();
                 HomeSrv.toast($filter('translate')('no_markers_available'));
-                var boundsArray = Config.getDefaultBound();
-                if (boundsArray.length > 0) {
-                    var bounds = L.latLngBounds(boundsArray);
-                    MapSrv.getMap('scMap').then(function (map) {
-                        map.fitBounds(bounds);
-                    });
-                }
+                $ionicPlatform.ready(function () {
+                    var boundsArray = Config.getDefaultBound();
+                    if (boundsArray.length > 0) {
+                        var bounds = L.latLngBounds(boundsArray);
+                        MapSrv.getMap('scMap').then(function (map) {
+                            map.fitBounds(bounds);
+                        });
+                    }
+                })
             }
         }
-        
+
         var failureMarkers = function (error) {
             $scope.markers = [];
             Config.loaded();
@@ -79,7 +83,7 @@ angular.module('streetcleaning.controllers.home', [])
                 });
             }
         }
-        
+
         // Config.loading();
         HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
 

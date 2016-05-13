@@ -202,3 +202,41 @@
    height: 30%;
    top: 10px;*/
 }
+
+.terms div {
+  padding: 5px;
+  text-align: justify;
+}
+
+.terms div.help_title {
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center
+}
+
+.terms div.policy_text p.tool_tit {
+  /*font-weight: bold;*/
+  font-size: 14px;
+}
+
+.credits_title {
+    text-align: center;
+    color: #2975a7;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.credits_row.version .col {
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.credits_row.version {
+    color: #aaa;
+}
+
+.credits_version {
+    text-align: center;
+}

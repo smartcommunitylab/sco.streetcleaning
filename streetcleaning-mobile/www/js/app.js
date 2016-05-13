@@ -22,8 +22,9 @@ angular.module('streetcleaning', [
     'streetcleaning.services.home',
     'streetcleaning.services.search',
     'streetcleaning.services.store',
-    'streetcleaning.services.notification'
-
+    'streetcleaning.services.notification',
+    'streetcleaning.controllers.terms'
+    
 ])
 
     .run(function($ionicPlatform, $state, $rootScope, $translate, GeoLocate, Config) {
@@ -70,9 +71,9 @@ angular.module('streetcleaning', [
                 }, null);
             }
 
-            $state.go('app.home', {}, {
-                reload: true
-            });
+            // $state.go('app.termini', {}, {
+            //     reload: true
+            // });
 
             //log.
             var customAttr = {
@@ -135,6 +136,16 @@ angular.module('streetcleaning', [
                 }
             })
 
+            .state('app.termine', {
+                url: '/termine'
+                , views: {
+                    'menuContent': {
+                        templateUrl: 'templates/termine.html'
+                        , controller: 'TermsCtrl'
+                    }
+                }
+            })
+
             .state('app.credits', {
                 url: '/credits',
                 views: {
@@ -157,7 +168,15 @@ angular.module('streetcleaning', [
             });
 
         // if none of the above states are matched, use this as the fallback
-        $urlRouterProvider.otherwise('/app/home');
+        $urlRouterProvider.otherwise(function ($injector) {
+            var isPrivacyAccepted = $injector.get('StorageSrv').get("isPrivacyAccepted");
+            if (isPrivacyAccepted) {
+                return '/app/home';
+            } else {
+                return '/app/termine';
+            }
+        });
+        
     })
 
     .config(function($translateProvider, $ionicConfigProvider) {
@@ -170,7 +189,7 @@ angular.module('streetcleaning', [
             lbl_search_placeholder: 'Inserisci il nome di una via.',
             lbl_preference: 'PREFERITI',
             lbl_questionnaire: 'QUESTIONARIO',
-            lbl_credits: 'CREDITS',
+            lbl_about: 'ABOUT',
             lbl_info: 'INFO',
             lbl_close: 'CHIUDI',
             lbl_start: 'Dalle',
@@ -197,7 +216,12 @@ angular.module('streetcleaning', [
             lbl_Nov: 'Novembre',
             lbl_Dec: 'Dicembre',
             lbl_error: 'oops errore',
-            lbl_version: 'Versione'
+            lbl_version: 'Versione',
+            lbl_terms_of_service: 'TERMINI DEL SERVIZIO',
+            lbl_accept: 'Accept',
+            lbl_reject: 'Reject',
+            about_subtitle: 'Information and Terms of Use',
+            terms_refused_alert_text: 'Terms refused.',
 
         });
 
@@ -208,7 +232,7 @@ angular.module('streetcleaning', [
             lbl_search_placeholder: 'Enter a street name.',
             lbl_preference: 'PREFERENCE',
             lbl_questionnaire: 'QUESTIONNAIRE',
-            lbl_credits: 'CREDITS',
+            lbl_about: 'ABOUT',
             lbl_info: 'INFO',
             lbl_close: 'CLOSE',
             lbl_start: 'From',
@@ -235,7 +259,12 @@ angular.module('streetcleaning', [
             lbl_Nov: 'November',
             lbl_Dec: 'Dicember',
             lbl_error: 'oops error',
-            lbl_version: 'Version'
+            lbl_version: 'Version',
+            lbl_terms_of_service: 'TERMS OF SERVICE',
+            lbl_accept: 'Accept',
+            lbl_reject: 'Reject',
+            about_subtitle: 'Information and Terms of Use',
+            terms_refused_alert_text: 'Terms refused.',
 
         });
 
