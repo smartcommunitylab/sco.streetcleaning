@@ -59,6 +59,7 @@ angular.module('streetcleaning.services.notification', [])
 
             var url = Config.getSCWebURL() + '/rest/street?streetName=' + streetName;
             $http.get(url, {
+                timeout: 5000,
                 headers: {
                     "Accept": "application/json"
                 }

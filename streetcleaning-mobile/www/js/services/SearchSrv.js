@@ -8,6 +8,7 @@ angular.module('streetcleaning.services.search', [])
             var deferred = $q.defer();
             var url = Config.getSCWebURL() + '/rest/search?searchText=' + searchText;
             $http.get(url, {
+                timeout: 5000,
                 headers: {
                     "Accept": "application/json"
                 }

@@ -120,9 +120,11 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         $scope.$on('$ionicView.beforeEnter', function () {
-            Config.loading();
-            $scope.initMap();
-            HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
+            $ionicPlatform.ready(function () {
+                Config.loading();
+                $scope.initMap();
+                HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
+            });
         });
 
         $scope.$on('leafletDirectiveMarker.scMap.click', function (e, args) {

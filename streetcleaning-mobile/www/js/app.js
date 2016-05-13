@@ -201,6 +201,7 @@ angular.module('streetcleaning', [
                 url: '/credits',
                 views: {
                     'menuContent': {
+                        templateUrl: 'templates/credits.html',
                         controller: 'CreditsCtrl'
                     }
                 }

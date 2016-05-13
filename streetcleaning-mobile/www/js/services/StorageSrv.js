@@ -26,8 +26,10 @@ angular.module('streetcleaning.services.store', [])
 
             for (var i = 0; i < localStorage.length; i++) {
                 if (localStorage.getItem(localStorage.key(i))) {
-                    if (JSON.parse(localStorage.getItem(localStorage.key(i)))) {
-                        favoriteList.push(localStorage.key(i));
+                    if (localStorage.key(i) != "isPrivacyAccepted") {
+                        if (JSON.parse(localStorage.getItem(localStorage.key(i)))) {
+                            favoriteList.push(localStorage.key(i));
+                        }
                     }
                 }
             }
