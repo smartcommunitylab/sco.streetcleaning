@@ -4,7 +4,7 @@ angular.module('streetcleaning.controllers.credits', [])
         cordova.getAppVersion(function (version) {
             $scope.version = "v " + version;
         }, function (error) {
-            $scope.version = "v " + "0.1.2";
+            $scope.version = "v " + "0.1.0";
         }
         );
 

@@ -31,8 +31,6 @@ angular.module('streetcleaning.controllers.home', [])
                 lng: Config.getMapPosition().lon,
                 zoom: Config.getMapPosition().zoom
             };
-            map.fitBounds(bounds);
-
         }
 
         var successMarkers = function (response) {
@@ -57,7 +55,6 @@ angular.module('streetcleaning.controllers.home', [])
 
             } else {
                 $scope.markers = [];
-                Config.loaded();
                 HomeSrv.toast($filter('translate')('no_markers_available'));
                 $ionicPlatform.ready(function () {
                     var boundsArray = Config.getDefaultBound();
@@ -69,6 +66,7 @@ angular.module('streetcleaning.controllers.home', [])
                     }
                 })
             }
+            Config.loaded();
         }
 
         var failureMarkers = function (error) {
@@ -108,6 +106,7 @@ angular.module('streetcleaning.controllers.home', [])
 
         $scope.initMap = function () {
             Config.loading();
+            window.onresize();
             MapSrv.initMap('scMap').then(function (map) {
                 $scope.center = {
                     lat: Config.getMapPosition().lat,//46.074779,
