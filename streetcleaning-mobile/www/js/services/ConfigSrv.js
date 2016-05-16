@@ -1,6 +1,6 @@
 angular.module('streetcleaning.services.config', [])
 
-    .factory('Config', function ($q, $http, $window, $filter, $translate, $rootScope, $ionicLoading) {
+    .factory('Config', function ($q, $http, $window, $filter, $translate, $rootScope, $ionicLoading, LoggingTokenSrv) {
 
         var HTTP_CONFIG = {
             timeout: 5000
@@ -10,8 +10,8 @@ angular.module('streetcleaning.services.config', [])
 
         var mapJsonConfig = { 'lat': 46.074779, 'lon': 11.126543, 'zoom': 14 };
         var ttJsonConfig = null;
-        var weliveLoggingToken = '';
-        var weliveAppId = 'trento_streetcleaning';
+        var loggingToken = LoggingTokenSrv.getLoggingToken();
+        var appId = 'trento_streetcleaning';
         var defaultBound = [[46.074779, 11.121749], [46.068039, 11.116973], [46.066967, 11.128582], [46.074779, 11.121749]];
 
         var monthNameMap = {
@@ -92,12 +92,11 @@ angular.module('streetcleaning.services.config', [])
                 return defaultBound;
             },
             log: function (customAttrs) {
-                $http.post('https://dev.welive.eu/dev/api/log/' + weliveAppId, {
-                    appId: weliveAppId,
+                $http.post('https://dev.welive.eu/dev/api/log/' + appId, {
+                    appId: appId,
                     type: 'AppCustom',
                     timestamp: new Date().getTime(),
                     custom_attr: customAttrs
-                }, { headers: { Authorization: 'Bearer ' + weliveLoggingToken } }).then(function () {
                 }, function (err) {
                     console.log('Logging error: ', err);
                     $ionicLoading.hide();
@@ -109,7 +108,7 @@ angular.module('streetcleaning.services.config', [])
                 }
             },
             getAppId: function () {
-                return weliveAppId;
+                return appId;
             },
             getRedirectUri: function () {
                 return REDIRECT_URI;

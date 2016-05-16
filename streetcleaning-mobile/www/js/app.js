@@ -14,6 +14,7 @@ angular.module('streetcleaning', [
     'streetcleaning.controllers.search',
     'streetcleaning.controllers.preference',
     'streetcleaning.controllers.credits',
+    'streetcleaning.controllers.terms',
     'streetcleaning.services.filters',
     'streetcleaning.services.config',
     'streetcleaning.services.map',
@@ -22,7 +23,7 @@ angular.module('streetcleaning', [
     'streetcleaning.services.search',
     'streetcleaning.services.store',
     'streetcleaning.services.notification',
-    'streetcleaning.controllers.terms'
+    'streetcleaning.services.loggingtokensrv'
 
 ])
 
