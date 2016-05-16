@@ -97,6 +97,7 @@ angular.module('streetcleaning.services.config', [])
                     type: 'AppCustom',
                     timestamp: new Date().getTime(),
                     custom_attr: customAttrs
+                }, { timeout: 5000, headers: { Authorization: 'Bearer ' + loggingToken } }).then(function () {
                 }, function (err) {
                     console.log('Logging error: ', err);
                     $ionicLoading.hide();
