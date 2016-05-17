@@ -20,7 +20,7 @@ angular.module('streetcleaning.services.config', [])
         }
 
         var LANGUAGES = ["it", "en"];
-        var STREETCLEANING_WEB_SERVER = "https://dev.smartcommunitylab.it/streetcleaning";
+        var STREETCLEANING_WEB_SERVER = "https://tn.smartcommunitylab.it/streetcleaning";
 
         var CREDITINFOP1 = {
             "it": "The WeLive project has been financed under European Commission's H2020 programme for research, development and innovation under agreement #64584",

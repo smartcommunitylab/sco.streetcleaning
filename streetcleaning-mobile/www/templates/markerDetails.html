@@ -1,8 +1,7 @@
 <ion-view>
     <ion-nav-title>{{streetName}}</ion-nav-title>
     <ion-nav-buttons side="right">
-        <a href="#" class="button button-icon" ng-if="favorite" ng-click="markFavorite(streetName)"><span style="font-size: 200%;" >&bigstar;</span></a>
-        <a href="#" class="button button-icon" ng-if="!favorite" ng-click="markFavorite(streetName)"><span style="font-size: 200%;" >&star;</span></a>
+        <a href="#" class="button button-icon" ng-class="{'welive-star':favorite, 'welive-star_outline':!favorite}" ng-click="markFavorite(streetName)"></a>
     </ion-nav-buttons>
     <ion-content>
         <div class="text-center" ng-if="!!keys && keys.length == 0">
