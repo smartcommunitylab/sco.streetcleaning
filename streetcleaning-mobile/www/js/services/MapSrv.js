@@ -41,11 +41,11 @@ angular.module('streetcleaning.services.map', [])
                     subdomains: '1234',
                     maxZoom: 18
                 }).addTo(map);
-                $ionicPlatform.ready(function () {
-                    GeoLocate.locate().then(function (e) {
-                        L.marker(L.latLng(e[0], e[1])).addTo(map);
-                    });
-                });
+                // $ionicPlatform.ready(function () {
+                //     GeoLocate.locate().then(function (e) {
+                //         L.marker(L.latLng(e[0], e[1])).addTo(map);
+                //     });
+                // });
 
                 deferred.resolve(map);
             },

@@ -104,14 +104,6 @@ angular.module('streetcleaning', [
                 StatusBar.styleDefault();
             }
 
-            Config.init().then(function () {
-                if (ionic.Platform.isWebView()) {
-                    // DataManager.dbSetup();
-                } else {
-                    // DataManager.syncStopData();
-                }
-            });
-
             if (typeof navigator.globalization !== "undefined") {
                 navigator.globalization.getPreferredLanguage(function (language) {
                     var lang = language.value.split("-")[0];
@@ -131,10 +123,6 @@ angular.module('streetcleaning', [
 
                 }, null);
             }
-
-            // $state.go('app.termini', {}, {
-            //     reload: true
-            // });
 
             //log.
             var customAttr = {

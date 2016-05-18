@@ -178,10 +178,8 @@ angular.module('streetcleaning.controllers.home', [])
 
         $scope.showMarkerDetails = function (arg1, arg2) {
             $state.go('app.markerDetails', {
-                // marker: JSON.stringify(arg1),
-                // runningDate: arg2
                 streetName: arg1.streetName
-            });
+           });
         }
 
         $scope.markFavorite = function (arg1) {
