@@ -1,20 +1,20 @@
 angular.module('streetcleaning.services.home', [])
 
-    .factory('HomeSrv', function($q, $http, $window, $filter, $rootScope, $translate, $ionicLoading, MapSrv, StorageSrv, Config) {
+    .factory('HomeSrv', function ($q, $http, $window, $filter, $rootScope, $translate, $ionicLoading, $ionicPlatform, MapSrv, StorageSrv, Config) {
 
         var homeServices = {};
 
         var marker_icon = {
             iconUrl: 'img/ic_location.png',
-            iconSize:     [40, 50], // size of the icon
+            iconSize: [40, 50], // size of the icon
             // shadowSize:   [50, 64], // size of the shadow
-            iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+            iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
             shadowAnchor: [4, 62],  // the same for the shadow
-            popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+            popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
         }
 
 
-        homeServices.getMarkers = function(date) {
+        homeServices.getMarkers = function (date) {
             var deferred = $q.defer();
             var formattedDate = homeServices.formatDate(date);
 
@@ -31,7 +31,7 @@ angular.module('streetcleaning.services.home', [])
                 headers: {
                     "Accept": "application/json"
                 }
-            }).then(function(response) {
+            }).then(function (response) {
                 var dateMarkers = response.data;
                 var markers = [];
                 var isFavorite = false;
@@ -64,7 +64,7 @@ angular.module('streetcleaning.services.home', [])
                 //     deferred.resolve(null);
                 // }
                 // )
-            }, function(error) {
+            }, function (error) {
                 deferred.resolve(null);
             });
             // }
@@ -72,12 +72,12 @@ angular.module('streetcleaning.services.home', [])
             return deferred.promise;
         }
 
-        homeServices.getFavoriteMarkers = function() {
+        homeServices.getFavoriteMarkers = function () {
             var deferred = $q.defer();
 
-            StorageSrv.getFavoriteMarkers().then(function(response) {
+            StorageSrv.getFavoriteMarkers().then(function (response) {
                 deferred.resolve(response);
-            }, function(error) {
+            }, function (error) {
                 deferred.resolve(null);
             });
 
@@ -85,12 +85,12 @@ angular.module('streetcleaning.services.home', [])
 
         }
 
-        homeServices.isFavoriteStreet = function(streetName) {
+        homeServices.isFavoriteStreet = function (streetName) {
             return StorageSrv.isFavorite(streetName);
         }
-        
 
-        homeServices.formatDate = function(today) {
+
+        homeServices.formatDate = function (today) {
             var dd = today.getDate();
             var mm = today.getMonth() + 1; //January is 0!
             var yyyy = today.getFullYear();
@@ -107,7 +107,7 @@ angular.module('streetcleaning.services.home', [])
 
         }
 
-        homeServices.formatTimeHHMM = function(time) {
+        homeServices.formatTimeHHMM = function (time) {
             var date = new Date(time);
             var hour = date.getHours();
 
@@ -126,21 +126,21 @@ angular.module('streetcleaning.services.home', [])
             return formatted;
         }
 
-        homeServices.getMonthName = function(time) {
+        homeServices.getMonthName = function (time) {
             var date = new Date(time);
             var month = Config.getMonthName(date.getMonth());
 
             return month;
         }
 
-        homeServices.getMonthNumber = function(time) {
+        homeServices.getMonthNumber = function (time) {
             var date = new Date(time);
 
             return date.getMonth();
 
         }
 
-        homeServices.generateKey = function(today) {
+        homeServices.generateKey = function (today) {
             var dd = today.getDate();
             var mm = today.getMonth() + 1; //January is 0!
             var yyyy = today.getFullYear();
@@ -154,7 +154,7 @@ angular.module('streetcleaning.services.home', [])
 
         }
 
-        homeServices.getTimeTable = function(streetName) {
+        homeServices.getTimeTable = function (streetName) {
 
             var deferred = $q.defer();
 
@@ -213,11 +213,11 @@ angular.module('streetcleaning.services.home', [])
                 headers: {
                     "Accept": "application/json"
                 }
-            }).then(function(response) {
+            }).then(function (response) {
 
                 var arr = [];
 
-                response.data.forEach(function(item) {
+                response.data.forEach(function (item) {
                     var formattedDate = homeServices.formatDate(new Date(item.cleaningDay));
                     item.formattedDate = formattedDate;
                     var dateOfMonth = new Date(item.cleaningDay);
@@ -237,7 +237,7 @@ angular.module('streetcleaning.services.home', [])
 
         }
 
-        homeServices.orderMapKeys = function(h) {
+        homeServices.orderMapKeys = function (h) {
             var keys = [];
             for (var k in h) {
                 keys.push(k);
@@ -246,13 +246,13 @@ angular.module('streetcleaning.services.home', [])
         }
 
         var sorters = {
-            byTime: function(a, b) {
+            byTime: function (a, b) {
                 return ((a.startingTime < b.startingTime) ? 1 : ((a.startingTime > b.startingTime) ? -1 : 0));
             }
         }
 
 
-        homeServices.orderByStartTime = function(type, list) {
+        homeServices.orderByStartTime = function (type, list) {
 
             var tt = {};
 
@@ -263,15 +263,15 @@ angular.module('streetcleaning.services.home', [])
             return tt;
         }
 
-        homeServices.addFavorite = function(streetName) {
+        homeServices.addFavorite = function (streetName) {
             var deferred = $q.defer();
 
-            StorageSrv.addFavorite(streetName).then(function(streetName) {
+            StorageSrv.addFavorite(streetName).then(function (streetName) {
                 deferred.resolve(streetName);
-             }, function(error) {
-                 deferred.resolve(null);
+            }, function (error) {
+                deferred.resolve(null);
 
-             })
+            })
 
             return deferred.promise;
 
@@ -336,36 +336,39 @@ angular.module('streetcleaning.services.home', [])
         //     return deferred.promise;
         // };
 
-        homeServices.toast = function(message, duration, position) {
+        homeServices.toast = function (message, duration, position) {
             message = message || $filter('translate')('toast_error_generic');
             duration = duration || 'short';
             position = position || 'bottom';
 
-            if (!!window.cordova) {
-                // Use the Cordova Toast plugin
-                //$cordovaToast.show(message, duration, position);
-                window.plugins.toast.show(message, duration, position);
-            } else {
-                if (duration == 'short') {
-                    duration = 2000;
+            $ionicPlatform.ready(function () {
+
+                if (!!window.cordova) {
+                    // Use the Cordova Toast plugin
+                    //$cordovaToast.show(message, duration, position);
+                    window.plugins.toast.show(message, duration, position);
                 } else {
-                    duration = 5000;
-                }
-
-                var myPopup = $ionicPopup.show({
-                    template: '<div class="toast">' + message + '</div>'
-                    , scope: $rootScope
-                    , buttons: []
-                });
-
-                $timeout(
-                    function() {
-                        myPopup.close();
+                    if (duration == 'short') {
+                        duration = 2000;
+                    } else {
+                        duration = 5000;
                     }
-                    , duration
-                );
-            }
-        };        
+
+                    var myPopup = $ionicPopup.show({
+                        template: '<div class="toast">' + message + '</div>'
+                        , scope: $rootScope
+                        , buttons: []
+                    });
+
+                    $timeout(
+                        function () {
+                            myPopup.close();
+                        }
+                        , duration
+                    );
+                }
+            });
+        };
 
         return homeServices;
     });
