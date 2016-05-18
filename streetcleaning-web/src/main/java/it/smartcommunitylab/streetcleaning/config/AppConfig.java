@@ -61,25 +61,25 @@ import it.smartcommunitylab.streetcleaning.storage.RepositoryManager;
 @EnableAsync
 @EnableScheduling
 public class AppConfig extends WebMvcConfigurerAdapter {
-	
+
 	private static final transient Logger logger = LoggerFactory.getLogger(AppConfig.class);
 
 	@Autowired
 	@Value("${db.name}")
 	private String dbName;
-	
+
 	@Autowired
 	@Value("${defaultLang}")
 	private String defaultLang;
-	
+
 	@Autowired
 	@Value("${streetcleaning.kmlfile.name}")
 	private String kmlFileName;
-	
+
 	@Autowired
 	@Value("${streetcleaning.calfile.name}")
 	private String calFileName;
-	
+
 	@Autowired
 	@Value("${streetcleaning.updatefiles}")
 	private String readFileOnLoad;
@@ -112,83 +112,80 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/apps/**").addResourceLocations(
-				"/apps/");
-		registry.addResourceHandler("/resources/*").addResourceLocations(
-				"/resources/");
-		registry.addResourceHandler("/css/**").addResourceLocations(
-				"/resources/css/");
-		registry.addResourceHandler("/fonts/**").addResourceLocations(
-				"/resources/fonts/");
-		registry.addResourceHandler("/js/**").addResourceLocations(
-				"/resources/js/");
-		registry.addResourceHandler("/lib/**").addResourceLocations(
-				"/resources/lib/");
-		registry.addResourceHandler("/i18n/**").addResourceLocations(
-				"/resources/i18n/");
-		registry.addResourceHandler("/templates/**").addResourceLocations(
-				"/resources/templates/");
-		registry.addResourceHandler("/html/**").addResourceLocations(
-				"/resources/html/");
-		registry.addResourceHandler("/file/**").addResourceLocations(
-				"/resources/file/");
+		registry.addResourceHandler("/apps/**").addResourceLocations("/apps/");
+		registry.addResourceHandler("/resources/*").addResourceLocations("/resources/");
+		registry.addResourceHandler("/css/**").addResourceLocations("/resources/css/");
+		registry.addResourceHandler("/fonts/**").addResourceLocations("/resources/fonts/");
+		registry.addResourceHandler("/js/**").addResourceLocations("/resources/js/");
+		registry.addResourceHandler("/lib/**").addResourceLocations("/resources/lib/");
+		registry.addResourceHandler("/i18n/**").addResourceLocations("/resources/i18n/");
+		registry.addResourceHandler("/templates/**").addResourceLocations("/resources/templates/");
+		registry.addResourceHandler("/html/**").addResourceLocations("/resources/html/");
+		registry.addResourceHandler("/file/**").addResourceLocations("/resources/file/");
 	}
 
 	@Bean
 	public MultipartResolver multipartResolver() {
 		return new CommonsMultipartResolver();
 	}
-	
+
 	@PostConstruct
 	public boolean LoadInithialsFiles() {
 		boolean loadedOk = true;
-			try {
-				RepositoryManager mongoRepo = getRepositoryManager();
-				if(readFileOnLoad.compareTo("true") == 0){
-					List<StreetBean> streets = Utils.readKmlFile(kmlFileName);
-					for(StreetBean s: streets){
-						try {
-							mongoRepo.saveStreet(s);
-						} catch (Exception e) {
-							logger.error(e.getMessage());
-						}
-					}
-				}
-				URL resource = getClass().getResource("/");
-				String path = resource.getPath();
-				Version dataVersion = Utils.readCalendarFileVersion(path + calFileName);
-				Version actualVersion = null;
+		try {
+			RepositoryManager mongoRepo = getRepositoryManager();
+
+			List<StreetBean> streets = Utils.readKmlFile(kmlFileName);
+			for (StreetBean sb : streets) {
 				try {
-					actualVersion = mongoRepo.getDataVersion(dataVersion.getVersion());
-					if((actualVersion == null) || (actualVersion.getVersion().compareTo(dataVersion.getVersion()) != 0)){
-						mongoRepo.saveDataVersion(dataVersion);
+					if (!mongoRepo.existStreet(sb)) {
+						mongoRepo.saveStreet(sb);
+
 					}
-				} catch (Exception ex){
-					logger.error(ex.getMessage());
+				} catch (Exception e) {
+					logger.error(e.getMessage());
 				}
-				List<StreetBean> streets = null;
-				try {
-					streets = mongoRepo.getAllStreet();
-				} catch (Exception e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				if((actualVersion == null) || (actualVersion.getVersion().compareTo(dataVersion.getVersion()) != 0)){
-					List<CalendarDataBean> cleaningDays = Utils.readCalendarFile(path + calFileName, dataVersion, streets);
-					for(CalendarDataBean cb: cleaningDays){
-						try {
-							mongoRepo.saveCalendar(cb);
-						} catch (Exception e) {
-							logger.error(e.getMessage());
-						}
-					}
-				}
-				
-			} catch (ParserConfigurationException | SAXException | IOException e) {
-				loadedOk = false;
-				logger.error(e.getMessage());
 			}
+
+			URL resource = getClass().getResource("/");
+			String path = resource.getPath();
+			Version dataVersion = Utils.readCalendarFileVersion(path + calFileName);
+			Version actualVersion = null;
+			try {
+				actualVersion = mongoRepo.getDataVersion(dataVersion.getVersion());
+				if ((actualVersion == null) || (actualVersion.getVersion().compareTo(dataVersion.getVersion()) != 0)) {
+					mongoRepo.saveDataVersion(dataVersion);
+				}
+			} catch (Exception ex) {
+				logger.error(ex.getMessage());
+			}
+			List<StreetBean> streets2 = null;
+			try {
+				streets2 = mongoRepo.getAllStreet();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+			List<CalendarDataBean> cleaningDays = Utils.readCalendarFile(path + calFileName, dataVersion, streets2);
+			for (CalendarDataBean cb : cleaningDays) {
+				try {
+					if (!mongoRepo.existCalendar(cb)) {
+						mongoRepo.saveCalendar(cb);
+					}
+				} catch (Exception e) {
+					logger.error(e.getMessage());
+				}
+			}
+
+		} catch (ParserConfigurationException | SAXException | IOException e) {
+			loadedOk = false;
+			logger.error(e.getMessage());
+		} catch (Exception e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
 		return loadedOk;
 	}
-	
+
 }

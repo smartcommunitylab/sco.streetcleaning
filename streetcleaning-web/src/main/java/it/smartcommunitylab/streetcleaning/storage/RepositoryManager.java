@@ -198,4 +198,38 @@ public class RepositoryManager {
 
 	}
 
+	public MongoTemplate getMongoTemplate() {
+		return mongoTemplate;
+	}
+
+	public boolean existStreet(StreetBean sb) {
+
+		Street s = ModelConverter.convert(sb, Street.class);
+
+		Query query = new Query(new Criteria("name").is(s.getName()).and("code").is(s.getCode()));
+
+		Street savedStreet = mongoTemplate.findOne(query, Street.class);
+
+		if (savedStreet != null) {
+			return true;
+		}
+
+		return false;
+	}
+
+	public boolean existCalendar(CalendarDataBean cdb) {
+
+		CleaningCal cal = ModelConverter.convert(cdb, CleaningCal.class);
+
+		Query query = new Query(new Criteria("streetName").is(cal.getStreetName()).and("streetCode").is(cal.getStreetCode()));
+
+		CleaningCal savedCal = mongoTemplate.findOne(query, CleaningCal.class);
+
+		if (savedCal != null) {
+			return true;
+		}
+
+		return false;
+	}
+
 }
