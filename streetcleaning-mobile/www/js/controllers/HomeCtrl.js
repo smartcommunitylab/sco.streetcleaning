@@ -12,7 +12,7 @@ angular.module('streetcleaning.controllers.home', [])
         $scope.bounds = [];
         $scope.markers = [];
         $scope.center = {};
-        
+
 
 
         if (ionic.Platform.isIOS() && !ionic.Platform.isFullScreen) {
@@ -106,7 +106,7 @@ angular.module('streetcleaning.controllers.home', [])
                 HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
             })
         }
-        
+
 
         $scope.$on('$ionicView.beforeEnter', function () {
             $ionicPlatform.ready(function () {
@@ -156,7 +156,7 @@ angular.module('streetcleaning.controllers.home', [])
             bounds: $scope.bounds,
             center: $scope.center,
             markers: $scope.markers,
-            
+
             defaults: {
                 scrollWheelZoom: false
             },
@@ -179,7 +179,7 @@ angular.module('streetcleaning.controllers.home', [])
         $scope.showMarkerDetails = function (arg1, arg2) {
             $state.go('app.markerDetails', {
                 streetName: arg1.streetName
-           });
+            });
         }
 
         $scope.markFavorite = function (arg1) {
@@ -238,13 +238,11 @@ angular.module('streetcleaning.controllers.home', [])
         }, function error() {
             Config.loaded();
         });
-        
+
         $scope.getLocale = function (date) {
             var locale = $filter('translate')('lbl_' + $filter('date')(date, "MMM"));
             return locale;
         }
-
-
 
     });
 
