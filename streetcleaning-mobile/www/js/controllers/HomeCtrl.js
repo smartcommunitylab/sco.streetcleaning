@@ -9,7 +9,10 @@ angular.module('streetcleaning.controllers.home', [])
         var headerHeight = 43;
         var footerHeight = 44;
         var divHeight = 50;
-        var bounds = null;
+        $scope.bounds = [];
+        $scope.markers = [];
+        $scope.center = {};
+        
 
 
         if (ionic.Platform.isIOS() && !ionic.Platform.isFullScreen) {
@@ -26,11 +29,6 @@ angular.module('streetcleaning.controllers.home', [])
 
         window.onresize = function (event) {
             $scope.mapWinSize = window.innerHeight - 44 - 50 - 44;
-            $scope.center = {
-                lat: Config.getMapPosition().lat,
-                lng: Config.getMapPosition().lon,
-                zoom: Config.getMapPosition().zoom
-            };
         }
 
         var successMarkers = function (response) {
@@ -84,9 +82,6 @@ angular.module('streetcleaning.controllers.home', [])
             })
         }
 
-        // Config.loading();
-        HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
-
         // go to next date
         $scope.nextDate = function () {
             markers = [];
@@ -108,15 +103,10 @@ angular.module('streetcleaning.controllers.home', [])
             Config.loading();
             window.onresize();
             MapSrv.initMap('scMap').then(function (map) {
-                $scope.center = {
-                    lat: Config.getMapPosition().lat,//46.074779,
-                    lng: Config.getMapPosition().lon,//11.121749,
-                    zoom: Config.getMapPosition().zoom//18
-                };
                 HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
-            }
-            )
+            })
         }
+        
 
         $scope.$on('$ionicView.beforeEnter', function () {
             $ionicPlatform.ready(function () {
@@ -163,8 +153,10 @@ angular.module('streetcleaning.controllers.home', [])
 
         angular.extend($scope, Config, {
 
+            bounds: $scope.bounds,
             center: $scope.center,
             markers: $scope.markers,
+            
             defaults: {
                 scrollWheelZoom: false
             },
