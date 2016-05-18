@@ -215,24 +215,27 @@ angular.module('streetcleaning.services.home', [])
                 }
             }).then(function (response) {
 
-                var arr = [];
+                    var arr = [];
 
-                response.data.forEach(function (item) {
-                    var formattedDate = homeServices.formatDate(new Date(item.cleaningDay));
-                    item.formattedDate = formattedDate;
-                    var dateOfMonth = new Date(item.cleaningDay);
-                    dateOfMonth.setDate(1);
-                    var key = $filter('date')(dateOfMonth, 'yyyy-MM-dd');
-                    if (associativeMap[key] == null) {
-                        associativeMap[key] = [];
-                    }
-                    associativeMap[key].push(item);
-                })
+                    response.data.forEach(function (item) {
+                        var formattedDate = homeServices.formatDate(new Date(item.cleaningDay));
+                        item.formattedDate = formattedDate;
+                        var dateOfMonth = new Date(item.cleaningDay);
+                        dateOfMonth.setDate(1);
+                        var key = $filter('date')(dateOfMonth, 'yyyy-MM-dd');
+                        if (associativeMap[key] == null) {
+                            associativeMap[key] = [];
+                        }
+                        associativeMap[key].push(item);
+                    })
 
-                deferred.resolve(associativeMap);
-            }
-                );
+                    deferred.resolve(associativeMap);
 
+                }, function (error) {
+                    deferred.resolve(null);
+                }
+            );
+            
             return deferred.promise;
 
         }

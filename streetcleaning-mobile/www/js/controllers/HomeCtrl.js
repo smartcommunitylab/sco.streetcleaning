@@ -245,8 +245,10 @@ angular.module('streetcleaning.controllers.home', [])
             $scope.associatedMap = hashMap;
             $scope.keys = HomeSrv.orderMapKeys(hashMap);
             Config.loaded();
+        }, function error() {
+            Config.loaded();
         });
-
+        
         $scope.getLocale = function (date) {
             var locale = $filter('translate')('lbl_' + $filter('date')(date, "MMM"));
             return locale;
