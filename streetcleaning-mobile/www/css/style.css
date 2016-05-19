@@ -60,8 +60,8 @@
 }
 .streetcleaning-theme .menu .item .item-content .icon:before {
     padding-right: 1em;
-    font-size: 2em;
-    vertical-align: middle;
+    font-size: 1.5em;
+    vertical-align: sub;
 }
 
 .streetcleaning-theme .bar {
@@ -74,6 +74,10 @@
     background-color: #e12d20;
     border: 0;
     padding: 0;
+}
+
+.button-icon.button.active, .button-icon.button.activated {
+    opacity: 0.5;
 }
 
 .streetcleaning-theme .bar .button {

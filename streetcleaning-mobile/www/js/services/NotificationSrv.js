@@ -40,7 +40,7 @@ angular.module('streetcleaning.services.notification', [])
 
 
         $ionicPlatform.ready(function() {
-            if (cordova && cordova.plugins && cordova.plugins.notification) {
+            if (ionic.Platform.isWebView() && cordova && cordova.plugins && cordova.plugins.notification) {
                 cordova.plugins.notification.local.on("click", function(notification) {
                     // alert(notification.text);
                     var data = JSON.parse(notification.data);

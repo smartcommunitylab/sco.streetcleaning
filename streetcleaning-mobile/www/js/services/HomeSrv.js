@@ -55,7 +55,7 @@ angular.module('streetcleaning.services.home', [])
             }, function (error) {
                 deferred.reject(error);
             });
-            
+
             return deferred.promise;
         }
 
@@ -202,27 +202,27 @@ angular.module('streetcleaning.services.home', [])
                 }
             }).then(function (response) {
 
-                    var arr = [];
+                var arr = [];
 
-                    response.data.forEach(function (item) {
-                        var formattedDate = homeServices.formatDate(new Date(item.cleaningDay));
-                        item.formattedDate = formattedDate;
-                        var dateOfMonth = new Date(item.cleaningDay);
-                        dateOfMonth.setDate(1);
-                        var key = $filter('date')(dateOfMonth, 'yyyy-MM-dd');
-                        if (associativeMap[key] == null) {
-                            associativeMap[key] = [];
-                        }
-                        associativeMap[key].push(item);
-                    })
+                response.data.forEach(function (item) {
+                    var formattedDate = homeServices.formatDate(new Date(item.cleaningDay));
+                    item.formattedDate = formattedDate;
+                    var dateOfMonth = new Date(item.cleaningDay);
+                    dateOfMonth.setDate(1);
+                    var key = $filter('date')(dateOfMonth, 'yyyy-MM-dd');
+                    if (associativeMap[key] == null) {
+                        associativeMap[key] = [];
+                    }
+                    associativeMap[key].push(item);
+                })
 
-                    deferred.resolve(associativeMap);
+                deferred.resolve(associativeMap);
 
-                }, function (error) {
-                    deferred.resolve(null);
-                }
-            );
-            
+            }, function (error) {
+                deferred.resolve(null);
+            }
+                );
+
             return deferred.promise;
 
         }
@@ -331,33 +331,35 @@ angular.module('streetcleaning.services.home', [])
             duration = duration || 'short';
             position = position || 'bottom';
 
-            $ionicPlatform.ready(function () {
+            if (ionic.Platform.isWebView()) {
+                $ionicPlatform.ready(function () {
 
-                if (!!window.cordova) {
-                    // Use the Cordova Toast plugin
-                    //$cordovaToast.show(message, duration, position);
-                    window.plugins.toast.show(message, duration, position);
-                } else {
-                    if (duration == 'short') {
-                        duration = 2000;
+                    if (!!window.cordova) {
+                        // Use the Cordova Toast plugin
+                        //$cordovaToast.show(message, duration, position);
+                        window.plugins.toast.show(message, duration, position);
                     } else {
-                        duration = 5000;
-                    }
-
-                    var myPopup = $ionicPopup.show({
-                        template: '<div class="toast">' + message + '</div>'
-                        , scope: $rootScope
-                        , buttons: []
-                    });
-
-                    $timeout(
-                        function () {
-                            myPopup.close();
+                        if (duration == 'short') {
+                            duration = 2000;
+                        } else {
+                            duration = 5000;
                         }
-                        , duration
-                    );
-                }
-            });
+
+                        var myPopup = $ionicPopup.show({
+                            template: '<div class="toast">' + message + '</div>'
+                            , scope: $rootScope
+                            , buttons: []
+                        });
+
+                        $timeout(
+                            function () {
+                                myPopup.close();
+                            }
+                            , duration
+                        );
+                    }
+                });
+            }
         };
 
         return homeServices;
