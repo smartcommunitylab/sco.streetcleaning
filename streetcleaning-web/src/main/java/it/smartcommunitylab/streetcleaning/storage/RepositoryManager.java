@@ -175,13 +175,18 @@ public class RepositoryManager {
 		List<String> streetNames = new ArrayList<String>();
 		Query query = null;
 		if (searchText != null) {
-			query = new Query(
-					new Criteria("name").regex(Pattern.compile(".*" + searchText + ".*", Pattern.CASE_INSENSITIVE)));
+			query = new Query(new Criteria("streetName")
+					.regex(Pattern.compile(".*" + searchText + ".*", Pattern.CASE_INSENSITIVE)));
 		}
 
-		for (Street s : mongoTemplate.find(query, Street.class)) {
-			StreetBean sb = ModelConverter.convert(s, StreetBean.class);
-			searchStreet.add(sb);
+		for (CleaningCal cal : mongoTemplate.find(query, CleaningCal.class)) {
+			if (!streetNames.contains(cal.getStreetName())) {
+				streetNames.add(cal.getStreetName());
+				StreetBean sb = new StreetBean();
+				sb.setCode(cal.getStreetCode());
+				sb.setName(cal.getStreetName());
+				searchStreet.add(sb);
+			}
 		}
 
 		return searchStreet;
@@ -211,7 +216,8 @@ public class RepositoryManager {
 
 		CleaningCal cal = ModelConverter.convert(cdb, CleaningCal.class);
 
-		Query query = new Query(new Criteria("streetName").is(cal.getStreetName()).and("streetCode").is(cal.getStreetCode()));
+		Query query = new Query(
+				new Criteria("streetName").is(cal.getStreetName()).and("streetCode").is(cal.getStreetCode()));
 
 		CleaningCal savedCal = mongoTemplate.findOne(query, CleaningCal.class);
 
