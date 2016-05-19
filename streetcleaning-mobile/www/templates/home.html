@@ -15,7 +15,7 @@
 
         <div id="modal-map-container" data-tap-disabled="true" ng-if="mapView">
             <!--style="width: 100%; height: 790px;" {{style()}}-->
-            <leaflet bounds="bounds" center="center" paths="pathLine" markers="markers" id="scMap" ng-style="mapStyle" ng-init="initMap()"></leaflet>
+            <leaflet bounds="bounds" center="center" paths="pathLine" markers="markers" id="scMap" ng-style="mapStyle"></leaflet> <!-- ng-init="initMap()" -->
         </div>
 
         <div ng-if="!mapView">

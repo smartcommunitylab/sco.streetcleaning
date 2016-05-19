@@ -11,10 +11,8 @@ angular.module('streetcleaning.controllers.home', [])
         var divHeight = 50;
         $scope.bounds = [];
         $scope.markers = [];
-        $scope.center = {};
-
-
-
+        $scope.pathLine = {};
+       
         if (ionic.Platform.isIOS() && !ionic.Platform.isFullScreen) {
             headerHeight += 20;
         }
@@ -32,6 +30,7 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         var successMarkers = function (response) {
+            $scope.markers = [];
             if (response && response.length > 0) {
                 var dateMarkers = response;
                 $scope.markers = dateMarkers;
@@ -70,7 +69,7 @@ angular.module('streetcleaning.controllers.home', [])
         var failureMarkers = function (error) {
             $scope.markers = [];
             Config.loaded();
-            HomeSrv.toast($filter('translate')('lbl_error'));
+            HomeSrv.toast($filter('translate')('lbl_error_internet'));
             $ionicPlatform.ready(function () {
                 var boundsArray = Config.getDefaultBound();
                 if (boundsArray.length > 0) {
@@ -84,7 +83,7 @@ angular.module('streetcleaning.controllers.home', [])
 
         // go to next date
         $scope.nextDate = function () {
-            markers = [];
+            $scope.markers = [];
             $scope.runningDate.setHours(0, 0, 0, 0);
             $scope.runningDate.setDate($scope.runningDate.getDate() + 1);
             HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
@@ -92,7 +91,7 @@ angular.module('streetcleaning.controllers.home', [])
         }
         // go to prev date
         $scope.prevDate = function () {
-            markers = [];
+            $scope.markers = [];
             $scope.runningDate.setHours(0, 0, 0, 0);
             $scope.runningDate.setDate($scope.runningDate.getDate() - 1);
             HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
@@ -144,6 +143,7 @@ angular.module('streetcleaning.controllers.home', [])
             });
             myPopup.then(function (marker) {
                 if (marker) {
+                    $scope.pathLine = {};
                     $scope.showMarkerDetails(marker, $scope.runningDate);
                 }
             })
@@ -154,9 +154,8 @@ angular.module('streetcleaning.controllers.home', [])
         angular.extend($scope, Config, {
 
             bounds: $scope.bounds,
-            center: $scope.center,
             markers: $scope.markers,
-
+            center: {},
             defaults: {
                 scrollWheelZoom: false
             },
@@ -165,7 +164,7 @@ angular.module('streetcleaning.controllers.home', [])
                     enable: ['click']
                 }
             },
-            pathLine: {}
+            pathLine: $scope.pathLine
         });
 
         $scope.mapViewShow = function () {
@@ -203,6 +202,13 @@ angular.module('streetcleaning.controllers.home', [])
             }
             )
         }
+
+        // after routine.
+        $scope.$on("$ionicView.afterLeave", function() {
+            // $scope.pathLine = {};
+            // $scope.markers = [];
+            // $scope.bounds = [];
+        });    
 
     })
 

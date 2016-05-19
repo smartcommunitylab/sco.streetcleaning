@@ -180,18 +180,8 @@ public class RepositoryManager {
 		}
 
 		for (Street s : mongoTemplate.find(query, Street.class)) {
-			if (!streetNames.contains(s.getName())) {
-				streetNames.add(s.getName());
-				StreetBean sb = new StreetBean();
-				sb.setId(s.getId());
-				sb.setCode(s.getCode());
-				sb.setName(s.getName());
-				sb.setDescription(s.getDescription());
-				PointBean pb = ModelConverter.convert(s.getCentralCoords(), PointBean.class);
-				sb.setCentralCoords(pb);
-				sb.setPolyline(s.getPolyline());
-				searchStreet.add(sb);
-			}
+			StreetBean sb = ModelConverter.convert(s, StreetBean.class);
+			searchStreet.add(sb);
 		}
 
 		return searchStreet;

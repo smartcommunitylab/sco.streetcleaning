@@ -256,6 +256,7 @@ angular.module('streetcleaning', [
             lbl_Nov: 'Novembre',
             lbl_Dec: 'Dicembre',
             lbl_error: 'oops errore',
+            lbl_error_internet: 'Connessione Internet assente. Riprovare più tardi."',
             lbl_version: 'Versione',
             lbl_terms_of_service: 'TERMINI DEL SERVIZIO',
             lbl_accept: 'Accept',
@@ -266,11 +267,11 @@ angular.module('streetcleaning', [
         });
 
         $translateProvider.translations('en', {
-            app_name: 'Trento Pulizia Strade',
+            app_name: 'Trento Street Cleaning',
             lbl_home: 'HOME',
             lbl_search: 'SEARCH',
             lbl_search_placeholder: 'Enter a street name.',
-            lbl_preference: 'PREFERENCE',
+            lbl_preference: 'BOOKMARKS',
             lbl_questionnaire: 'QUESTIONNAIRE',
             lbl_about: 'ABOUT',
             lbl_info: 'INFO',
@@ -299,6 +300,7 @@ angular.module('streetcleaning', [
             lbl_Nov: 'November',
             lbl_Dec: 'Dicember',
             lbl_error: 'oops error',
+            lbl_error_internet: 'Internet connection issue. Please try again later."',
             lbl_version: 'Version',
             lbl_terms_of_service: 'TERMS OF SERVICE',
             lbl_accept: 'Accept',

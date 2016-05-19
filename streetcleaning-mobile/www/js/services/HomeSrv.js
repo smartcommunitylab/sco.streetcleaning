@@ -18,12 +18,6 @@ angular.module('streetcleaning.services.home', [])
             var deferred = $q.defer();
             var formattedDate = homeServices.formatDate(date);
 
-            // var existingMarkers = StorageSrv.getMarkers(formattedDate);
-
-            // if (existingMarkers && existingMarkers.length > 0) {
-            //     deferred.resolve(existingMarkers);
-            // }
-            // else {
             var url = Config.getSCWebURL() + '/rest/day?daymillis=' + date.getTime();
 
             $http.get(url, {
@@ -58,17 +52,10 @@ angular.module('streetcleaning.services.home', [])
 
                 }
                 deferred.resolve(markers);
-                // StorageSrv.saveMarkers(markers, formattedDate).then(function(saved) {
-                //     deferred.resolve(saved);
-                // }, function(unsaved) {
-                //     deferred.resolve(null);
-                // }
-                // )
             }, function (error) {
-                deferred.resolve(null);
+                deferred.reject(error);
             });
-            // }
-
+            
             return deferred.promise;
         }
 
