@@ -170,9 +170,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 			List<CalendarDataBean> cleaningDays = Utils.readCalendarFile(path + calFileName, dataVersion, streets2);
 			for (CalendarDataBean cb : cleaningDays) {
 				try {
-					if (!mongoRepo.existCalendar(cb)) {
-						mongoRepo.saveCalendar(cb);
-					}
+					mongoRepo.saveCalendar(cb);
 				} catch (Exception e) {
 					logger.error(e.getMessage());
 				}
