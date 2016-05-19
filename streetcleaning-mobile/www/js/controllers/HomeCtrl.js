@@ -46,6 +46,7 @@ angular.module('streetcleaning.controllers.home', [])
                         var bounds = L.latLngBounds(boundsArray);
                         MapSrv.getMap('scMap').then(function (map) {
                             map.fitBounds(bounds);
+                            map.invalidateSize();
                         });
                     }
                 })
@@ -59,6 +60,7 @@ angular.module('streetcleaning.controllers.home', [])
                         var bounds = L.latLngBounds(boundsArray);
                         MapSrv.getMap('scMap').then(function (map) {
                             map.fitBounds(bounds);
+                            map.invalidateSize();
                         });
                     }
                 })
@@ -76,6 +78,7 @@ angular.module('streetcleaning.controllers.home', [])
                     var bounds = L.latLngBounds(boundsArray);
                     MapSrv.getMap('scMap').then(function (map) {
                         map.fitBounds(bounds);
+                        map.invalidateSize();
                     });
                 }
             })
@@ -105,7 +108,6 @@ angular.module('streetcleaning.controllers.home', [])
                 HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
             })
         }
-
 
         $scope.$on('$ionicView.beforeEnter', function () {
             $ionicPlatform.ready(function () {
