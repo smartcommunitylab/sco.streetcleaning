@@ -48,10 +48,10 @@
     border-color: #d4121b;
     color: #FFFFFF;
 }
-.streetcleaning-theme .menu .item h2 {
+.streetcleaning-theme .menu .item span {
     position: absolute;
-    top: 40%;
-    left: 20%;
+    /*top: 40%;*/
+    left: 50px;
     color: #FFFFFF;
 }
 
