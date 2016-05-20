@@ -207,22 +207,6 @@
    top: 10px;*/
 }
 
-.terms div {
-  padding: 5px;
-  text-align: justify;
-}
-
-.terms div.help_title {
-  font-weight: bold;
-  font-size: 14px;
-  text-align: center
-}
-
-.terms div.policy_text p.tool_tit {
-  /*font-weight: bold;*/
-  font-size: 14px;
-}
-
 .credits_title {
     text-align: center;
     color: #2975a7;
@@ -244,3 +228,60 @@
 .credits_version {
     text-align: center;
 }
+
+/** TERMS AND CONDITIONS. **/
+
+.terms div {
+  padding: 5px;
+  text-align: justify;
+}
+
+/*.terms div.help_title {
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center
+}*/
+
+/*.terms div.policy_text p.tool_tit {
+  font-size: 14px;
+}*/
+
+.terms div.help_title{ 
+    /*font-size: 20px;*/
+    font-weight: bold;
+    margin-bottom: 1em;
+    margin-left: 5%;
+    /*margin-top: 1em;*/
+    /*margin-top:60px;*/
+    text-align: center;
+    width: 90%;}    
+    
+.terms div.start_title{ font-size: 45px;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-top: 2em;
+    text-align: center;
+    width: 90%;}  
+    
+.terms div.start_subtitle{ font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1.8em;
+    margin-left: 5%;
+    margin-top: 2em;
+    text-align: center;
+    width: 90%;}   
+ 
+.terms div.tips{ line-height: 24px;
+    margin-bottom: 1em;
+    margin-left: 5%;
+    text-align: center;
+    width: 90%;}
+
+.terms div.tool_title{font-weight:bold; margin-bottom:10px;}
+.terms div.tool_desc{font-size: 13px; line-height: 18px;}
+.terms div.help_icon{ float:left;width:20%; text-align:center;}
+.terms div.help_text{ float:left; width:77%;}
+.terms div.policy_text.policy_text{float:left; width:98%; }
+.terms div.policy_text.policy_text p {margin-bottom:10px; text-align:justify;}
+.terms div.policy_text.policy_text ul li {font-size:11px; margin-bottom:5px;}
+

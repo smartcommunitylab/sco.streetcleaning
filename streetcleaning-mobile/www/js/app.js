@@ -23,11 +23,12 @@ angular.module('streetcleaning', [
     'streetcleaning.services.search',
     'streetcleaning.services.store',
     'streetcleaning.services.notification',
-    'streetcleaning.services.loggingtokensrv'
+    'streetcleaning.services.loggingtokensrv',
+    'streetcleaning.services.lang'
 
 ])
 
-    .run(function ($ionicPlatform, $state, $rootScope, $q, $translate, GeoLocate, Config, HomeSrv) {
+    .run(function ($ionicPlatform, $state, $rootScope, $q, $translate, GeoLocate, Config, HomeSrv, LangSrv) {
 
 
         $rootScope.questionnaireWindow = function () {
@@ -70,12 +71,13 @@ angular.module('streetcleaning', [
                                 processURL(url, deferred, questionnaireWindow);
                             });
                         }
-                    } else {
-                        angular.element($window).bind('message', function (event) {
-                            $rootScope.$apply(function () {
-                                processURL(event.data, deferred);
+                        else {
+                            angular.element($window).bind('message', function (event) {
+                                $rootScope.$apply(function () {
+                                    processURL(event.data, deferred);
+                                });
                             });
-                        });
+                        }
                     }
 
                     return deferred.promise;
@@ -104,33 +106,19 @@ angular.module('streetcleaning', [
                 StatusBar.styleDefault();
             }
 
-            if (typeof navigator.globalization !== "undefined") {
-                navigator.globalization.getPreferredLanguage(function (language) {
-                    var lang = language.value.split("-")[0];
-                    if (Config.getSupportedLanguages().indexOf(lang) > -1) {
-                        $translate.use((language.value).split("-")[0]).then(function (data) {
-                            console.log("SUCCESS -> " + data);
-                        }, function (error) {
-                            console.log("ERROR -> " + error);
-                        });
-                    } else {
-                        $translate.use("en").then(function (data) {
-                            console.log("SUCCESS -> " + data);
-                        }, function (error) {
-                            console.log("ERROR -> " + error);
-                        });
-                    }
 
-                }, null);
+            LangSrv.getLang().then(function (data) { $translate.use(data) }, function () { });
+
+            if (ionic.Platform.isWebView()) {
+                //log.
+                var customAttr = {
+                    "action": "start",
+                    "uuid": ionic.Platform.device().uuid
+                }
+
+                Config.log(customAttr);
             }
 
-            //log.
-            var customAttr = {
-                "action": "start",
-                "uuid": ionic.Platform.device().uuid
-            }
-
-            Config.log(customAttr);
 
         });
     })

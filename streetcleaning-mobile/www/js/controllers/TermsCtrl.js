@@ -1,10 +1,12 @@
 angular.module('streetcleaning.controllers.terms', [])
-    .controller('TermsCtrl', function ($scope, $ionicHistory, $state, $filter, $ionicPopup, $ionicSideMenuDelegate, $timeout, $translate, StorageSrv, Config) {
+    .controller('TermsCtrl', function ($scope, $ionicHistory, $ionicPlatform, $state, $filter, $ionicPopup, $ionicSideMenuDelegate, $timeout, $translate, StorageSrv, Config, LangSrv) {
 
         // before routine.
         $scope.$on('$ionicView.enter', function () {
-            $scope.termsfile = 'resources/terms-' + $translate.use() + '.html';
-            $scope.accepting = !StorageSrv.get("isPrivacyAccepted");
+            LangSrv.getLang().then(function (lang) {
+                $scope.termsfile = 'resources/terms-' + lang + '.html';
+                $scope.accepting = !StorageSrv.get("isPrivacyAccepted");
+            })
         });
 
         //go to the app's first page

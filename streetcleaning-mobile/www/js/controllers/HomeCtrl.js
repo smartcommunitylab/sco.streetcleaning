@@ -112,10 +112,12 @@ angular.module('streetcleaning.controllers.home', [])
         $scope.$on('$ionicView.beforeEnter', function () {
             $ionicPlatform.ready(function () {
                 Config.loading();
-                $scope.initMap();
-                HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
+                MapSrv.initMap('scMap').then(function (map) {
+                    HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
+                })
             });
         });
+        
 
         $scope.$on('leafletDirectiveMarker.scMap.click', function (e, args) {
             $scope.streetName = args.model.streetName;
@@ -171,7 +173,9 @@ angular.module('streetcleaning.controllers.home', [])
 
         $scope.mapViewShow = function () {
             $scope.mapView = true;
+            $scope.initMap();
         }
+        
 
         $scope.listViewShow = function () {
             $scope.mapView = false;
