@@ -3,12 +3,17 @@ angular.module('streetcleaning.controllers.terms', [])
 
         // before routine.
         $scope.$on('$ionicView.enter', function () {
+            Config.loading();
             LangSrv.getLang().then(function (lang) {
                 $scope.termsfile = 'resources/terms-' + lang + '.html';
                 $scope.accepting = !StorageSrv.get("isPrivacyAccepted");
-            })
+                Config.loaded();
+            }, function (error) {
+                Config.loaded();
+                HomeSrv.toast($filter('translate')('lbl_error'));
+                })
         });
-
+        
         //go to the app's first page
         $scope.goToProposalsList = function () {
             // Avoid back button in the next view.
