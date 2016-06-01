@@ -111,12 +111,7 @@ angular.module('streetcleaning', [
 
             if (ionic.Platform.isWebView()) {
                 //log.
-                var customAttr = {
-                    "action": "start",
-                    "uuid": ionic.Platform.device().uuid
-                }
-
-                Config.log(customAttr);
+                Config.log('AppStarted', null);
             }
 
 

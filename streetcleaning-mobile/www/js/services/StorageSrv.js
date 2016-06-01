@@ -5,8 +5,7 @@ angular.module('streetcleaning.services.store', [])
         var storageService = {};
 
         var customAttr = {
-            "action": "personal",
-            "subaction": ""
+            "action": "",
         }
 
 
@@ -47,17 +46,17 @@ angular.module('streetcleaning.services.store', [])
                 if (localStorage.getItem(streetName)) {
                     if (JSON.parse(localStorage[streetName])) {
                         localStorage[streetName] = false;
-                        customAttr.subaction = "remove";
+                        customAttr.action = "remove";
                     } else {
                         localStorage[streetName] = true;
-                        customAttr.subaction = "add";
+                        customAttr.action = "add";
                     }
                 } else {
                     localStorage[streetName] = true;
-                    customAttr.subaction = "add";
+                    customAttr.action = "add";
                 }
 
-                Config.log(customAttr);
+                Config.log('AppPersonalize', customAttr);
 
             }
 
