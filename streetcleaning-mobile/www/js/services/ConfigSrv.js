@@ -91,18 +91,6 @@ angular.module('streetcleaning.services.config', [])
             getDefaultBound: function () {
                 return defaultBound;
             },
-            // log: function (customAttrs) {
-            //     $http.post('https://dev.welive.eu/dev/api/log/' + appId, {
-            //         appId: appId,
-            //         type: 'AppCustom',
-            //         timestamp: new Date().getTime(),
-            //         custom_attr: customAttrs
-            //     }, { timeout: 5000, headers: { Authorization: 'Bearer ' + loggingToken } }).then(function () {
-            //     }, function (err) {
-            //         console.log('Logging error: ', err);
-            //         $ionicLoading.hide();
-            //     });
-            // },
             log: function (type, customAttrs) {
                 if (customAttrs == null) customAttrs = {};
                 customAttrs.uuid = ionic.Platform.device().uuid;
