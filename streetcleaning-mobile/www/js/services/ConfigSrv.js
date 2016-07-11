@@ -11,8 +11,7 @@ angular.module('streetcleaning.services.config', [])
         var mapJsonConfig = { 'lat': 46.074779, 'lon': 11.126543, 'zoom': 14 };
         var ttJsonConfig = null;
         var loggingToken = LoggingTokenSrv.getLoggingToken();
-        var appId = 'trento_streetcleaning';
-        var loggingAppId = 'streetcleaning';
+        var appId = 'streetcleaning';
         var defaultBound = [[46.074779, 11.121749], [46.068039, 11.116973], [46.066967, 11.128582], [46.074779, 11.121749]];
 
         var monthNameMap = {
@@ -95,9 +94,9 @@ angular.module('streetcleaning.services.config', [])
             log: function (type, customAttrs) {
                 if (customAttrs == null) customAttrs = {};
                 customAttrs.uuid = ionic.Platform.device().uuid;
-                customAttrs.appname = loggingAppId;
-                $http.post('https://dev.welive.eu/dev/api/log/' + loggingAppId, {
-                    appId: loggingAppId,
+                customAttrs.appname = appId;
+                $http.post('https://dev.welive.eu/dev/api/log/' + appId, {
+                    appId: appId,
                     type: type,
                     timestamp: new Date().getTime(),
                     custom_attr: customAttrs

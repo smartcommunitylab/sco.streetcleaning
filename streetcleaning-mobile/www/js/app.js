@@ -42,7 +42,7 @@ angular.module('streetcleaning', [
 
                     var processThat = false;
 
-                    var authUrl = 'https://in-app.welive.smartcommunitylab.it/html/index.html?app=' + Config.getAppId() + '&pilotId=Trento' + '&callback=' + Config.getRedirectUri() + '&lang=' + $translate.use().toUpperCase();
+                    var authUrl = 'https://in-app.cloudfoundry.welive.eu/html/index.html?app=' + Config.getAppId() + '&pilotId=Trento' + '&callback=' + Config.getRedirectUri() + '&lang=' + $translate.use().toUpperCase();
 
                     //Open the questionnaire page in the InAppBrowser
                     if (!questionnaireWindow) {
