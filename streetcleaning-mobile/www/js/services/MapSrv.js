@@ -30,29 +30,25 @@ angular.module('streetcleaning.services.map', [])
 
     //init map with tile server provider and show my position
     mapService.initMap = function (mapId) {
+        
         var deferred = $q.defer();
-
+        
         leafletData.getMap(mapId).then(function (map) {
-                cachedMap[mapId] = map;
-                L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/{type}/{z}/{x}/{y}.{ext}', {
-                    type: 'map',
-                    ext: 'jpg',
-                    attribution: '',
-                    subdomains: '1234',
-                    maxZoom: 18
-                }).addTo(map);
-                // $ionicPlatform.ready(function () {
-                //     GeoLocate.locate().then(function (e) {
-                //         L.marker(L.latLng(e[0], e[1])).addTo(map);
-                //     });
-                // });
-
-                deferred.resolve(map);
-            },
+            cachedMap[mapId] = map;
+            L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                type: 'map',
+                attribution: '',
+                maxZoom: 18,
+                minZoom: 8,
+            }).addTo(map);
+            
+            deferred.resolve(map);
+        },
             function (error) {
                 console.log('error creation');
                 deferred.reject(error);
             });
+        
         return deferred.promise;
     }
     mapService.centerOnMe = function (mapId, zoom) {

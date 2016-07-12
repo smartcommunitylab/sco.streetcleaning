@@ -111,8 +111,8 @@ angular.module('streetcleaning.controllers.home', [])
 
         $scope.$on('$ionicView.beforeEnter', function () {
             $ionicPlatform.ready(function () {
-                Config.loading();
                 MapSrv.initMap('scMap').then(function (map) {
+                    Config.loading();
                     HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
                 })
             });
