@@ -95,7 +95,7 @@ angular.module('streetcleaning.services.config', [])
             log: function (type, customAttrs) {
                 if (customAttrs == null) customAttrs = {};
                 customAttrs.uuid = ionic.Platform.device().uuid;
-                customAttrs.appname = appName;
+                customAttrs.appname = appId;
                 $http.post('https://dev.welive.eu/dev/api/log/' + appId, {
                     appId: appId,
                     type: type,
