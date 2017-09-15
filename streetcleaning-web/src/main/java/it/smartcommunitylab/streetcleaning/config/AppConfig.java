@@ -130,7 +130,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@PostConstruct
-	public boolean LoadInithialsFiles() {
+	public boolean LoadInithialFiles() {
 		boolean loadedOk = true;
 		try {
 			RepositoryManager mongoRepo = getRepositoryManager();
@@ -149,25 +149,14 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 
 			URL resource = getClass().getResource("/");
 			String path = resource.getPath();
-			Version dataVersion = Utils.readCalendarFileVersion(path + calFileName);
-			Version actualVersion = null;
-			try {
-				actualVersion = mongoRepo.getDataVersion(dataVersion.getVersion());
-				if ((actualVersion == null) || (actualVersion.getVersion().compareTo(dataVersion.getVersion()) != 0)) {
-					mongoRepo.saveDataVersion(dataVersion);
-				}
-			} catch (Exception ex) {
-				logger.error(ex.getMessage());
-			}
 			List<StreetBean> streets2 = null;
 			try {
 				streets2 = mongoRepo.getAllStreet();
 			} catch (Exception e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 
-			List<CalendarDataBean> cleaningDays = Utils.readCalendarFile(path + calFileName, dataVersion, streets2);
+			List<CalendarDataBean> cleaningDays = Utils.readCalendarFile(calFileName, streets2);
 			for (CalendarDataBean cb : cleaningDays) {
 				try {
 					mongoRepo.saveCalendar(cb);

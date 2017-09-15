@@ -1,18 +1,15 @@
 package it.smartcommunitylab.streetcleaning.common;
 
-import it.smartcommunitylab.streetcleaning.bean.CalendarDataBean;
-import it.smartcommunitylab.streetcleaning.bean.PointBean;
-import it.smartcommunitylab.streetcleaning.bean.StreetBean;
-import it.smartcommunitylab.streetcleaning.model.Version;
-
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.Reader;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -38,6 +35,10 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import it.smartcommunitylab.streetcleaning.bean.CalendarDataBean;
+import it.smartcommunitylab.streetcleaning.bean.PointBean;
+import it.smartcommunitylab.streetcleaning.bean.StreetBean;
+
 public class Utils {
 	
 	private static final long MILLIS_IN_DAY = 1000 * 60 * 60 * 24L;
@@ -45,6 +46,9 @@ public class Utils {
 	private static final Logger logger = Logger
 			.getLogger(Utils.class);
 	
+	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yy"); 
+	private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm:ss"); 
+
 	private static ObjectMapper fullMapper = new ObjectMapper();
 	static {
 		Utils.fullMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
@@ -129,102 +133,117 @@ public class Utils {
 		
 		for (int temp = 0; temp < streetList.getLength(); temp++) {
 			Element e = ((Element)streetList.item(temp));
-			String streetName = e.getElementsByTagName("name").item(0).getTextContent();
-			String streetDesc = e.getElementsByTagName("description").item(0).getTextContent();
-			String code = ((Element)((Element)e.getElementsByTagName("ExtendedData").item(0)).getElementsByTagName("SchemaData").item(0)).getElementsByTagName("SimpleData").item(0).getTextContent();
-			String coordinates = ((Element)e.getElementsByTagName("LineString").item(0)).getElementsByTagName("coordinates").item(0).getTextContent();
-			String poly = "";
-			PointBean centralCoords = null;
-			if(coordinates != null && coordinates.length() > 0){
-				List<PointBean> points = new ArrayList<PointBean>();
-				String[] coords = coordinates.split(" ");
-				for(int i = 0; i < coords.length; i++){
-					String[] coord = coords[i].split(",");
-					String lat = coord[1];
-					String lng = coord[0];
-					if(i >= coords.length/2 && centralCoords == null){
-						double lat_val = Double.parseDouble(lat);
-						double lng_val = Double.parseDouble(lng);
-						centralCoords = new PointBean(lat_val, lng_val);
-					}
-					PointBean pb = new PointBean();
-					pb.setLat(Double.parseDouble(lat));
-					pb.setLng(Double.parseDouble(lng));
-					points.add(pb);
+			
+			NodeList fields = ((Element)((Element)e.getElementsByTagName("ExtendedData").item(0)).getElementsByTagName("SchemaData").item(0)).getElementsByTagName("SimpleData");
+			StreetBean sb = new StreetBean();
+			String code = "";
+			for (int j = 0; j < fields.getLength(); j++) {
+				Element field = ((Element)fields.item(j));
+				String value = field.getTextContent().trim();
+				if ("desvia".equals(field.getAttribute("name"))) {
+					sb.setName(value);
+					sb.setDescription(value);
 				}
-				poly = PolylineEncoder.encode(points);
+				if ("codice".equals(field.getAttribute("name"))) {
+					code = code.length() > 0 ? value + code : value;
+				}
+				if ("pulizia_CO".equals(field.getAttribute("name"))) {
+					code += "_"+value;
+				}
 			}
-			logger.debug(String.format("Street name %s, description %s, code %s, polyline %s", streetName, streetDesc, code, poly));
-			if(streetName != null && streetName.compareTo("") != 0){
-				StreetBean s = new StreetBean(code, streetName, streetDesc, centralCoords, poly);
-				streets.add(s);
+			sb.setCode(code);
+			sb.setCentralCoords(new ArrayList<PointBean>());
+			sb.setPolyline(new ArrayList<String>());
+			NodeList lines = ((Element)e.getElementsByTagName("MultiGeometry").item(0)).getElementsByTagName("LineString");
+			for (int j = 0; j < lines.getLength(); j++) {
+				Element line = (Element)lines.item(j);
+				String coordinates = line.getElementsByTagName("coordinates").item(0).getTextContent();
+				String poly = "";
+				PointBean centralCoords = null;
+				if(coordinates != null && coordinates.length() > 0){
+					List<PointBean> points = new ArrayList<PointBean>();
+					String[] coords = coordinates.split(" ");
+					for(int i = 0; i < coords.length; i++){
+						String[] coord = coords[i].split(",");
+						String lat = coord[1];
+						String lng = coord[0];
+						if(i >= coords.length/2 && centralCoords == null){
+							double lat_val = Double.parseDouble(lat);
+							double lng_val = Double.parseDouble(lng);
+							centralCoords = new PointBean(lat_val, lng_val);
+						}
+						PointBean pb = new PointBean();
+						pb.setLat(Double.parseDouble(lat));
+						pb.setLng(Double.parseDouble(lng));
+						points.add(pb);
+					}
+					poly = PolylineEncoder.encode(points);
+				}
+				sb.getCentralCoords().add(centralCoords);
+				sb.getPolyline().add(poly);
 			}
+			
+			
+			logger.debug(String.format("Street name %s, description %s, code %s, polyline %s", sb.getName(), sb.getDescription(), code, sb.getPolyline()));
+			streets.add(sb);
 		}
 		
 		return streets;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public static List<CalendarDataBean> readCalendarFile(String src, Version dataVersion, List<StreetBean> streets) {
+	public static List<CalendarDataBean> readCalendarFile(String src, List<StreetBean> streets) throws Exception {
 		List<CalendarDataBean> cal_days = new ArrayList<CalendarDataBean>();
 		BufferedReader br = null;
 		String line = "";
 		String cvsSplitBy = ",";
 		
 		try {
-			br = new BufferedReader(new FileReader(src));
+			br = new BufferedReader(new InputStreamReader(Thread.currentThread().getContextClassLoader().getResourceAsStream(src)));
 			line = br.readLine();	// here I read the first line that contains information of version
-			String[] versionsData = line.split(cvsSplitBy);
-			String version = versionsData[1];
-			if(version.compareTo(dataVersion.getVersion()) != 0){	// new data version
-				CalendarDataBean tmp_cal = null;
-				while ((line = br.readLine()) != null) {
-				    // use comma as separator
-					String[] calendarCleaning = line.split(cvsSplitBy);
-					String street = calendarCleaning[0];
-					String date = calendarCleaning[1];
-					Long dateVal = dateFromItaString(date);
-					String startingTime = "";
-					String endingTime = "";
-					String note = "";
-					long startingTimeMillis = 0L;
-					long endingTimeMillis = 0L;
-					if(calendarCleaning.length == 5){
-						startingTime = calendarCleaning[2];
-						endingTime = calendarCleaning[3];
-						note = calendarCleaning[4];
-					} else if(calendarCleaning.length == 4){
-						startingTime = calendarCleaning[2];
-						endingTime = calendarCleaning[3];
-					} else if(calendarCleaning.length == 3){
-						note = calendarCleaning[2];
-					}
-					if(startingTime != null && startingTime.compareTo("")!=0){
-						startingTimeMillis = millisFromItaValueAndDate(dateVal, startingTime);
-					}
-					if(endingTime != null && endingTime.compareTo("")!=0){
-						endingTimeMillis = millisFromItaValueAndDate(dateVal, endingTime);
-					}
-					if(startingTimeMillis > endingTimeMillis){	// Here I update the ending time adding a day
-						endingTimeMillis = millisFromItaValueAndDate(dateVal + MILLIS_IN_DAY, endingTime);
-					}
-					// Here I have to find a street and get all polylines;
-					String streetCode = getCodeFromStreetName(street, streets);
-					List<String> polyline = null;
-					List<PointBean> centralCoords = null;
-					if(streetCode.compareTo("") != 0){
-						polyline = (List<String>)getStreetPolylinesFromCode(streetCode, streets).get(0);
-						centralCoords = (List<PointBean>)getStreetPolylinesFromCode(streetCode, streets).get(1);
-					}
-					tmp_cal = new CalendarDataBean(street, streetCode, dateVal, startingTimeMillis, endingTimeMillis, note, centralCoords, polyline);
-					cal_days.add(tmp_cal);
-					logger.debug(String.format("Calendar cleaning value: %s", tmp_cal.toString()));
+			CalendarDataBean tmp_cal = null;
+			while ((line = br.readLine()) != null) {
+			    // use comma as separator
+				String[] calendarCleaning = line.split(cvsSplitBy);
+				String date = calendarCleaning[0];
+				Long dateVal = dateFromItaString(date);
+				String codice = calendarCleaning[1];
+				String codiceTratto = calendarCleaning[2];
+				String street = calendarCleaning[3];
+				String startingTime = calendarCleaning[4];
+				String endingTime = calendarCleaning[5];
+				String note = null;
+				if (calendarCleaning.length > 6) {
+					note = calendarCleaning[6];
 				}
-			}	
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+				long startingTimeMillis = 0L;
+				long endingTimeMillis = 0L;
+				if(startingTime != null && startingTime.compareTo("")!=0){
+					startingTimeMillis = millisFromItaValueAndDate(dateVal, startingTime);
+				}
+				if(endingTime != null && endingTime.compareTo("")!=0){
+					endingTimeMillis = millisFromItaValueAndDate(dateVal, endingTime);
+				}
+				if(startingTimeMillis > endingTimeMillis){	// Here I update the ending time adding a day
+					endingTimeMillis = millisFromItaValueAndDate(dateVal + MILLIS_IN_DAY, endingTime);
+				}
+				// Here I have to find a street and get all polylines;
+				String code = codice + "_"+ codiceTratto;
+				StreetBean reference = null; 
+				for (StreetBean sb : streets) {
+					if (sb.getCode().equals(code)) {
+						reference = sb;
+						break;
+					} 
+				}
+				if (reference == null) {
+					System.err.println(codice+" / "+ codiceTratto);;//throw new IllegalArgumentException("Unknown street: "+ code);
+					continue;
+				}
+				
+				tmp_cal = new CalendarDataBean(street, code, dateVal, startingTimeMillis, endingTimeMillis, note, reference.getCentralCoords(), reference.getPolyline());
+				cal_days.add(tmp_cal);
+//				logger.debug(String.format("Calendar cleaning value: %s", tmp_cal.toString()));
+			}
 		} finally {
 			if (br != null) {
 				try {
@@ -237,119 +256,20 @@ public class Utils {
 		return cal_days;
 	}
 	
-	private static String getCodeFromStreetName(String name, List<StreetBean> streets){
-		for(StreetBean s:streets){
-			if(s.getName().compareTo(name.trim()) == 0){
-				return s.getCode();
-			} else {
-				if(name.contains("S. ")){	// case of S. - SAN
-					String corrName = s.getName();
-					if(s.getName().contains("SAN ")){
-						corrName = s.getName().replace("SAN ", "S. ");
-					} else if(corrName.contains("SANTA ")){
-						corrName = s.getName().replace("SANTA ", "S. ");
-					} else if(corrName.contains("SANTA TRINITA'")){			// specific case for santa trinita'
-						corrName = s.getName().replace("SANTA ", "SS. ");
-					}
-					String[] completeStreetName = name.split(" ");
-					String recomposeStreet = "";
-					for(int x = 1; x < completeStreetName.length; x++){
-						recomposeStreet += completeStreetName[x] + " ";
-					}
-					recomposeStreet = recomposeStreet.substring(0, recomposeStreet.length() - 1);
-					if(corrName.contains(recomposeStreet)){
-						return s.getCode();
-					}
-				} else {
-					String[] completeStreetName = name.split(" ");
-					String onlyStreet = completeStreetName[completeStreetName.length - 1];	// Here I consider only the street name
-					if(s.getName().contains(onlyStreet)){
-						return s.getCode();
-					}
-				}
-			}
-		}
-		logger.error(String.format("No street found for %s", name));
-		return "";
+	private static Long dateFromItaString(String itaVal) throws ParseException{
+		return DATE_FORMAT.parse(itaVal).getTime();
 	}
 	
-	@SuppressWarnings("rawtypes")
-	private static List<List> getStreetPolylinesFromCode(String code, List<StreetBean> streets){
-		List<String> polylines = new ArrayList<String>();
-		List<PointBean> centralCoords = new ArrayList<PointBean>();
-		for(StreetBean s:streets){
-			if(s.getCode().compareTo(code.trim()) == 0){
-				polylines.add(s.getPolyline());
-				centralCoords.add(s.getCentralCoords());
-			}
-		}
-		List<List> matrixData = new ArrayList<List>();
-		matrixData.add(polylines);
-		matrixData.add(centralCoords);
-		return matrixData;
-	}
-	
-	public static Version readCalendarFileVersion(String src) {
-		Version v = new Version();
-		BufferedReader br = null;
-		String line = "";
-		String cvsSplitBy = ",";
-		
-		try {
-			br = new BufferedReader(new FileReader(src));
-			line = br.readLine();	// here I read the first line that contains information of version
-			String[] versionsData = line.split(cvsSplitBy);
-			String version = versionsData[2];
-			String version_date = versionsData[1];
-			Long version_date_millis = dateFromItaString(version_date);
-			// insert version data in DB
-			v.setVersion(version);
-			v.setUpdate_time(version_date_millis);
-
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} finally {
-			if (br != null) {
-				try {
-					br.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return v;
-	}
-	
-	private static Long dateFromItaString(String itaVal){
-		Calendar cal = Calendar.getInstance(Locale.ITALY);
-		String[] dateComponents = itaVal.split("/");
-		int year = Integer.parseInt(dateComponents[2]);
-		int month = Integer.parseInt(dateComponents[1]);
-		int date = Integer.parseInt(dateComponents[0]);
-		cal.set(Calendar.YEAR, year);
-		cal.set(Calendar.MONTH, month-1);
-		cal.set(Calendar.DAY_OF_MONTH, date);
-		cal.set(Calendar.HOUR_OF_DAY, 0);
-		cal.set(Calendar.MINUTE, 0);
-		cal.set(Calendar.SECOND, 0);
-		cal.set(Calendar.MILLISECOND, 0);
-		return cal.getTimeInMillis();
-	}
-	
-	private static Long millisFromItaValueAndDate(Long date, String time){
+	private static Long millisFromItaValueAndDate(Long date, String time) throws ParseException{
+		Date parsed = TIME_FORMAT.parse(time);
 		Calendar cal = Calendar.getInstance(Locale.ITALY);
 		cal.setTimeInMillis(date);
-		Long tmpTime = 0L;
-		String[] hourComponents = time.split(":");
-		int hours = Integer.parseInt(hourComponents[0]);
-		int minutes = Integer.parseInt(hourComponents[1]);
-		cal.set(Calendar.HOUR_OF_DAY, hours);
-		cal.set(Calendar.MINUTE, minutes);
+		Calendar calTime = Calendar.getInstance(Locale.ITALY);
+		calTime.setTime(parsed);
+		cal.set(Calendar.HOUR_OF_DAY, calTime.get(Calendar.HOUR_OF_DAY));
+		cal.set(Calendar.MINUTE, calTime.get(Calendar.MINUTE));
 		cal.set(Calendar.SECOND, 0);
-		tmpTime = cal.getTimeInMillis();
-		return tmpTime;
+		return cal.getTimeInMillis();
 	}
 	
 	

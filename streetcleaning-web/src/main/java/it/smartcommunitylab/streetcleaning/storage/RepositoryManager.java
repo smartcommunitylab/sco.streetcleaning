@@ -2,7 +2,6 @@ package it.smartcommunitylab.streetcleaning.storage;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
@@ -12,11 +11,9 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 
 import it.smartcommunitylab.streetcleaning.bean.CalendarDataBean;
-import it.smartcommunitylab.streetcleaning.bean.PointBean;
 import it.smartcommunitylab.streetcleaning.bean.StreetBean;
 import it.smartcommunitylab.streetcleaning.common.ModelConverter;
 import it.smartcommunitylab.streetcleaning.model.CleaningCal;
-import it.smartcommunitylab.streetcleaning.model.Point;
 import it.smartcommunitylab.streetcleaning.model.Street;
 import it.smartcommunitylab.streetcleaning.model.Version;
 
@@ -33,10 +30,6 @@ public class RepositoryManager {
 
 	public String getDefaultLang() {
 		return defaultLang;
-	}
-
-	private String generateObjectId() {
-		return UUID.randomUUID().toString();
 	}
 
 	public StreetBean saveStreet(StreetBean s) throws Exception {
@@ -64,8 +57,7 @@ public class RepositoryManager {
 			sb.setCode(s.getCode());
 			sb.setName(s.getName());
 			sb.setDescription(s.getDescription());
-			PointBean pb = ModelConverter.convert(s.getCentralCoords(), PointBean.class);
-			sb.setCentralCoords(pb);
+			sb.setCentralCoords(s.getCentralCoords());
 			sb.setPolyline(s.getPolyline());
 			allStreetBean.add(sb);
 		}
@@ -104,13 +96,7 @@ public class RepositoryManager {
 			cdb.setStartingTime(cc.getStartingTime());
 			cdb.setEndingTime(cc.getEndingTime());
 			cdb.setNotes(cc.getNotes());
-			List<Point> allCoords = cc.getCentralCoords();
-			List<PointBean> convertedCoords = new ArrayList<PointBean>();
-			for (Point p : allCoords) {
-				PointBean pb = ModelConverter.convert(p, PointBean.class);
-				convertedCoords.add(pb);
-			}
-			cdb.setCentralCoords(convertedCoords);
+			cdb.setCentralCoords(cc.getCentralCoords());
 			cdb.setPolylines(cc.getPolylines());
 			calendarStreetList.add(cdb);
 		}
@@ -135,15 +121,7 @@ public class RepositoryManager {
 			cdb.setStartingTime(cc.getStartingTime());
 			cdb.setEndingTime(cc.getEndingTime());
 			cdb.setNotes(cc.getNotes());
-			List<Point> allCoords = cc.getCentralCoords();
-			List<PointBean> convertedCoords = new ArrayList<PointBean>();
-			if (allCoords != null) {
-				for (Point p : allCoords) {
-					PointBean pb = ModelConverter.convert(p, PointBean.class);
-					convertedCoords.add(pb);
-				}
-			}
-			cdb.setCentralCoords(convertedCoords);
+			cdb.setCentralCoords(cc.getCentralCoords());
 			cdb.setPolylines(cc.getPolylines());
 			calendarStreetList.add(cdb);
 		}

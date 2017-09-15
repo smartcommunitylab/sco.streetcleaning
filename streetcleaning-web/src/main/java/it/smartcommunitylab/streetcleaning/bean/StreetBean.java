@@ -1,6 +1,7 @@
 package it.smartcommunitylab.streetcleaning.bean;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class StreetBean implements Serializable {
 
@@ -9,8 +10,8 @@ public class StreetBean implements Serializable {
 	private String code;
 	private String name;
 	private String description;
-	private PointBean centralCoords;
-	private String polyline;
+	private List<PointBean> centralCoords;
+	private List<String> polyline;
 	
 	public String getCode() {
 		return code;
@@ -22,10 +23,6 @@ public class StreetBean implements Serializable {
 	
 	public String getDescription() {
 		return description;
-	}
-	
-	public String getPolyline() {
-		return polyline;
 	}
 	
 	public void setCode(String code) {
@@ -40,31 +37,35 @@ public class StreetBean implements Serializable {
 		this.description = description;
 	}
 	
-	public void setPolyline(String polyline) {
-		this.polyline = polyline;
-	}
-
 	public String getId() {
 		return id;
-	}
-
-	public PointBean getCentralCoords() {
-		return centralCoords;
 	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	public void setCentralCoords(PointBean centralCoords) {
+	public List<PointBean> getCentralCoords() {
+		return centralCoords;
+	}
+
+	public void setCentralCoords(List<PointBean> centralCoords) {
 		this.centralCoords = centralCoords;
+	}
+
+	public List<String> getPolyline() {
+		return polyline;
+	}
+
+	public void setPolyline(List<String> polyline) {
+		this.polyline = polyline;
 	}
 
 	public StreetBean() {
 		super();
 	}
 
-	public StreetBean(String code, String name, String description, PointBean centralCoords, String polyline) {
+	public StreetBean(String code, String name, String description, List<PointBean> centralCoords, List<String> polyline) {
 		super();
 		this.code = code;
 		this.name = name;

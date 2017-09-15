@@ -1,17 +1,13 @@
 package it.smartcommunitylab.streetcleaning.common;
 
-import org.apache.log4j.Logger;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import it.smartcommunitylab.streetcleaning.bean.PointBean;
 import it.smartcommunitylab.streetcleaning.bean.StreetBean;
-import it.smartcommunitylab.streetcleaning.model.Point;
 import it.smartcommunitylab.streetcleaning.model.Street;
 
 
 public class ModelConverter {
 
-	private static final Logger logger = Logger.getLogger(ModelConverter.class);
 	private static ObjectMapper mapper;
 
 	static {
@@ -30,8 +26,7 @@ public class ModelConverter {
 		s.setCode(street.getCode());
 		s.setName(street.getName());
 		s.setDescription(street.getDescription());
-		Point pb = ModelConverter.convert(s.getCentralCoords(), Point.class);
-		s.setCentralCoords(pb);
+		s.setCentralCoords(street.getCentralCoords());
 		s.setPolyline(street.getPolyline());
 		return s;
 	}

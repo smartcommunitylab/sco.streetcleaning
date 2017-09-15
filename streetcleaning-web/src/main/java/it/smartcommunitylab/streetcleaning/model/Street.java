@@ -1,6 +1,9 @@
 package it.smartcommunitylab.streetcleaning.model;
 
 import java.io.Serializable;
+import java.util.List;
+
+import it.smartcommunitylab.streetcleaning.bean.PointBean;
 
 public class Street implements Serializable {
 
@@ -10,8 +13,8 @@ public class Street implements Serializable {
 	private String code;
 	private String name;
 	private String description;
-	private Point centralCoords;
-	private String polyline;
+	private List<PointBean> centralCoords;
+	private List<String> polyline;
 	
 	public String getId() {
 		return id;
@@ -33,17 +36,6 @@ public class Street implements Serializable {
 		return description;
 	}
 	
-	public String getPolyline() {
-		return polyline;
-	}
-	
-	public Point getCentralCoords() {
-		return centralCoords;
-	}
-
-	public void setCentralCoords(Point centralCoords) {
-		this.centralCoords = centralCoords;
-	}
 
 	public void setCode(String code) {
 		this.code = code;
@@ -56,9 +48,21 @@ public class Street implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
-	public void setPolyline(String polyline) {
-		this.polyline = polyline;
+
+	public List<PointBean> getCentralCoords() {
+		return centralCoords;
 	}
 
+	public void setCentralCoords(List<PointBean> centralCoords) {
+		this.centralCoords = centralCoords;
+	}
+
+	public List<String> getPolyline() {
+		return polyline;
+	}
+
+	public void setPolyline(List<String> polyline) {
+		this.polyline = polyline;
+	}
+	
 }

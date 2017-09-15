@@ -3,6 +3,8 @@ package it.smartcommunitylab.streetcleaning.model;
 import java.io.Serializable;
 import java.util.List;
 
+import it.smartcommunitylab.streetcleaning.bean.PointBean;
+
 public class CleaningCal implements Serializable {
 
 	private static final long serialVersionUID = 4724447617770170907L;
@@ -13,7 +15,7 @@ public class CleaningCal implements Serializable {
 	private Long startingTime;
 	private Long endingTime;
 	private String notes;
-	private List<Point> centralCoords;
+	private List<PointBean> centralCoords;
 	private List<String> polylines;
 
 	public String getStreetName() {
@@ -36,11 +38,11 @@ public class CleaningCal implements Serializable {
 		return notes;
 	}
 
-	public List<Point> getCentralCoords() {
+	public List<PointBean> getCentralCoords() {
 		return centralCoords;
 	}
 
-	public void setCentralCoords(List<Point> centralCoords) {
+	public void setCentralCoords(List<PointBean> centralCoords) {
 		this.centralCoords = centralCoords;
 	}
 
