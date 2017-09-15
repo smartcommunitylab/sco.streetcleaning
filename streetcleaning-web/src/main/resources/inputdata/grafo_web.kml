@@ -2419,5 +2419,14 @@
 	</SchemaData></ExtendedData>
       <MultiGeometry><LineString><coordinates>11.1206022585038,46.066848315478 11.120202304083,46.0668107361983</coordinates></LineString><LineString><coordinates>11.1210370146062,46.0668897474912 11.1206022585038,46.066848315478</coordinates></LineString></MultiGeometry>
   </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#ultimo">
+		<SimpleData name="codice">2900</SimpleData>
+		<SimpleData name="pulizia_CO">1</SimpleData>
+		<SimpleData name="desvia">VIA R. DA SANSEVERINO</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.1137607746545,46.0650805012013 11.1139273257029,46.0654194371713 11.1139861491561,46.0655344471854</coordinates></LineString><LineString><coordinates>11.1139861491561,46.0655344471854 11.1141211373935,46.0657983705117 11.1142246825114,46.0659968522288</coordinates></LineString><LineString><coordinates>11.1142246825114,46.0659968522288 11.1153174154903,46.0660977935297 11.1152803404156,46.0656545728326 11.1139861491561,46.0655344471854</coordinates></LineString><LineString><coordinates>11.1139861491561,46.0655344471854 11.1139861491561,46.0655344471854</coordinates></LineString><LineString><coordinates>11.1147086207371,46.0669170555772 11.1147269220336,46.0669527186605 11.114964885093,46.0674073371473 11.1151091282313,46.0676561396413 11.1151505968474,46.0677837184519 11.1151207132194,46.0680676061275</coordinates></LineString><LineString><coordinates>11.1142246825114,46.0659968522288 11.1143443632213,46.0662262616845</coordinates></LineString><LineString><coordinates>11.1143443632213,46.0662262616845 11.1144793602625,46.0664802763825 11.1146318844755,46.0667699683403 11.1147086207371,46.0669170555772</coordinates></LineString></MultiGeometry>
+  </Placemark>
 </Folder>
 </Document></kml>
