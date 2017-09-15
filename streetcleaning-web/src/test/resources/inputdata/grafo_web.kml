@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <kml xmlns="http://www.opengis.net/kml/2.2">
 <Document id="root_doc">
-<Schema name="pulizia" id="pulizia">
+<Schema name="pulizia_strade_unite" id="pulizia_strade_unite">
 	<SimpleField name="codice" type="int"></SimpleField>
 	<SimpleField name="pulizia_CO" type="int"></SimpleField>
 	<SimpleField name="desvia" type="string"></SimpleField>
 </Schema>
-<Folder><name>pulizia</name>
+<Folder><name>pulizia_strade_unite</name>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3350</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">CORSO 3 NOVEMBRE</SimpleData>
@@ -18,7 +18,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">100</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">CORSO DEGLI ALPINI</SimpleData>
@@ -27,7 +27,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">480</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">CORSO M. BUONARROTI</SimpleData>
@@ -36,7 +36,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">70</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">GALLERIA ADRIA</SimpleData>
@@ -45,7 +45,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">975</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">L.GO DONATORI VOL. SANGUE</SimpleData>
@@ -54,7 +54,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2500</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LARGO E. PRATI</SimpleData>
@@ -63,7 +63,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">610</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LARGO G. CARDUCCI</SimpleData>
@@ -72,7 +72,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2445</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LARGO L. PIGARELLI</SimpleData>
@@ -81,7 +81,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1850</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LARGO MEDAGLIE D'ORO</SimpleData>
@@ -90,7 +90,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3050</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LARGO N. SAURO</SimpleData>
@@ -99,7 +99,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2470</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LARGO PORTA NUOVA</SimpleData>
@@ -108,7 +108,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5300</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LOC. RONCAFORT</SimpleData>
@@ -117,7 +117,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1520</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LUNGADIGE G. LEOPARDI</SimpleData>
@@ -126,7 +126,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">395</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LUNGADIGE L. BRAILLE</SimpleData>
@@ -135,7 +135,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1770</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LUNGADIGE MARCO APULEIO</SimpleData>
@@ -144,7 +144,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1950</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">LUNGADIGE MONTE GRAPPA</SimpleData>
@@ -153,7 +153,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">230</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA C. BATTISTI</SimpleData>
@@ -162,7 +162,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5500</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA DELLA LIBERTA'</SimpleData>
@@ -171,7 +171,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">700</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA DI CENTA</SimpleData>
@@ -180,7 +180,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1130</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA DI FIERA</SimpleData>
@@ -189,7 +189,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2390</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA DI PIEDICASTELLO</SimpleData>
@@ -198,7 +198,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1040</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA DUOMO</SimpleData>
@@ -207,7 +207,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1260</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA G.B. GARZETTI</SimpleData>
@@ -216,7 +216,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">570</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA GEN. A. CANTORE</SimpleData>
@@ -225,7 +225,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1500</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA LEONARDO DA VINCI</SimpleData>
@@ -234,7 +234,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1550</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA LODRON</SimpleData>
@@ -243,7 +243,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2270</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA M. PASI</SimpleData>
@@ -252,7 +252,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3030</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA RAFFAELLO SANZIO</SimpleData>
@@ -261,7 +261,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2990</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA S. MARIA MAGGIORE</SimpleData>
@@ -270,7 +270,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2320</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA S. PELLICO</SimpleData>
@@ -279,7 +279,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3400</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA VENEZIA</SimpleData>
@@ -288,7 +288,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3470</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZA VICENZA</SimpleData>
@@ -297,7 +297,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3511</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZALE C. RUSCONI</SimpleData>
@@ -306,7 +306,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">4030</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZALE DELLA ZUFFO</SimpleData>
@@ -315,7 +315,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3803</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZALE EUROPA</SimpleData>
@@ -324,7 +324,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5400</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PIAZZALE NEUFAHRN</SimpleData>
@@ -333,7 +333,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">4051</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">PONTE SAN LORENZO</SimpleData>
@@ -342,7 +342,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3420</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA 24 MAGGIO</SimpleData>
@@ -351,7 +351,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5290</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA 4 NOVEMBRE</SimpleData>
@@ -360,7 +360,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5440</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA 8 MARZO</SimpleData>
@@ -369,7 +369,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">170</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. APOLLONIO</SimpleData>
@@ -378,7 +378,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">290</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. BETTINI</SimpleData>
@@ -387,7 +387,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">900</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. DEGASPERI</SimpleData>
@@ -396,7 +396,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3780</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. DETASSIS</SimpleData>
@@ -405,7 +405,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">930</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. DIAZ</SimpleData>
@@ -414,7 +414,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1160</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. FOGAZZARO</SimpleData>
@@ -423,7 +423,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1180</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA A. FRANK</SimpleData>
@@ -432,7 +432,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1280</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. GAZZOLETTI</SimpleData>
@@ -441,7 +441,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1390</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. GRAMSCI</SimpleData>
@@ -450,7 +450,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1620</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. MAFFEI</SimpleData>
@@ -459,7 +459,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1730</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. MANZONI</SimpleData>
@@ -468,7 +468,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1760</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. MARIGHETTO</SimpleData>
@@ -477,7 +477,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2050</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. NICOLODI</SimpleData>
@@ -486,7 +486,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2490</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA A. POZZO</SimpleData>
@@ -495,7 +495,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2495</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. PRANZELORES</SimpleData>
@@ -504,7 +504,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2670</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. ROSMINI</SimpleData>
@@ -513,7 +513,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3190</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. STOPPANI</SimpleData>
@@ -522,7 +522,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3500</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. VIVALDI</SimpleData>
@@ -531,7 +531,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3525</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA A. VOLTA</SimpleData>
@@ -540,7 +540,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">40</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA ADAMELLO</SimpleData>
@@ -549,7 +549,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5010</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA AEROPORTO</SimpleData>
@@ -558,7 +558,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5010</SimpleData>
 		<SimpleData name="pulizia_CO">2</SimpleData>
 		<SimpleData name="desvia">VIA AEROPORTO</SimpleData>
@@ -567,7 +567,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">920</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA AL DESERT</SimpleData>
@@ -576,7 +576,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">110</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA ALTIPIANI</SimpleData>
@@ -585,7 +585,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">140</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA ANTONIO DA TRENTO</SimpleData>
@@ -594,7 +594,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">190</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA ASILO PEDROTTI</SimpleData>
@@ -603,7 +603,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5038</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA AVISIO</SimpleData>
@@ -612,7 +612,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">350</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA B. BOMPORTO</SimpleData>
@@ -621,7 +621,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1340</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA B. GIOVANELLI</SimpleData>
@@ -630,7 +630,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1630</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA B. MALFATTI</SimpleData>
@@ -639,7 +639,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">300</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA BEZZECCA</SimpleData>
@@ -648,7 +648,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">330</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA BOLGHERA</SimpleData>
@@ -657,7 +657,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">430</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA BRESCIA</SimpleData>
@@ -666,7 +666,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">450</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA BRIGATA ACQUI</SimpleData>
@@ -675,7 +675,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2450</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA C. A. PILATI</SimpleData>
@@ -684,7 +684,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">10</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA C. ABBA</SimpleData>
@@ -693,7 +693,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">500</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA C. BUSETTI</SimpleData>
@@ -702,7 +702,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">980</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA C. DORDI</SimpleData>
@@ -711,7 +711,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1080</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA C. ESTERLE</SimpleData>
@@ -720,7 +720,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1810</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA C. MARTINI</SimpleData>
@@ -729,7 +729,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1870</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA C. MENGUZZATO</SimpleData>
@@ -738,7 +738,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1970</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA C. MORONE</SimpleData>
@@ -747,7 +747,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3370</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA C. VANNETTI</SimpleData>
@@ -756,7 +756,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">520</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA CAIO VALERIO MARIANO</SimpleData>
@@ -765,7 +765,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">530</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA CALEPINA</SimpleData>
@@ -774,7 +774,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">680</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA CAMILLO BENSO CAVOUR</SimpleData>
@@ -783,7 +783,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1600</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA CARD. C. MADRUZZO</SimpleData>
@@ -792,7 +792,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1600</SimpleData>
 		<SimpleData name="pulizia_CO">2</SimpleData>
 		<SimpleData name="desvia">VIA CARD. C. MADRUZZO</SimpleData>
@@ -801,7 +801,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3501</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA CENTOCHIAVI</SimpleData>
@@ -810,7 +810,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">860</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA CONI ZUGNA</SimpleData>
@@ -819,7 +819,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">760</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DAMIANO CHIESA</SimpleData>
@@ -828,7 +828,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1900</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DEI MILLE</SimpleData>
@@ -837,7 +837,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1920</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DEI MOLINI</SimpleData>
@@ -846,7 +846,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2020</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DEI MUREDEI</SimpleData>
@@ -855,7 +855,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2250</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DEI PARADISI</SimpleData>
@@ -864,7 +864,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3150</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DEI SOLTERI</SimpleData>
@@ -873,7 +873,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3430</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DEI VENTUNO</SimpleData>
@@ -882,7 +882,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">400</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA DEL BRENNERO</SimpleData>
@@ -891,7 +891,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2910</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DEL SIMONINO</SimpleData>
@@ -900,7 +900,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3210</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DEL SUFFRAGIO</SimpleData>
@@ -909,7 +909,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3340</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DEL TRAVAI</SimpleData>
@@ -918,7 +918,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5090</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA DELLA CANOVA</SimpleData>
@@ -927,7 +927,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1660</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DELLA MALVASIA</SimpleData>
@@ -936,7 +936,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1720</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DELLA MANTOVANA</SimpleData>
@@ -945,7 +945,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2530</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DELLA PREPOSITURA</SimpleData>
@@ -954,7 +954,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1310</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA DELLE GHIAIE</SimpleData>
@@ -963,7 +963,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2110</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DELLE ORFANE</SimpleData>
@@ -972,7 +972,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2130</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DELLE ORNE</SimpleData>
@@ -981,7 +981,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">440</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DI BRIAMASCO</SimpleData>
@@ -990,7 +990,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5595</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DI MELTA</SimpleData>
@@ -999,7 +999,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">970</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DOGANA</SimpleData>
@@ -1008,7 +1008,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3540</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DON G. B. ZANELLA</SimpleData>
@@ -1017,7 +1017,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1400</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DON GIUSEPPE GRAZIOLI</SimpleData>
@@ -1026,7 +1026,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3750</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DON LORENZO GUETTI</SimpleData>
@@ -1035,7 +1035,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5610</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DON LORENZO MILANI</SimpleData>
@@ -1044,7 +1044,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1010</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DOS TRENTO</SimpleData>
@@ -1053,7 +1053,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1020</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA DOSSO DOSSI</SimpleData>
@@ -1062,7 +1062,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1540</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA DRUSO</SimpleData>
@@ -1071,7 +1071,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">310</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA E. BEZZI</SimpleData>
@@ -1080,7 +1080,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">770</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA E. CHINI</SimpleData>
@@ -1089,7 +1089,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">845</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA E. CONCI</SimpleData>
@@ -1098,7 +1098,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1090</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA E. FERMI</SimpleData>
@@ -1107,25 +1107,34 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1570</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA E. MACCANI</SimpleData>
 	</SchemaData></ExtendedData>
       <MultiGeometry><LineString><coordinates>11.1172866108987,46.0799050219092 11.1172157280902,46.080050162556 11.1162619371795,46.0812080095373</coordinates></LineString><LineString><coordinates>11.1162619371795,46.0812080095373 11.1161414263788,46.0813542487408 11.115819056383,46.08173823768 11.1153653091776,46.0822821659021</coordinates></LineString><LineString><coordinates>11.1153653091776,46.0822821659021 11.115262661386,46.0824052122968</coordinates></LineString><LineString><coordinates>11.115262661386,46.0824052122968 11.1145862788073,46.0832191319766</coordinates></LineString><LineString><coordinates>11.1136808171841,46.0834171557292 11.1139126195633,46.0833246757987 11.1143842922942,46.0832298172395 11.1146512723365,46.0831409237114</coordinates></LineString><LineString><coordinates>11.1133020203325,46.0840075712529 11.1132847075313,46.0839640593641 11.1132755617238,46.0839210264401 11.1132734398844,46.0838959544709</coordinates></LineString><LineString><coordinates>11.1146831165919,46.0838068682452 11.1146877231004,46.0838427847283 11.1146883227911,46.0838787753739 11.114684915656,46.0839148401822 11.1146773724349,46.0839509815454 11.1146665978882,46.0839871827165 11.1146443185167,46.0840370974813 11.114625229106,46.0840689523275 11.1146030376035,46.0841008645852 11.1145707203674,46.0841419646832 11.1145417650061,46.0841695018968 11.1145089320212,46.0841971108684 11.1144719629002,46.0842247963791 11.1144117707748,46.0842574118797</coordinates></LineString><LineString><coordinates>11.1136508941174,46.0843164928625 11.113539503212,46.0842616707948 11.1134730910647,46.0842195172404 11.1134249483891,46.0841781957551 11.1133995334123,46.0841528346305 11.113371983816,46.0841223827372 11.113349141023,46.0840898636777 11.1133286282461,46.0840573915189 11.1133020203325,46.0840075712529</coordinates></LineString><LineString><coordinates>11.1144117707748,46.0842574118797 11.1143688999149,46.0842762061427 11.1143226684369,46.0842950625809 11.1142778676594,46.084310742372 11.1142123945354,46.0843304048629 11.1141068630728,46.0843510785782 11.1140559763306,46.0843564303915 11.1140061909948,46.0843601417243 11.1139589288595,46.0843621862708 11.1138800188633,46.0843619362137 11.1138133646607,46.0843540789953 11.1137186137746,46.0843353109954 11.1136508941174,46.0843164928625</coordinates></LineString><LineString><coordinates>11.1134976101994,46.0835002888444 11.1135346940589,46.0834789918338 11.1135983460753,46.0834489229113 11.1136436723536,46.0834300835096 11.1136808171841,46.0834171557292</coordinates></LineString><LineString><coordinates>11.1136808171841,46.0834171557292 11.1137271457178,46.0834042380404 11.1137765054303,46.0833927943266 11.1138285601179,46.0833841808698 11.1138808402658,46.08337808334 11.1139263285072,46.0833736415279 11.1139826772848,46.0833690887502 11.114033448977,46.0833675192798 11.1140855372371,46.0833665554558 11.1141358159768,46.083365625092 11.1141882465856,46.0833702351571 11.1142388415499,46.0833775792982 11.1142858119824,46.0833882306486 11.1143363320229,46.0834037665307 11.1143822574789,46.0834209174943 11.1144067657328,46.0834327045239</coordinates></LineString><LineString><coordinates>11.1145862788073,46.0832191319766 11.1144067657328,46.0834327045239</coordinates></LineString><LineString><coordinates>11.1144067657328,46.0834327045239 11.1144275793315,46.0834425798288 11.1144664812751,46.0834688611786 11.1145022812189,46.0834951999255 11.1145348499073,46.0835215984647 11.1145666788786,46.083552330895 11.1145907149661,46.0835822175017 11.1146110990379,46.0836146918189 11.1146295354305,46.083650352334 11.1146483582847,46.083699506348 11.1146634341774,46.0837352290561 11.1146752787863,46.0837710115701 11.1146831165919,46.0838068682452</coordinates></LineString><LineString><coordinates>11.1132734398844,46.0838959544709 11.1132709165469,46.0838705299105 11.1132728589895,46.0838265718537 11.1132777390498,46.0837884097435 11.1132850955109,46.0837507418534 11.1132964257275,46.0837155205824 11.1133121127071,46.0836792286745 11.1133326245271,46.083647347736 11.1133553885794,46.0836168652029 11.1133887486351,46.0835793463312 11.1134219489745,46.0835511908579 11.1134560587933,46.0835265287212 11.1134976101994,46.0835002888444</coordinates></LineString></MultiGeometry>
   </Placemark>
-  <Placemark>
+ <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1570</SimpleData>
 		<SimpleData name="pulizia_CO">2</SimpleData>
+		<SimpleData name="desvia">VIA E. MACCANI</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.1172866108987,46.0799050219092 11.1172157280902,46.080050162556 11.1162619371795,46.0812080095373</coordinates></LineString><LineString><coordinates>11.1162619371795,46.0812080095373 11.1161414263788,46.0813542487408 11.115819056383,46.08173823768 11.1153653091776,46.0822821659021</coordinates></LineString><LineString><coordinates>11.1153653091776,46.0822821659021 11.115262661386,46.0824052122968</coordinates></LineString><LineString><coordinates>11.115262661386,46.0824052122968 11.1145862788073,46.0832191319766</coordinates></LineString><LineString><coordinates>11.1136808171841,46.0834171557292 11.1139126195633,46.0833246757987 11.1143842922942,46.0832298172395 11.1146512723365,46.0831409237114</coordinates></LineString><LineString><coordinates>11.1133020203325,46.0840075712529 11.1132847075313,46.0839640593641 11.1132755617238,46.0839210264401 11.1132734398844,46.0838959544709</coordinates></LineString><LineString><coordinates>11.1146831165919,46.0838068682452 11.1146877231004,46.0838427847283 11.1146883227911,46.0838787753739 11.114684915656,46.0839148401822 11.1146773724349,46.0839509815454 11.1146665978882,46.0839871827165 11.1146443185167,46.0840370974813 11.114625229106,46.0840689523275 11.1146030376035,46.0841008645852 11.1145707203674,46.0841419646832 11.1145417650061,46.0841695018968 11.1145089320212,46.0841971108684 11.1144719629002,46.0842247963791 11.1144117707748,46.0842574118797</coordinates></LineString><LineString><coordinates>11.1136508941174,46.0843164928625 11.113539503212,46.0842616707948 11.1134730910647,46.0842195172404 11.1134249483891,46.0841781957551 11.1133995334123,46.0841528346305 11.113371983816,46.0841223827372 11.113349141023,46.0840898636777 11.1133286282461,46.0840573915189 11.1133020203325,46.0840075712529</coordinates></LineString><LineString><coordinates>11.1144117707748,46.0842574118797 11.1143688999149,46.0842762061427 11.1143226684369,46.0842950625809 11.1142778676594,46.084310742372 11.1142123945354,46.0843304048629 11.1141068630728,46.0843510785782 11.1140559763306,46.0843564303915 11.1140061909948,46.0843601417243 11.1139589288595,46.0843621862708 11.1138800188633,46.0843619362137 11.1138133646607,46.0843540789953 11.1137186137746,46.0843353109954 11.1136508941174,46.0843164928625</coordinates></LineString><LineString><coordinates>11.1134976101994,46.0835002888444 11.1135346940589,46.0834789918338 11.1135983460753,46.0834489229113 11.1136436723536,46.0834300835096 11.1136808171841,46.0834171557292</coordinates></LineString><LineString><coordinates>11.1136808171841,46.0834171557292 11.1137271457178,46.0834042380404 11.1137765054303,46.0833927943266 11.1138285601179,46.0833841808698 11.1138808402658,46.08337808334 11.1139263285072,46.0833736415279 11.1139826772848,46.0833690887502 11.114033448977,46.0833675192798 11.1140855372371,46.0833665554558 11.1141358159768,46.083365625092 11.1141882465856,46.0833702351571 11.1142388415499,46.0833775792982 11.1142858119824,46.0833882306486 11.1143363320229,46.0834037665307 11.1143822574789,46.0834209174943 11.1144067657328,46.0834327045239</coordinates></LineString><LineString><coordinates>11.1145862788073,46.0832191319766 11.1144067657328,46.0834327045239</coordinates></LineString><LineString><coordinates>11.1144067657328,46.0834327045239 11.1144275793315,46.0834425798288 11.1144664812751,46.0834688611786 11.1145022812189,46.0834951999255 11.1145348499073,46.0835215984647 11.1145666788786,46.083552330895 11.1145907149661,46.0835822175017 11.1146110990379,46.0836146918189 11.1146295354305,46.083650352334 11.1146483582847,46.083699506348 11.1146634341774,46.0837352290561 11.1146752787863,46.0837710115701 11.1146831165919,46.0838068682452</coordinates></LineString><LineString><coordinates>11.1132734398844,46.0838959544709 11.1132709165469,46.0838705299105 11.1132728589895,46.0838265718537 11.1132777390498,46.0837884097435 11.1132850955109,46.0837507418534 11.1132964257275,46.0837155205824 11.1133121127071,46.0836792286745 11.1133326245271,46.083647347736 11.1133553885794,46.0836168652029 11.1133887486351,46.0835793463312 11.1134219489745,46.0835511908579 11.1134560587933,46.0835265287212 11.1134976101994,46.0835002888444</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
+		<SimpleData name="codice">1570</SimpleData>
+		<SimpleData name="pulizia_CO">3</SimpleData>
 		<SimpleData name="desvia">VIA E. MACCANI</SimpleData>
 	</SchemaData></ExtendedData>
       <MultiGeometry><LineString><coordinates>11.1136508941174,46.0843164928625 11.1134583658138,46.0845450653688 11.1132557524314,46.0847873247325 11.1131111813103,46.0849610069715 11.1128321200913,46.0852946838056</coordinates></LineString><LineString><coordinates>11.1128321200913,46.0852946838056 11.112140873918,46.0861175038294</coordinates></LineString><LineString><coordinates>11.1053612152313,46.0941795719598 11.1053331224955,46.0942130311642</coordinates></LineString><LineString><coordinates>11.1042051535341,46.0955523719823 11.1053099748377,46.0942404589626 11.1053331224955,46.0942130311642</coordinates></LineString><LineString><coordinates>11.1076345853214,46.0914839729256 11.1070637448994,46.0921605332491</coordinates></LineString><LineString><coordinates>11.1070637448994,46.0921605332491 11.1061437513623,46.0932485464647 11.1053612152313,46.0941795719598</coordinates></LineString><LineString><coordinates>11.1102427745419,46.0883748741622 11.1092570367825,46.0895504416413 11.1084775109603,46.0904763033435</coordinates></LineString><LineString><coordinates>11.112140873918,46.0861175038294 11.1103180953111,46.0882842887009 11.1102427745419,46.0883748741622</coordinates></LineString><LineString><coordinates>11.1102427745419,46.0883748741622 11.1105843717593,46.0885063608872 11.1109718022292,46.0886592308212 11.111202275473,46.0886819735414 11.1116537980933,46.0886940601625 11.1119599570643,46.0887001917453 11.1120182453352,46.0887191852208 11.1120535533719,46.0887427436778 11.1120843833777,46.0887811456095 11.1120951524918,46.0888260386781 11.1120926439391,46.0888687470853 11.1120780885138,46.0889076280002 11.1120195978975,46.0890256248223 11.1110382182178,46.0907146013725</coordinates></LineString><LineString><coordinates>11.1084775109603,46.0904763033435 11.1079756008604,46.0910771627436 11.1076345853214,46.0914839729256</coordinates></LineString><LineString><coordinates>11.1025040473061,46.097569990485 11.1027215636373,46.0973123558292</coordinates></LineString><LineString><coordinates>11.1017222845409,46.1009173166018 11.1017226107458,46.100840807114 11.1017058129745,46.1006746085171 11.1016896045135,46.1004183949652 11.1016522819597,46.0998313546455</coordinates></LineString><LineString><coordinates>11.1016452782694,46.1014681181304 11.1016203020322,46.10145777706 11.1016067037241,46.1014472266981 11.1015957385542,46.1014344678023</coordinates></LineString><LineString><coordinates>11.1017333678512,46.1012769491127 11.1017491765564,46.1012809785038 11.1017661495425,46.1012884066309 11.1017811974292,46.101299650341 11.1017931490992,46.1013111310145 11.1018011371019,46.1013238546549 11.101806478312,46.1013384270667 11.1018032516588,46.1013692678246</coordinates></LineString><LineString><coordinates>11.1017333678512,46.1012769491127 11.1017217241032,46.1010523330628 11.1017222845409,46.1009173166018</coordinates></LineString><LineString><coordinates>11.1015957385542,46.1014344678023 11.1015903675558,46.1014054952737 11.101591125923,46.1013846003742 11.1015933913775,46.1013625077001 11.1016043587101,46.1013310745454 11.1016203970999,46.1013071084555 11.1016353352382,46.1012950431425 11.1016540030113,46.1012857893538 11.1016744678459,46.101279562645 11.101696079855,46.1012762849656 11.1017333678512,46.1012769491127</coordinates></LineString><LineString><coordinates>11.1018032516588,46.1013692678246 11.1017825811459,46.1014041196424 11.1017657191661,46.1014268408477 11.1017416713837,46.1014511343011 11.1017184754708,46.1014638015508 11.1016968229897,46.1014694200852 11.1016701171318,46.1014714414029 11.1016452782694,46.1014681181304</coordinates></LineString><LineString><coordinates>11.1016299267309,46.0994474482677 11.1016223786418,46.0993067306573 11.1016288833035,46.0992089565333 11.101635839206,46.0991230546518 11.101645564562,46.0990181109552 11.1016718124195,46.0988985526735 11.1017259755294,46.0986999072728 11.1018236702486,46.0984790400532 11.101906650567,46.0983203662878 11.1020001141915,46.0981686099171 11.1022088471178,46.0979112278657 11.1024266403737,46.0976642091831 11.1025040473061,46.097569990485</coordinates></LineString><LineString><coordinates>11.1016522819597,46.0998313546455 11.1016438072438,46.0997037046866 11.1016299267309,46.0994474482677</coordinates></LineString><LineString><coordinates>11.1036456985124,46.0962107041643 11.1042051535341,46.0955523719823</coordinates></LineString><LineString><coordinates>11.1027215636373,46.0973123558292 11.1031445116045,46.0968094582498 11.1033300552742,46.0965855324682 11.1035096465379,46.0963752165901 11.1036456985124,46.0962107041643</coordinates></LineString></MultiGeometry>
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">120</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA F. AMBROSI</SimpleData>
@@ -1134,7 +1143,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">210</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA F. BARBACOVI</SimpleData>
@@ -1143,7 +1152,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1140</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA F. FILZI</SimpleData>
@@ -1152,7 +1161,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1410</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA F. GUARDI</SimpleData>
@@ -1161,7 +1170,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2360</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA F. PETRARCA</SimpleData>
@@ -1170,7 +1179,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">460</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA F.LLI BRONZETTI</SimpleData>
@@ -1179,7 +1188,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2330</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA F.LLI PERINI</SimpleData>
@@ -1188,7 +1197,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1170</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA FELICE E G. FONTANA</SimpleData>
@@ -1197,7 +1206,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1150</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA FIUME</SimpleData>
@@ -1206,7 +1215,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2520</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. A PRATO</SimpleData>
@@ -1215,7 +1224,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1460</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. B. LAMPI</SimpleData>
@@ -1224,7 +1233,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3506</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. B. TRENER</SimpleData>
@@ -1233,7 +1242,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">420</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. BRESADOLA</SimpleData>
@@ -1242,7 +1251,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">470</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. BUCCELLA</SimpleData>
@@ -1251,7 +1260,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">560</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA G. CANESTRINI</SimpleData>
@@ -1260,7 +1269,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5420</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. CAPRONI</SimpleData>
@@ -1269,7 +1278,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1560</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. E T. LORENZONI</SimpleData>
@@ -1278,7 +1287,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1200</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. GALILEI</SimpleData>
@@ -1287,7 +1296,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1230</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. GARIBALDI</SimpleData>
@@ -1296,7 +1305,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1300</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. GEROLA</SimpleData>
@@ -1305,7 +1314,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1335</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. GILLI</SimpleData>
@@ -1314,7 +1323,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1350</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. GIUSTI</SimpleData>
@@ -1323,7 +1332,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1700</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. MANCI</SimpleData>
@@ -1332,7 +1341,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1780</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. MARCONI</SimpleData>
@@ -1341,7 +1350,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3901</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. MATTEOTTI</SimpleData>
@@ -1350,7 +1359,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1840</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. MAZZINI</SimpleData>
@@ -1359,7 +1368,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2070</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. OBERZINER</SimpleData>
@@ -1368,7 +1377,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2090</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. ONESTINGHEL</SimpleData>
@@ -1377,7 +1386,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2210</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. P. DA PALESTRINA</SimpleData>
@@ -1386,7 +1395,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2260</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. PASCOLI</SimpleData>
@@ -1395,7 +1404,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2300</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. PECORI GIRALDI</SimpleData>
@@ -1404,7 +1413,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2310</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. PEDROTTI</SimpleData>
@@ -1413,7 +1422,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2550</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. RANZI</SimpleData>
@@ -1422,7 +1431,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3100</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G. SEGANTINI</SimpleData>
@@ -1431,7 +1440,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3440</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA G. VERDI</SimpleData>
@@ -1440,7 +1449,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3440</SimpleData>
 		<SimpleData name="pulizia_CO">2</SimpleData>
 		<SimpleData name="desvia">VIA G. VERDI</SimpleData>
@@ -1449,7 +1458,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3080</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G.A. SCOPOLI</SimpleData>
@@ -1458,7 +1467,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2650</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA G.D. ROMAGNOSI</SimpleData>
@@ -1467,7 +1476,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1210</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA GANDHI</SimpleData>
@@ -1476,7 +1485,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1860</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA GEN. GIACOMO MEDICI</SimpleData>
@@ -1485,7 +1494,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1370</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA GOCCIADORO</SimpleData>
@@ -1494,7 +1503,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1370</SimpleData>
 		<SimpleData name="pulizia_CO">2</SimpleData>
 		<SimpleData name="desvia">VIA GOCCIADORO</SimpleData>
@@ -1503,7 +1512,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1380</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA GORIZIA</SimpleData>
@@ -1512,7 +1521,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1380</SimpleData>
 		<SimpleData name="pulizia_CO">2</SimpleData>
 		<SimpleData name="desvia">VIA GORIZIA</SimpleData>
@@ -1521,7 +1530,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3770</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA H. JEDIN</SimpleData>
@@ -1530,7 +1539,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">30</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA J. ACONCIO</SimpleData>
@@ -1539,7 +1548,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">150</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA L. ANZOLETTI</SimpleData>
@@ -1548,7 +1557,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1050</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA L. EINAUDI</SimpleData>
@@ -1557,7 +1566,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">780</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA LA CLARINA</SimpleData>
@@ -1566,7 +1575,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1480</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA LAVISOTTO</SimpleData>
@@ -1575,7 +1584,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3610</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MAESTRI DEL LAVORO</SimpleData>
@@ -1584,7 +1593,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1640</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MALPAGA</SimpleData>
@@ -1593,7 +1602,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1650</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MALTA</SimpleData>
@@ -1602,7 +1611,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1710</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MANTOVA</SimpleData>
@@ -1611,7 +1620,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5520</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MARCO POLA</SimpleData>
@@ -1620,7 +1629,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1800</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MARSALA</SimpleData>
@@ -1629,7 +1638,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1890</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MILANO</SimpleData>
@@ -1638,7 +1647,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1060</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MONS. C. ENDRICI</SimpleData>
@@ -1647,7 +1656,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1930</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MONTE BALDO</SimpleData>
@@ -1656,7 +1665,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1930</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA MONTE BALDO</SimpleData>
@@ -1665,7 +1674,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1940</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MONTE CORNO</SimpleData>
@@ -1674,7 +1683,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1960</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA MONTELLO</SimpleData>
@@ -1683,7 +1692,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2040</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA NICOLO' D'ARCO</SimpleData>
@@ -1692,7 +1701,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">280</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA O. BENEVOLI</SimpleData>
@@ -1701,7 +1710,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">410</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA O. BRENTARI</SimpleData>
@@ -1710,7 +1719,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2660</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA O. ROVERETI</SimpleData>
@@ -1719,7 +1728,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2120</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA ORIOLA</SimpleData>
@@ -1728,7 +1737,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2170</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA ORTIGARA</SimpleData>
@@ -1737,7 +1746,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1830</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA P. A. MATTIOLI</SimpleData>
@@ -1746,7 +1755,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">360</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA P. BENEDETTO BONELLI</SimpleData>
@@ -1755,7 +1764,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2140</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA P. ORSI</SimpleData>
@@ -1764,7 +1773,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2180</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA P. OSS MAZZURANA</SimpleData>
@@ -1773,7 +1782,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2190</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA PADOVA</SimpleData>
@@ -1782,7 +1791,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">775</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA PADRE E. CHIOCCHETTI</SimpleData>
@@ -1791,7 +1800,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2200</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA PALERMO</SimpleData>
@@ -1800,7 +1809,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5260</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA PALUDI</SimpleData>
@@ -1809,7 +1818,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2230</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA PAPIRIA</SimpleData>
@@ -1818,7 +1827,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2280</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA PASUBIO</SimpleData>
@@ -1827,7 +1836,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2370</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA PIAVE</SimpleData>
@@ -1836,7 +1845,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">240</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA R. BELENZANI</SimpleData>
@@ -1845,7 +1854,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2900</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA R. DA SANSEVERINO</SimpleData>
@@ -1854,7 +1863,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1415</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA R. GUARDINI</SimpleData>
@@ -1863,7 +1872,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1555</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA R. LUNELLI</SimpleData>
@@ -1872,7 +1881,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3530</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA R. ZANDONAI</SimpleData>
@@ -1881,7 +1890,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2560</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA RAVENNA</SimpleData>
@@ -1890,7 +1899,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2570</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA REGINA PACIS</SimpleData>
@@ -1899,7 +1908,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2610</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA ROCCABRUNA</SimpleData>
@@ -1908,7 +1917,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2640</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA ROMA</SimpleData>
@@ -1917,7 +1926,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2750</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA S. FRANCESCO D'ASSISI</SimpleData>
@@ -1926,7 +1935,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">865</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA S.F.CROSINA-B.SARTORI</SimpleData>
@@ -1935,7 +1944,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2730</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SAN BERNARDINO</SimpleData>
@@ -1944,7 +1953,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2770</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SAN GIOVANNI</SimpleData>
@@ -1953,7 +1962,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2780</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SAN GIOVANNI BOSCO</SimpleData>
@@ -1962,7 +1971,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2800</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SAN MARCO</SimpleData>
@@ -1971,7 +1980,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2860</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SAN PIETRO</SimpleData>
@@ -1980,7 +1989,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2880</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SAN PIO X</SimpleData>
@@ -1989,7 +1998,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2920</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SAN VIGILIO</SimpleData>
@@ -1998,7 +2007,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5101</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SANT'ANNA</SimpleData>
@@ -2007,7 +2016,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2930</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SANT'ANTONIO</SimpleData>
@@ -2016,7 +2025,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2950</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SANTA CROCE</SimpleData>
@@ -2025,7 +2034,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2960</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SANTA MARGHERITA</SimpleData>
@@ -2034,7 +2043,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3000</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SANTA TRINITA'</SimpleData>
@@ -2043,7 +2052,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">5340</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA SOPRASASSO</SimpleData>
@@ -2052,7 +2061,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1220</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA T. GAR</SimpleData>
@@ -2061,7 +2070,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3220</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA T. TARAMELLI</SimpleData>
@@ -2070,7 +2079,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3270</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA TOFANE</SimpleData>
@@ -2079,7 +2088,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3280</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA TONALE</SimpleData>
@@ -2088,7 +2097,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3290</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA TORRE D'AUGUSTO</SimpleData>
@@ -2097,7 +2106,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3300</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA TORRE VANGA</SimpleData>
@@ -2106,7 +2115,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3310</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA TORRE VERDE</SimpleData>
@@ -2115,7 +2124,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">90</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA V. ALFIERI</SimpleData>
@@ -2124,7 +2133,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">90</SimpleData>
 		<SimpleData name="pulizia_CO">2</SimpleData>
 		<SimpleData name="desvia">VIA V. ALFIERI</SimpleData>
@@ -2133,7 +2142,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1420</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA V. INAMA</SimpleData>
@@ -2142,7 +2151,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3535</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA V. ZAMBRA</SimpleData>
@@ -2151,7 +2160,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3460</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA VERRUCA</SimpleData>
@@ -2160,7 +2169,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3480</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA VICENZA</SimpleData>
@@ -2169,7 +2178,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3680</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA VITTIME DELLE FOIBE</SimpleData>
@@ -2178,7 +2187,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3510</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIA VITTORIO VENETO</SimpleData>
@@ -2187,7 +2196,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3510</SimpleData>
 		<SimpleData name="pulizia_CO">2</SimpleData>
 		<SimpleData name="desvia">VIA VITTORIO VENETO</SimpleData>
@@ -2196,7 +2205,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3550</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIA ZARA</SimpleData>
@@ -2205,7 +2214,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2080</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIALE DEGLI OLMI</SimpleData>
@@ -2214,7 +2223,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3250</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIALE DEI TIGLI</SimpleData>
@@ -2223,7 +2232,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2600</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIALE DELLE ROBINIE</SimpleData>
@@ -2232,7 +2241,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">340</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIALE N. BOLOGNINI</SimpleData>
@@ -2241,7 +2250,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">340</SimpleData>
 		<SimpleData name="pulizia_CO">2</SimpleData>
 		<SimpleData name="desvia">VIALE N. BOLOGNINI</SimpleData>
@@ -2250,7 +2259,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2680</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIALE ROVERETO</SimpleData>
@@ -2259,7 +2268,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3360</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VIALE TRIESTE</SimpleData>
@@ -2268,7 +2277,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3450</SimpleData>
 		<SimpleData name="pulizia_CO">1</SimpleData>
 		<SimpleData name="desvia">VIALE VERONA</SimpleData>
@@ -2277,7 +2286,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3450</SimpleData>
 		<SimpleData name="pulizia_CO">2</SimpleData>
 		<SimpleData name="desvia">VIALE VERONA</SimpleData>
@@ -2286,7 +2295,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3450</SimpleData>
 		<SimpleData name="pulizia_CO">3</SimpleData>
 		<SimpleData name="desvia">VIALE VERONA</SimpleData>
@@ -2295,7 +2304,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2060</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VICOLO AL NUOTO</SimpleData>
@@ -2304,7 +2313,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1610</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VICOLO CARD. C. MADRUZZO</SimpleData>
@@ -2313,7 +2322,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">876</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VICOLO DEI DALL'ARMI</SimpleData>
@@ -2322,7 +2331,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">3520</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VICOLO DEL VO'</SimpleData>
@@ -2331,7 +2340,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">60</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VICOLO DELL'ADIGE</SimpleData>
@@ -2340,7 +2349,7 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">1190</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VICOLO GALASSO</SimpleData>
@@ -2349,12 +2358,66 @@
   </Placemark>
   <Placemark>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#pulizia">
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_unite">
 		<SimpleData name="codice">2830</SimpleData>
 		<SimpleData name="pulizia_CO">0</SimpleData>
 		<SimpleData name="desvia">VICOLO SAN MARTINO</SimpleData>
 	</SchemaData></ExtendedData>
       <MultiGeometry><LineString><coordinates>11.1254447599792,46.0733961663925 11.1255695661248,46.0734167056213 11.1257929394025,46.0734480113784 11.12582311151,46.0734490700518 11.1259735214768,46.073462832109 11.1261733039588,46.0735162671961 11.1260638726271,46.0736535804729</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_daunire">
+		<SimpleData name="codice">3410</SimpleData>
+		<SimpleData name="pulizia_CO">1</SimpleData>
+		<SimpleData name="desvia">PIAZZA VENEZIA</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.1266708850606,46.0674709395041 11.1267878116589,46.067677123581 11.1267975525642,46.0676917030039 11.1275277244484,46.0689426726958</coordinates></LineString><LineString><coordinates>11.1275796377874,46.0690317105455 11.1275936859954,46.0691246936901 11.1276944291818,46.0694479141237 11.1278470215693,46.0696162609433</coordinates></LineString><LineString><coordinates>11.1278470215693,46.0696162609433 11.127906035807,46.0698058815136 11.1279444934553,46.0699249613203</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_daunire">
+		<SimpleData name="codice">2490</SimpleData>
+		<SimpleData name="pulizia_CO">2</SimpleData>
+		<SimpleData name="desvia">VIA A. POZZO</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.1197597651807,46.0700944847963 11.1198620936751,46.0696566940404 11.1198913810834,46.0695503052391</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_daunire">
+		<SimpleData name="codice">400</SimpleData>
+		<SimpleData name="pulizia_CO">0</SimpleData>
+		<SimpleData name="desvia">VIA DEL BRENNERO</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.1189243505175,46.0857736370185 11.118808141987,46.0858600362564 11.1187398811155,46.0859183649022 11.1186774210843,46.0859795560788 11.1186226987922,46.086053654365 11.1185298069122,46.0862186447486 11.1181384137524,46.0868947237913 11.1176340064928,46.0877781960164 11.1172462378505,46.0884751756343 11.1171484172342,46.0886434063094</coordinates></LineString><LineString><coordinates>11.1159079577985,46.0906229892091 11.1163181150585,46.0899051687258 11.1167631289368,46.0891249579396 11.117531735145,46.0877760413623 11.1179848388247,46.086981634904 11.1184596735595,46.0861537920031 11.1184891991677,46.0860972618313 11.1185292898842,46.0860193847252 11.1185555066866,46.085950765303 11.1185669814384,46.0858754889035 11.1185627247508,46.0858014942599 11.1185415300593,46.0857378041783 11.1185167651805,46.0856484390497</coordinates></LineString><LineString><coordinates>11.1152024556592,46.0918210488329 11.115452067582,46.0914170784829 11.11567365256,46.0910312673893</coordinates></LineString><LineString><coordinates>11.1171484172342,46.0886434063094 11.1171285158902,46.0886777067135 11.1167817623055,46.0892738398349 11.1163380903497,46.0900519557194 11.1159578088917,46.0907189105702 11.1155021058894,46.0915212769569 11.1152518739559,46.0919394795607 11.1152461490786,46.0919487659842</coordinates></LineString><LineString><coordinates>11.1148530861856,46.0923734821224 11.1148919152898,46.0923232610379 11.1149506405401,46.0922283895486 11.1149712320809,46.0921951568205 11.1152024556592,46.0918210488329</coordinates></LineString><LineString><coordinates>11.1145034103294,46.0929586815003 11.1144740257537,46.0929209735243 11.1144551364402,46.0928837013361 11.114448872529,46.0928315247981 11.1144553984051,46.0927755113912</coordinates></LineString><LineString><coordinates>11.1151227851808,46.09285316243 11.1150775931846,46.0929332027803 11.1150181477037,46.0929991062919 11.1149790359436,46.0930250315017 11.1149380337764,46.0930455014328 11.114873376479,46.0930630790641 11.1148416831547,46.0930698760127</coordinates></LineString><LineString><coordinates>11.1146998915752,46.093059539914 11.1146578856859,46.093046996767 11.1146118158959,46.0930296685915 11.1145655810666,46.0930080232485 11.1145331909112,46.0929830615122 11.1145034103294,46.0929586815003</coordinates></LineString><LineString><coordinates>11.1148416831547,46.0930698760127 11.1147678973109,46.0930686316614 11.1146998915752,46.093059539914</coordinates></LineString><LineString><coordinates>11.1148051239871,46.0924182919835 11.1148939217509,46.0924197084502 11.1149847872936,46.0924278368886 11.1150549303022,46.0924488594656 11.115098451556,46.0924739750084 11.1151730981022,46.0925417163487</coordinates></LineString><LineString><coordinates>11.1152461490786,46.0919487659842 11.1152058404209,46.0920144053118 11.1151414854771,46.0921007407505 11.115104846924,46.0921574916796 11.1150753182489,46.0922141109761 11.1150645305125,46.0922702933251 11.1150652135775,46.0923253632803 11.1150761189017,46.092387264329 11.1151025931076,46.092436816588 11.1151478947455,46.0925051011909 11.1151730981022,46.0925417163487</coordinates></LineString><LineString><coordinates>11.1144553984051,46.0927755113912 11.1144861396002,46.0927201298801 11.1145246425882,46.0926613645564 11.1145431242744,46.0926338412238 11.1145530045282,46.0926114273149 11.1145731515704,46.0925800929769 11.1145998563283,46.0925375667421 11.114632368778,46.0925048334764 11.1146667872966,46.0924745850412 11.1147030720287,46.0924491622829 11.1148051239871,46.0924182919835</coordinates></LineString><LineString><coordinates>11.1151730981022,46.0925417163487 11.115209344496,46.0926032382405 11.1152182320442,46.0926394354155 11.1152161909885,46.0926638643529 11.1152025776229,46.0927070484082 11.1151805471715,46.0927567785907 11.1151227851808,46.09285316243</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_daunire">
+		<SimpleData name="codice">2360</SimpleData>
+		<SimpleData name="pulizia_CO">1</SimpleData>
+		<SimpleData name="desvia">VIA F. PETRARCA</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.1237225694313,46.0750967861629 11.1238720733284,46.0749149880463 11.1239430562996,46.0748202437833 11.1240200825664,46.074684165058 11.1240699871617,46.0745962029019 11.1241312439361,46.0744434964269 11.1241559996284,46.0743741827105</coordinates></LineString><LineString><coordinates>11.1237225694313,46.0750967861629 11.1237928137517,46.075114201338 11.1238504113748,46.075115470749 11.1238806855599,46.0751090576654 11.1239220397354,46.0750847077068 11.1240140531054,46.0749650912138 11.1241564698755,46.0747503028177 11.1242468077717,46.0745870650931 11.1243303182254,46.0743975829188</coordinates></LineString><LineString><coordinates>11.12443223144,46.0744112586912 11.1243184152665,46.0746871687444 11.1242066468138,46.0748648456822 11.1241003341497,46.0750094794233 11.1240043203001,46.0751090993542 11.1239321422568,46.0751659739723 11.1238353542533,46.0751847841079 11.123650415352,46.0751846217057</coordinates></LineString><LineString><coordinates>11.123650415352,46.0751846217057 11.1237225694313,46.0750967861629</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_daunire">
+		<SimpleData name="codice">560</SimpleData>
+		<SimpleData name="pulizia_CO">0</SimpleData>
+		<SimpleData name="desvia">VIA G. CANESTRINI</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.1163201629951,46.0679762704448 11.1171161648312,46.0680605276681</coordinates></LineString><LineString><coordinates>11.1151609511293,46.0681697364155 11.115218830916,46.0681887358517 11.1153293503254,46.0682012703583 11.1154046927873,46.0682068957101 11.1154549191306,46.0681948051475 11.1158215420376,46.0681040146242</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#pulizia_strade_daunire">
+		<SimpleData name="codice">3440</SimpleData>
+		<SimpleData name="pulizia_CO">0</SimpleData>
+		<SimpleData name="desvia">VIA G. VERDI</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.1206022585038,46.066848315478 11.120202304083,46.0668107361983</coordinates></LineString><LineString><coordinates>11.1210370146062,46.0668897474912 11.1206022585038,46.066848315478</coordinates></LineString></MultiGeometry>
   </Placemark>
 </Folder>
 </Document></kml>

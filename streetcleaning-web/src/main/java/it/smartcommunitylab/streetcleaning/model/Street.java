@@ -1,6 +1,7 @@
 package it.smartcommunitylab.streetcleaning.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import it.smartcommunitylab.streetcleaning.bean.PointBean;
@@ -13,8 +14,8 @@ public class Street implements Serializable {
 	private String code;
 	private String name;
 	private String description;
-	private List<PointBean> centralCoords;
-	private List<String> polyline;
+	private List<PointBean> centralCoords = new ArrayList<PointBean>();
+	private List<String> polyline = new ArrayList<String>();
 	
 	public String getId() {
 		return id;

@@ -47,7 +47,7 @@ public class Utils {
 			.getLogger(Utils.class);
 	
 	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yy"); 
-	private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm:ss"); 
+	private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm"); 
 
 	private static ObjectMapper fullMapper = new ObjectMapper();
 	static {
