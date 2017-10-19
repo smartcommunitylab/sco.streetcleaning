@@ -13,6 +13,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import it.smartcommunitylab.streetcleaning.bean.CalendarDataBean;
 import it.smartcommunitylab.streetcleaning.bean.StreetBean;
 import it.smartcommunitylab.streetcleaning.common.ModelConverter;
+import it.smartcommunitylab.streetcleaning.common.Utils;
 import it.smartcommunitylab.streetcleaning.model.CleaningCal;
 import it.smartcommunitylab.streetcleaning.model.Street;
 import it.smartcommunitylab.streetcleaning.model.Version;
@@ -76,6 +77,12 @@ public class RepositoryManager {
 
 	// First method: used to retrieve the street data from the period to check
 	public List<CalendarDataBean> getCleanedStreetsInDay(Long day, Long startingTime, Long endingTime) {
+		
+		// bad hack of setting time to midnight.
+		java.util.Date startTime = new java.util.Date(day);
+		startTime  = Utils.getStartOfDay(startTime);
+		day = startTime.getTime();
+		
 		List<CalendarDataBean> calendarStreetList = new ArrayList<CalendarDataBean>();
 		Query query = null;
 		if (startingTime != null && endingTime != null) {
