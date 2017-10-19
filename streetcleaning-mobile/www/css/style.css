@@ -285,3 +285,15 @@
 .terms div.policy_text.policy_text p {margin-bottom:10px; text-align:justify;}
 .terms div.policy_text.policy_text ul li {font-size:11px; margin-bottom:5px;}
 
+.disclaimer-popup .button-disclaimer {
+    font-size: 14px;
+}
+
+.disclaimer-popup .popup-title{
+        font-size: 22px;
+        font-weight: bold;
+        background-color:#d4121b;
+        color: #FFFFFF;
+        height: 40px;
+        padding: 7px;
+}

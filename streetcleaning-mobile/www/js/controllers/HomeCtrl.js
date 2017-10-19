@@ -1,5 +1,5 @@
 angular.module('streetcleaning.controllers.home', [])
-    .controller('HomeCtrl', function ($scope, $state, $ionicPopup, $ionicPlatform, $timeout, leafletBoundsHelpers, $filter, MapSrv, GeoLocate, Config, HomeSrv, NotifSrv) {
+    .controller('HomeCtrl', function ($scope, $state, $ionicPopup, $ionicPlatform, $timeout, leafletBoundsHelpers, $filter, MapSrv, GeoLocate, Config, HomeSrv, NotifSrv, LangSrv, StorageSrv) {
 
         $scope.mapView = true;
         $scope.listView = false;
@@ -12,7 +12,7 @@ angular.module('streetcleaning.controllers.home', [])
         $scope.bounds = [];
         $scope.markers = [];
         $scope.pathLine = {};
-       
+
         if (ionic.Platform.isIOS() && !ionic.Platform.isFullScreen) {
             headerHeight += 20;
         }
@@ -117,7 +117,7 @@ angular.module('streetcleaning.controllers.home', [])
                 })
             });
         });
-        
+
 
         $scope.$on('leafletDirectiveMarker.scMap.click', function (e, args) {
             $scope.streetName = args.model.streetName;
@@ -175,7 +175,7 @@ angular.module('streetcleaning.controllers.home', [])
             $scope.mapView = true;
             $scope.initMap();
         }
-        
+
 
         $scope.listViewShow = function () {
             $scope.mapView = false;
@@ -210,11 +210,44 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         // after routine.
-        $scope.$on("$ionicView.afterLeave", function() {
+        $scope.$on("$ionicView.afterLeave", function () {
             // $scope.pathLine = {};
             // $scope.markers = [];
             // $scope.bounds = [];
-        });    
+        });
+
+        // open once at the start of app.
+        $ionicPlatform.ready(function () {
+
+            if (!StorageSrv.get("isDisclaimerAccepted")) {
+                LangSrv.getLang().then(function (data) {
+                    $scope.disclaimer = $filter('translate')('msg_disclaimer');
+                    var myPopup = $ionicPopup.show({
+                        templateUrl: "templates/disclaimerPopup.html",
+                        scope: $scope,
+                        title: $filter('translate')('title_disclaimer'),
+                        cssClass: 'disclaimer-popup',
+                        buttons: [
+                            {
+                                text: $filter('translate')('lbl_cancel'),
+                                type: 'button-disclaimer button-small sc-popup-button-red'
+                                , onTap: function (e) {
+
+                                }
+                            }
+                            , {
+                                text: $filter('translate')('lbl_ok_diclaimer'),
+                                type: 'button-disclaimer button-small sc-popup-button-blue'
+                                , onTap: function (e) {
+                                    StorageSrv.set("isDisclaimerAccepted", true);
+                                }
+                            }
+                        ]
+                    })
+                });
+
+            }
+        })
 
     })
 

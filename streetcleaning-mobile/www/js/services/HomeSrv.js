@@ -22,7 +22,7 @@ angular.module('streetcleaning.services.home', [])
             var url = Config.getSCWebURL() + '/rest/day?daymillis=' + date.getTime();
 
             $http.get(url, {
-                timeout: 5000,
+                timeout: 15000,
                 headers: {
                     "Accept": "application/json"
                 }
@@ -197,7 +197,7 @@ angular.module('streetcleaning.services.home', [])
             var url = Config.getSCWebURL() + '/rest/street?streetName=' + streetName;
 
             $http.get(url, {
-                timeout: 5000,
+                timeout: 15000,
                 headers: {
                     "Accept": "application/json"
                 }

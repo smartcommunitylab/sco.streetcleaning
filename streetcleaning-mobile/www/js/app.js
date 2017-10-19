@@ -242,10 +242,14 @@ angular.module('streetcleaning', [
             lbl_error_internet: 'Connessione Internet assente. Riprovare più tardi."',
             lbl_version: 'Versione',
             lbl_terms_of_service: 'Termini di utilizzo',
-            lbl_accept: 'Accept',
-            lbl_reject: 'Reject',
+            lbl_accept: 'Accetto',
+            lbl_reject: 'Rifiuto',
             about_subtitle: 'Information and Terms of Use',
-            terms_refused_alert_text: 'Terms refused.',
+            terms_refused_alert_text: 'Termini rifiutati.',
+            title_disclaimer: 'AVVISO',
+            msg_disclaimer: 'Le informazioni contenute nella app Trento Pulizia Strade hanno un valore puramente informativo. Tali informazioni non dispensano i cittadini dal verificare e rispettare la segnaletica stradale posizionata contestualmente al periodo in cui viene effettuata la pulizia delle strade.',
+            lbl_ok_diclaimer: 'HO CAPITO',
+            lbl_cancel: 'CHIUDI'
 
         });
 
@@ -290,6 +294,10 @@ angular.module('streetcleaning', [
             lbl_reject: 'Reject',
             about_subtitle: 'Information and Terms of Use',
             terms_refused_alert_text: 'Terms refused.',
+            title_disclaimer: 'DISCLAIMER',
+            msg_disclaimer: 'The information contained in the Trento Street Cleaning app is of purely informative value. Such information does not dispense citizens from verifying and observing road signs placed at the same time as the road cleaning period is performed.',
+            lbl_ok_diclaimer: 'I GOT IT',
+            lbl_cancel: 'CANCEL'
 
         });
 

@@ -3,7 +3,7 @@ angular.module('streetcleaning.services.config', [])
     .factory('Config', function ($q, $http, $window, $filter, $translate, $rootScope, $ionicLoading, LoggingTokenSrv) {
 
         var HTTP_CONFIG = {
-            timeout: 5000
+            timeout: 15000
         };
 
         var lang = $translate.use();

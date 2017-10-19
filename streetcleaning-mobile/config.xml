@@ -1,10 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="10" id="it.smartcommunitylab.trentopuliziastrade" version="0.1.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="99" id="it.smartcommunitylab.trentopuliziastrade" version="0.1.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Trento Pulizia Strade</name>
-    <description>
-		An Ionic Framework and Cordova project.
+    <description>
+
+		An Ionic Framework and Cordova project.
+
 	</description>
-    <author email="info@smartcommunitylab.it" href="http://smartcommunitylab.it">SmartCommunity
+    <author email="info@smartcommunitylab.it" href="http://smartcommunitylab.it">SmartCommunity
+
 		Lab
 	</author>
     <content src="index.html" />
