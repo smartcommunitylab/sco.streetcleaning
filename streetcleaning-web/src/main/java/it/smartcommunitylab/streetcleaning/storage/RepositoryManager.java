@@ -79,9 +79,9 @@ public class RepositoryManager {
 	public List<CalendarDataBean> getCleanedStreetsInDay(Long day, Long startingTime, Long endingTime) {
 		
 		// bad hack of setting time to midnight.
-		java.util.Date startTime = new java.util.Date(day);
-		startTime  = Utils.getStartOfDay(startTime);
-		day = startTime.getTime();
+//		java.util.Date startTime = new java.util.Date(day);
+//		startTime  = Utils.getStartOfDay(startTime);
+//		day = startTime.getTime();
 		
 		List<CalendarDataBean> calendarStreetList = new ArrayList<CalendarDataBean>();
 		Query query = null;
