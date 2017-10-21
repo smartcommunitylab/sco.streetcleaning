@@ -286,8 +286,9 @@ public class Utils {
 		return cal.getTimeInMillis();
 	}
 
-	public static Date getStartOfDay(Date date) {
+	public static Date getStartOfDay(Long millis) {
 		Calendar calendar = Calendar.getInstance();
+		calendar.setTimeInMillis(millis);
 		int year = calendar.get(Calendar.YEAR);
 		int month = calendar.get(Calendar.MONTH);
 		int day = calendar.get(Calendar.DATE);
