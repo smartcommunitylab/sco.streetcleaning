@@ -158,7 +158,7 @@ public class Utils {
 				if ("strada".equals(field.getAttribute("name"))) {
 					code = code.length() > 0 ? value + code : value;
 				}
-				if ("spaazza".equals(field.getAttribute("name"))) {
+				if ("percorso".equals(field.getAttribute("name"))) {
 					code += "_" + value;
 				}
 			}
