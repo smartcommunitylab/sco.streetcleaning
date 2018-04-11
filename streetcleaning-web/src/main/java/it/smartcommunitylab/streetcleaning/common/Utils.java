@@ -165,8 +165,9 @@ public class Utils {
 			sb.setCode(code);
 			sb.setCentralCoords(new ArrayList<PointBean>());
 			sb.setPolyline(new ArrayList<String>());
-			NodeList lines = ((Element) e.getElementsByTagName("MultiGeometry").item(0))
-					.getElementsByTagName("LineString");
+//			NodeList lines = ((Element) e.getElementsByTagName("MultiGeometry").item(0))
+//					.getElementsByTagName("LineString");
+			NodeList lines = e.getElementsByTagName("LineString");
 			for (int j = 0; j < lines.getLength(); j++) {
 				Element line = (Element) lines.item(j);
 				String coordinates = line.getElementsByTagName("coordinates").item(0).getTextContent();
