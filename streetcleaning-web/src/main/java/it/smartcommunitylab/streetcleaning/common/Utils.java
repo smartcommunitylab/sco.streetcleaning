@@ -45,8 +45,8 @@ public class Utils {
 
 	private static final Logger logger = Logger.getLogger(Utils.class);
 
-	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yy");
-	private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh:mm");
+	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy");
+	private static final SimpleDateFormat TIME_FORMAT = new SimpleDateFormat("hh.mm");
 
 	private static ObjectMapper fullMapper = new ObjectMapper();
 	static {
@@ -208,7 +208,7 @@ public class Utils {
 		List<CalendarDataBean> cal_days = new ArrayList<CalendarDataBean>();
 		BufferedReader br = null;
 		String line = "";
-		String cvsSplitBy = ",";
+		String cvsSplitBy = ";";
 
 		try {
 			br = new BufferedReader(
@@ -219,17 +219,16 @@ public class Utils {
 			while ((line = br.readLine()) != null) {
 				// use comma as separator
 				String[] calendarCleaning = line.split(cvsSplitBy);
-				String date = calendarCleaning[0];
+				String date = calendarCleaning[6];
 				Long dateVal = dateFromItaString(date);
-				String codice = calendarCleaning[1];
+				String codice = calendarCleaning[0];
 				String codiceTratto = calendarCleaning[2];
-				String street = calendarCleaning[3];
-				String startingTime = calendarCleaning[4];
-				String endingTime = calendarCleaning[5];
+				String street = calendarCleaning[1];
+				String startingTime = calendarCleaning[9];
+				String endingTime = calendarCleaning[10];
 				String note = null;
-				if (calendarCleaning.length > 6) {
-					note = calendarCleaning[6];
-				}
+				note = calendarCleaning[5];
+
 				long startingTimeMillis = 0L;
 				long endingTimeMillis = 0L;
 				if (startingTime != null && startingTime.compareTo("") != 0) {
