@@ -131,7 +131,7 @@ public class RepositoryManager {
 		if (tmpCleaningStreet == null) return Collections.emptyList();
 		
 		day = tmpCleaningStreet.getCleaningDay();
-		query = Query.query(Criteria.where("cleaningDay").in(day, day + 24*60*60*1000));
+		query = Query.query(Criteria.where("cleaningDay").in(day, day + 23*60*60*1000));
 
 		List<CleaningCal> list = mongoTemplate.find(query, CleaningCal.class);
 		for (CleaningCal cc : list) {
