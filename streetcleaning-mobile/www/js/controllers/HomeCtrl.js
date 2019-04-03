@@ -23,7 +23,7 @@ angular.module('streetcleaning.controllers.home', [])
         var mapDefaults = new Object();
         var headerHeight = 43;
         var footerHeight = 44;
-        var divHeight = 42;
+        var divHeight = 65;
         $scope.bounds = [];
         $scope.markers = [];
         $scope.pathLine = {};
@@ -42,7 +42,7 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         window.onresize = function (event) {
-            $scope.mapWinSize = window.innerHeight - 43 - 42 - 44;
+            $scope.mapWinSize = window.innerHeight - 43 - 65 - 44;
         }
 
         $scope.selectDate = function() {

@@ -103,15 +103,11 @@ angular.module('streetcleaning', [
 
             if (window.StatusBar) {
                 // org.apache.cordova.statusbar required
-                StatusBar.styleDefault();
+                // StatusBar.styleDefault();
             }
 
 
             LangSrv.getLang().then(function (data) { $translate.use(data) }, function () { });
-
-            if (ionic.Platform.isWebView()) {
-                //log.
-            }
 
 
         });
@@ -301,7 +297,7 @@ angular.module('streetcleaning', [
             lbl_cancel: 'CANCEL',
             next_cleaning: 'Go to the next cleaning',
             lbl_cleaning: 'Cleaning',
-            lbl_stop: 'Deviation of parking'
+            lbl_stop: 'Parking ban'
 
         });
 

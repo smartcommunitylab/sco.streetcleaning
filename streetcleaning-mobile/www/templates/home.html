@@ -12,7 +12,8 @@
             </div> -->
             <div class="col tt-day">
                 <div ng-click="selectDate()">{{runningDate | date : 'dd/MM/yyyy'}}</div>
-                <span>&nbsp;</span><span ng-if="!markers || markers.length == 0"><small>{{'next_cleaning' | translate}} </small><a ng-click="futureDay()"><i class="icon ion-arrow-right-c"></i></a> </span>
+                <!-- <span>&nbsp;</span><span ng-if="!markers || markers.length == 0"><small>{{'next_cleaning' | translate}} </small><a ng-click="futureDay()"><i class="icon ion-arrow-right-c"></i></a> </span> -->
+                <span ng-click="futureDay()" ><small>{{'next_cleaning' | translate}} </small><a style="vertical-align: middle;"><i class="icon ion-arrow-right-c"></i></a> </span>
             </div>
             <!-- <div class="col col-25 tt-day btn" ng-click="nextDate()"><a><i class="icon ion-arrow-right-b"></i></a>
             </div> -->

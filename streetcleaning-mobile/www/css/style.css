@@ -351,8 +351,12 @@
 }
 .marker-card .marker-card-buttons .close {
     color: #fff;
+    background-color: #00adc2;
     text-align: left;
+    border: 0;
 }.marker-card .marker-card-buttons .details {
     color: #fff;
+    background-color: #00adc2;
+    border: 0;
     float: right;
 }

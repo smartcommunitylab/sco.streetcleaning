@@ -41,7 +41,7 @@ angular.module('streetcleaning.services.map', [])
                 maxZoom: 18,
                 minZoom: 8,
             }).addTo(map);
-            
+            L.control.locate().addTo(map);
             deferred.resolve(map);
         },
             function (error) {
