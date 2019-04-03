@@ -4,3 +4,6 @@
 node_modules/
 platforms/
 plugins/
+welive.keystore
+build.sh
+*.apk

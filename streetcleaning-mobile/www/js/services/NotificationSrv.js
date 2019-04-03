@@ -77,6 +77,7 @@ angular.module('streetcleaning.services.notification', [])
                         n.id = ++i;
                         n.title = "StreetCleaning";
                         n.text = item.streetName + " " + $filter('translate')('lbl_msg_notification');
+                        n.smallIcon = 'res://drawable-hdpi/notification.png';
                         n.icon = "img/icon.png";
                         n.data = { "streetName": item.streetName }
                         n.at = date;
