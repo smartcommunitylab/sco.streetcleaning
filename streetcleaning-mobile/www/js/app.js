@@ -23,8 +23,8 @@ angular.module('streetcleaning', [
     'streetcleaning.services.search',
     'streetcleaning.services.store',
     'streetcleaning.services.notification',
-    'streetcleaning.services.loggingtokensrv',
-    'streetcleaning.services.lang'
+    'streetcleaning.services.lang',
+    'ionic-datepicker'
 
 ])
 
@@ -111,7 +111,6 @@ angular.module('streetcleaning', [
 
             if (ionic.Platform.isWebView()) {
                 //log.
-                Config.log('AppStarted', null);
             }
 
 
@@ -215,7 +214,7 @@ angular.module('streetcleaning', [
             lbl_about: 'Credits',
             lbl_info: 'INFO',
             lbl_close: 'CHIUDI',
-            lbl_start: 'Dalle',
+            lbl_start: 'dalle',
             lbl_end: 'alle',
             lbl_details: 'VEDI DETTAGLI',
             lbl_calendar_title: 'Calendario delle pulizie',
@@ -249,8 +248,10 @@ angular.module('streetcleaning', [
             title_disclaimer: 'AVVISO',
             msg_disclaimer: 'Le informazioni contenute nella app Trento Pulizia Strade hanno un valore puramente informativo. Tali informazioni non dispensano i cittadini dal verificare e rispettare la segnaletica stradale posizionata contestualmente al periodo in cui viene effettuata la pulizia delle strade.',
             lbl_ok_diclaimer: 'HO CAPITO',
-            lbl_cancel: 'CHIUDI'
-
+            lbl_cancel: 'CHIUDI',
+            next_cleaning: 'Vai alla prossima pulizia',
+            lbl_cleaning: 'Pulizia',
+            lbl_stop: 'Divieto di sosta'
         });
 
         $translateProvider.translations('en', {
@@ -263,7 +264,7 @@ angular.module('streetcleaning', [
             lbl_about: 'Credits',
             lbl_info: 'INFO',
             lbl_close: 'CLOSE',
-            lbl_start: 'From',
+            lbl_start: 'from',
             lbl_end: 'to',
             lbl_details: 'VIEW DETAILS',
             lbl_calendar_title: 'Calendar cleaning closures',
@@ -297,7 +298,10 @@ angular.module('streetcleaning', [
             title_disclaimer: 'DISCLAIMER',
             msg_disclaimer: 'The information contained in the Trento Street Cleaning app is of purely informative value. Such information does not dispense citizens from verifying and observing road signs placed at the same time as the road cleaning period is performed.',
             lbl_ok_diclaimer: 'I GOT IT',
-            lbl_cancel: 'CANCEL'
+            lbl_cancel: 'CANCEL',
+            next_cleaning: 'Go to the next cleaning',
+            lbl_cleaning: 'Cleaning',
+            lbl_stop: 'Deviation of parking'
 
         });
 

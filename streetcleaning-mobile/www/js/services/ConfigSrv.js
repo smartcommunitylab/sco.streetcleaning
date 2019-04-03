@@ -1,16 +1,10 @@
 angular.module('streetcleaning.services.config', [])
 
-    .factory('Config', function ($q, $http, $window, $filter, $translate, $rootScope, $ionicLoading, LoggingTokenSrv) {
-
-        var HTTP_CONFIG = {
-            timeout: 15000
-        };
+    .factory('Config', function ($q, $http, $window, $filter, $translate, $rootScope, $ionicLoading) {
 
         var lang = $translate.use();
 
         var mapJsonConfig = { 'lat': 46.074779, 'lon': 11.126543, 'zoom': 14 };
-        var ttJsonConfig = null;
-        var loggingToken = LoggingTokenSrv.getLoggingToken();
         var appId = 'streetcleaning';
         var appName = 'Trento Street Cleaning';
         var defaultBound = [[46.074779, 11.121749], [46.068039, 11.116973], [46.066967, 11.128582], [46.074779, 11.121749]];

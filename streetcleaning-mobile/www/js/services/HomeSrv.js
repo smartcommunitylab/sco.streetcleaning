@@ -14,12 +14,17 @@ angular.module('streetcleaning.services.home', [])
 
         }
 
-
-        homeServices.getMarkers = function (date) {
+        var findMarkers = function (date, searchNext) {
             var deferred = $q.defer();
             var formattedDate = homeServices.formatDate(date);
-
-            var url = Config.getSCWebURL() + '/rest/day?daymillis=' + date.getTime();
+            var url = Config.getSCWebURL();
+            if (searchNext) {
+                var nextDay = new Date(date);
+                nextDay.setDate(nextDay.getDate() + 1);
+                url +=  '/rest/next?daymillis=' + nextDay.getTime();
+            } else {
+                url += '/rest/day?daymillis=' + date.getTime();
+            }
 
             $http.get(url, {
                 timeout: 15000,
@@ -41,11 +46,16 @@ angular.module('streetcleaning.services.home', [])
                         cleaningDay: dateMarkers[i].cleaningDay,
                         startingTime: dateMarkers[i].startingTime,
                         endingTime: dateMarkers[i].endingTime,
+                        stopStartingTime: dateMarkers[i].stopStartingTime,
+                        stopEndingTime: dateMarkers[i].stopEndingTime,
+                        lato: dateMarkers[i].lato,
+                        tratto: dateMarkers[i].tratto,
                         notes: dateMarkers[i].notes,
                         lat: dateMarkers[i].centralCoords[0].lat,
                         lng: dateMarkers[i].centralCoords[0].lng,
                         centralCoords: dateMarkers[i].centralCoords[0],
-                        streetSchedule: $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].endingTime),
+                        streetSchedule: $filter('translate')('lbl_cleaning') + ' ' + $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].endingTime),
+                        stopStreetSchedule: $filter('translate')('lbl_stop') + ' ' + $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].stopStartingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(dateMarkers[i].stopEndingTime),
                         polyline: MapSrv.formatPolyLine(dateMarkers[i].polylines),
                         favorite: isFavorite,
                         icon: marker_icon
@@ -59,6 +69,14 @@ angular.module('streetcleaning.services.home', [])
 
             return deferred.promise;
         }
+
+        homeServices.getNextMarkers = function (date) {
+            return findMarkers(date, true);
+        }
+        homeServices.getMarkers = function (date) {
+            return findMarkers(date);
+        }
+
 
         homeServices.getFavoriteMarkers = function () {
             var deferred = $q.defer();
@@ -208,6 +226,8 @@ angular.module('streetcleaning.services.home', [])
                 response.data.forEach(function (item) {
                     var formattedDate = homeServices.formatDate(new Date(item.cleaningDay));
                     item.formattedDate = formattedDate;
+                    item.streetSchedule = $filter('translate')('lbl_cleaning') + ' ' + $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(item.startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(item.endingTime);
+                    item.stopStreetSchedule = $filter('translate')('lbl_stop') + ' ' + $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(item.stopStartingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(item.stopEndingTime);
                     var dateOfMonth = new Date(item.cleaningDay);
                     dateOfMonth.setDate(1);
                     var key = $filter('date')(dateOfMonth, 'yyyy-MM-dd');

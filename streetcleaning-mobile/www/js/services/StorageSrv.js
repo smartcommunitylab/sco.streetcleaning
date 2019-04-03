@@ -56,7 +56,7 @@ angular.module('streetcleaning.services.store', [])
                     customAttr.action = "add";
                 }
 
-                Config.log('AppPersonalize', customAttr);
+                //Config.log('AppPersonalize', customAttr);
 
             }
 

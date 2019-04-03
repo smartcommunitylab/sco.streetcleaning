@@ -1,12 +1,21 @@
 <ion-view>
-    <ion-nav-title>{{ 'app_name' | translate }}</ion-nav-title>
+    <ion-nav-title>
+        {{ 'app_name' | translate }}
+    </ion-nav-title>
+    <ion-nav-buttons side="right">
+        <a href="#" class="button button-icon ion-refresh" ng-click="refresh()"></a>
+    </ion-nav-buttons>
+    
     <ion-content scroll="false">
         <div class="row" style="background-color:#e12d20;color: #ffffff;">
-            <div class="col col-25 tt-day btn" ng-click="prevDate()"><a><i class="icon ion-arrow-left-b"></i></a>
+            <!-- <div class="col col-25 tt-day btn" ng-click="prevDate()"><a><i class="icon ion-arrow-left-b"></i></a>
+            </div> -->
+            <div class="col tt-day">
+                <div ng-click="selectDate()">{{runningDate | date : 'dd/MM/yyyy'}}</div>
+                <span>&nbsp;</span><span ng-if="!markers || markers.length == 0"><small>{{'next_cleaning' | translate}} </small><a ng-click="futureDay()"><i class="icon ion-arrow-right-c"></i></a> </span>
             </div>
-            <div class="col col-50 tt-day">{{runningDate | date : 'dd/MM/yyyy'}}</div>
-            <div class="col col-25 tt-day btn" ng-click="nextDate()"><a><i class="icon ion-arrow-right-b"></i></a>
-            </div>
+            <!-- <div class="col col-25 tt-day btn" ng-click="nextDate()"><a><i class="icon ion-arrow-right-b"></i></a>
+            </div> -->
         </div>
 
         <div class="text-center" ng-if="!!markers && markers.length == 0  && !mapView">
@@ -16,6 +25,23 @@
         <div id="modal-map-container" data-tap-disabled="true" ng-if="mapView">
             <!--style="width: 100%; height: 790px;" {{style()}}-->
             <leaflet bounds="bounds" center="center" paths="pathLine" markers="markers" id="scMap" ng-style="mapStyle"></leaflet> <!-- ng-init="initMap()" -->
+            <div ng-if="marker" class="marker-card">
+                <div>
+                    <b>{{ marker.streetName }}</b><span ng-if="marker.lato"> - {{marker.lato}}</span><br>
+                    <span ng-if="marker.tratto">{{marker.tratto}}</span>
+                    <div class="row" ng-if="marker.startingTime">
+                        <span class="col col-center">{{ marker.streetSchedule }}</span>
+                    </div>
+                    <div class="row" ng-if="marker.stopStartingTime">
+                        <img ng-src="img/ic_divietoSosta.png" style="width: 25px;height: 25px; margin: auto">
+                        <span class="col col-center">{{ marker.stopStreetSchedule }}</span>
+                    </div>                
+                </div>  
+                <div class="marker-card-buttons">
+                        <button class="close" ng-click="closePopup()">{{'lbl_close' | translate}}</button>
+                        <button class="details" ng-click="viewDetails()">{{'lbl_details' | translate}}</button>
+                    </div>  
+            </div>
         </div>
 
         <div ng-if="!mapView">
@@ -23,10 +49,14 @@
                 <ion-list>
                     <ion-item ng-repeat="marker in markers" class="marker-item">
                         <div ng-click="showMarkerDetails(marker, runningDate)">
-                            <h2>{{ marker.streetName.toLowerCase() }}</h2>
-                            <div class="row">
-                                <img ng-src="img/ic_divietoSosta.png" style="width: 38px;height: 38px;">
-                                <h3 class="col col-center">{{ marker.streetSchedule }}</h3>
+                            <b>{{ marker.streetName.toLowerCase() }}</b><span ng-if="marker.lato"> - {{marker.lato}}</span><br>
+                            <span ng-if="marker.tratto">{{marker.tratto}}</span>
+                            <div class="row" ng-if="marker.startingTime">
+                                <small class="col col-center">{{ marker.streetSchedule }}</small>
+                            </div>
+                            <div class="row" ng-if="marker.stopStartingTime">
+                                <img ng-src="img/ic_divietoSosta.png" style="width: 25px;height: 25px; margin: auto">
+                                <small class="col col-center">{{ marker.stopStreetSchedule }}</small>
                             </div>
                         </div>
                         <div ng-if="marker.favorite" class="marker-item-star" ng-click="markFavorite(marker)">

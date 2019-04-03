@@ -44,7 +44,7 @@
     background-color: #d4121b;
 }
 .streetcleaning-theme .menu .item {
-    font-family: welive;
+    /* font-family: welive; */
     border-color: #d4121b;
     color: #FFFFFF;
 }
@@ -88,11 +88,20 @@
 
 .tt-day {
     font-size: 20px;
-    line-height: 40px;
     text-align: center;
     padding: 0;
     text-transform: uppercase;
     white-space: nowrap;
+}
+.tt-day div {
+    line-height: 1.6;
+}
+.tt-day small {
+    font-size: 75% !important;
+    text-transform: initial;
+}
+.tt-day a {
+    color: #fff;
 }
 
 .tt-day.btn {
@@ -134,7 +143,7 @@
   margin: 15px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
-.marker-item h2 {
+.marker-item div {
   font-size: 18px;
   /*font-weight: bold;*/
   white-space: normal;
@@ -170,7 +179,7 @@
     padding: 0px;
     border-style: hidden;
 }
-.marker-detail-tt div {
+.marker-detail-tt > div {
     text-align:center;
     background-color:#e12d20;
     font-size:18px;
@@ -296,4 +305,54 @@
         color: #FFFFFF;
         height: 40px;
         padding: 7px;
+}
+
+.marker-popup .popup-head{
+    display: none;
+}
+.marker-popup {
+    top: initial;
+}
+.marker-popup .popup {
+    width: 100%;
+}
+.marker-popup .popup-buttons {
+    background-color: #00adc2;
+    min-height: 0;
+}
+
+.marker-popup .popup-buttons button {
+    padding: 0;
+    background-color: transparent;
+    min-height: 0;
+}
+
+.marker-popup .sc-popup-button-red {
+    text-align: left;
+}
+.marker-popup button:not(.sc-popup-button-red) {
+    text-align: right;
+}
+
+.marker-card {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1000;
+}
+.marker-card > div {
+    padding: 16px;
+}
+.marker-card .marker-card-buttons {
+    padding: 12px 16px;
+    background-color: #00adc2;
+    color: #fff;
+}
+.marker-card .marker-card-buttons .close {
+    color: #fff;
+    text-align: left;
+}.marker-card .marker-card-buttons .details {
+    color: #fff;
+    float: right;
 }

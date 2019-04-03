@@ -1,5 +1,20 @@
 angular.module('streetcleaning.controllers.home', [])
-    .controller('HomeCtrl', function ($scope, $state, $ionicPopup, $ionicPlatform, $timeout, leafletBoundsHelpers, $filter, MapSrv, GeoLocate, Config, HomeSrv, NotifSrv, LangSrv, StorageSrv) {
+    .controller('HomeCtrl', function ($scope, $state, $ionicPopup, $ionicPlatform, $timeout, leafletBoundsHelpers, $filter, MapSrv, GeoLocate, Config, HomeSrv, NotifSrv, LangSrv, StorageSrv, ionicDatePicker) {
+
+        var openDP = function() {
+            var ipObj1 = {
+                callback: function (val) {  //Mandatory
+                  console.log('Return value from the datepicker popup is : ' + val, new Date(val));
+                  $scope.runningDate = new Date(val);
+                  $scope.refresh();
+                },
+                inputDate: $scope.runningDate,      //Optional
+                mondayFirst: true,          //Optional
+                closeOnSelect: true,       //Optional
+                templateType: 'popup'       //Optional
+              };
+              ionicDatePicker.openDatePicker(ipObj1);
+        }
 
         $scope.mapView = true;
         $scope.listView = false;
@@ -8,10 +23,11 @@ angular.module('streetcleaning.controllers.home', [])
         var mapDefaults = new Object();
         var headerHeight = 43;
         var footerHeight = 44;
-        var divHeight = 50;
+        var divHeight = 42;
         $scope.bounds = [];
         $scope.markers = [];
         $scope.pathLine = {};
+        $scope.showNext = false;
 
         if (ionic.Platform.isIOS() && !ionic.Platform.isFullScreen) {
             headerHeight += 20;
@@ -26,12 +42,17 @@ angular.module('streetcleaning.controllers.home', [])
         }
 
         window.onresize = function (event) {
-            $scope.mapWinSize = window.innerHeight - 44 - 50 - 44;
+            $scope.mapWinSize = window.innerHeight - 43 - 42 - 44;
+        }
+
+        $scope.selectDate = function() {
+            openDP();
         }
 
         var successMarkers = function (response) {
             $scope.markers = [];
             if (response && response.length > 0) {
+                $scope.showNext = false;
                 var dateMarkers = response;
                 $scope.markers = dateMarkers;
                 $ionicPlatform.ready(function () {
@@ -68,6 +89,17 @@ angular.module('streetcleaning.controllers.home', [])
             Config.loaded();
         }
 
+        var successFutureMarkers = function (response) {
+            successMarkers(response);
+            if ($scope.markers.length == 0) {
+                $scope.showNext = false;
+            } else  {
+                $scope.runningDate = new Date($scope.markers[0].cleaningDay);
+                $scope.runningDate.setHours(0, 0, 0, 0);
+            }
+        }
+
+
         var failureMarkers = function (error) {
             $scope.markers = [];
             Config.loaded();
@@ -101,9 +133,21 @@ angular.module('streetcleaning.controllers.home', [])
 
         }
 
+        $scope.futureDay = function() {
+            $scope.markers = [];
+            HomeSrv.getNextMarkers($scope.runningDate).then(successFutureMarkers, failureMarkers);
+        }
+
+        $scope.refresh = function() {
+            $scope.markers = [];
+            HomeSrv.getMarkers($scope.runningDate).then(successFutureMarkers, failureMarkers);
+        }
+
+
         $scope.initMap = function () {
             Config.loading();
             window.onresize();
+            $scope.showNext = true;
             MapSrv.initMap('scMap').then(function (map) {
                 HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
             })
@@ -118,39 +162,52 @@ angular.module('streetcleaning.controllers.home', [])
             });
         });
 
+        $scope.closePopup = function() {
+            $scope.marker = null;
+            $scope.pathLine = {};
+        }
+        $scope.viewDetails = function() {
+            $scope.showMarkerDetails($scope.marker, $scope.runningDate);
+            $scope.marker = null;
+            $scope.pathLine = {};
+        }
 
         $scope.$on('leafletDirectiveMarker.scMap.click', function (e, args) {
-            $scope.streetName = args.model.streetName;
-            $scope.streetSchedule = args.model.streetSchedule;
+            $scope.marker = args.model;
             $scope.pathLine = args.model.polyline;
 
-            var myPopup = $ionicPopup.show({
-                templateUrl: "templates/streetPopup.html",
-                title: $filter('translate')('lbl_info'),
-                scope: $scope
-                , buttons: [
-                    {
-                        text: $filter('translate')('lbl_close'),
-                        type: 'button-small sc-popup-button-red'
-                        , onTap: function (e) {
-                            $scope.pathLine = {};
-                        }
-                    }
-                    , {
-                        text: $filter('translate')('lbl_details'),
-                        type: 'button-small sc-popup-button-blue'
-                        , onTap: function (e) {
-                            return args.model;
-                        }
-                    }
-                ]
+            MapSrv.getMap('scMap').then(function (map) {
+                map.panTo([args.model.lat, args.model.lng]);
             });
-            myPopup.then(function (marker) {
-                if (marker) {
-                    $scope.pathLine = {};
-                    $scope.showMarkerDetails(marker, $scope.runningDate);
-                }
-            })
+
+            // var myPopup = $ionicPopup.show({
+            //     templateUrl: "templates/streetPopup.html",
+            //     cssClass: "marker-popup",
+            //     title: $filter('translate')('lbl_info'),
+            //     scope: $scope
+            //     , buttons: [
+            //         {
+            //             text: $filter('translate')('lbl_close'),
+            //             type: 'button-small sc-popup-button-red'
+            //             , onTap: function (e) {
+            //                 $scope.pathLine = {};
+            //             }
+            //         }
+            //         , {
+            //             text: $filter('translate')('lbl_details'),
+            //             type: 'button-small sc-popup-button-blue'
+            //             , onTap: function (e) {
+            //                 return args.model;
+            //             }
+            //         }
+            //     ]
+            // });
+            // myPopup.then(function (marker) {
+            //     if (marker) {
+            //         $scope.pathLine = {};
+            //         $scope.showMarkerDetails(marker, $scope.runningDate);
+            //     }
+            // })
         }
         );
 

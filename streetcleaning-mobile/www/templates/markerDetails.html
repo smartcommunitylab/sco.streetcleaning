@@ -8,12 +8,37 @@
             <h4 style="padding: 16px;">{{'no_timetable_found' | translate}}</h4>
         </div>
         <h3 ng-if="keys && keys.length > 0"style="font-size: 20px;text-align: center;padding: 7px;">{{ 'lbl_calendar_title' | translate }}</h3>
+
+        
         <div class="marker-detail-tt" ng-repeat="key in keys">
             <!--{{getLocale(key)}}-->
             <div class="item item-divider" ng-bind-html="getLocale(key)"></div>
-            <ion-item class="marker-detail-tt" ng-repeat="item in associatedMap[key]">
-                <h2>{{ item.formattedDate }}</h2>
+            <ion-item ng-repeat="marker in associatedMap[key]" class="marker-item">
+                <div>
+                    <b>{{ marker.formattedDate }}</b><br>
+                    <small ng-if="marker.lato">{{marker.lato}}</small><br>
+                    <small ng-if="marker.tratto">{{marker.tratto}}</small>
+                    <div class="row" ng-if="marker.startingTime">
+                        <small class="col col-center">{{ marker.streetSchedule }}</small>
+                    </div>
+                    <div class="row" ng-if="marker.stopStartingTime">
+                        <img ng-src="img/ic_divietoSosta.png" style="width: 25px;height: 25px; margin: auto">
+                        <small class="col col-center">{{ marker.stopStreetSchedule }}</small>
+                    </div>
+                </div>
+                <div ng-if="marker.favorite" class="marker-item-star" ng-click="markFavorite(marker)">
+                    <i class="icon welive-star"></i>
+                    <!--<span>&bigstar;</span>-->
+                </div>
+                <div ng-if="!marker.favorite" class="marker-item-star" ng-click="markFavorite(marker)">
+                    <i class="icon welive-star_outline"></i>
+                    <!--<span>&star;</span>-->
+                </div>
             </ion-item>
+    
+            <!-- <ion-item class="marker-detail-tt" ng-repeat="item in associatedMap[key]">
+                <h2>{{ item.formattedDate }}</h2>
+            </ion-item> -->
         </div>
     </ion-content>
 </ion-view>
