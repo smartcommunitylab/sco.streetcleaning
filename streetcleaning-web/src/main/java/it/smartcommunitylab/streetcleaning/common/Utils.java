@@ -224,13 +224,13 @@ public class Utils {
 				String codice = calendarCleaning[0];
 				String codiceTratto = calendarCleaning[2];
 				String street = calendarCleaning[1];
-				String startingTime = calendarCleaning[9];
-				String endingTime = calendarCleaning[10];
+				String startingTime = calendarCleaning[7];
+				String endingTime = calendarCleaning[8];
 				String note = calendarCleaning[5];
 				String lato = calendarCleaning[3];
 				String tratto = calendarCleaning[4];
-				String stopStartingTime = calendarCleaning[11];
-				String stopEndingTime = calendarCleaning[12];
+				String stopStartingTime = calendarCleaning[9];
+				String stopEndingTime = calendarCleaning[10];
 				
 				long startingTimeMillis = 0L;
 				long endingTimeMillis = 0L;
