@@ -1,11 +1,14 @@
 package it.smartcommunitylab.streetcleaning.storage;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -110,6 +113,43 @@ public class RepositoryManager {
 		return calendarStreetList;
 	}
 
+
+	/**
+	 * @param day_millis
+	 * @return
+	 */
+	public List<CalendarDataBean> getNextCleanedStreetsInDay(Long day) {
+		java.util.Date startTime  = Utils.getStartOfDay(day);
+		day = startTime.getTime();
+		
+		List<CalendarDataBean> calendarStreetList = new ArrayList<CalendarDataBean>();
+		Query query = Query.query(Criteria.where("cleaningDay").gte(day));
+		query = query.limit(1);
+		query = query.with(new Sort(Direction.ASC, "cleaningDay"));
+		
+		CleaningCal tmpCleaningStreet = mongoTemplate.findOne(query, CleaningCal.class);
+		if (tmpCleaningStreet == null) return Collections.emptyList();
+		
+		day = tmpCleaningStreet.getCleaningDay();
+		query = Query.query(Criteria.where("cleaningDay").in(day, day + 24*60*60*1000));
+
+		List<CleaningCal> list = mongoTemplate.find(query, CleaningCal.class);
+		for (CleaningCal cc : list) {
+			CalendarDataBean cdb = new CalendarDataBean();
+			cdb.setId(cc.getId());
+			cdb.setStreetName(cc.getStreetName());
+			cdb.setStreetCode(cc.getStreetCode());
+			cdb.setCleaningDay(cc.getCleaningDay());
+			cdb.setStartingTime(cc.getStartingTime());
+			cdb.setEndingTime(cc.getEndingTime());
+			cdb.setNotes(cc.getNotes());
+			cdb.setCentralCoords(cc.getCentralCoords());
+			cdb.setPolylines(cc.getPolylines());
+			calendarStreetList.add(cdb);
+		}
+		return calendarStreetList;
+	}
+	
 	// Second method: used to retrieve the cleaning period data from the street
 	// name
 	public List<CalendarDataBean> getCleaningDaysFromStreet(String streetName) {
@@ -212,5 +252,6 @@ public class RepositoryManager {
 
 		return false;
 	}
+
 
 }

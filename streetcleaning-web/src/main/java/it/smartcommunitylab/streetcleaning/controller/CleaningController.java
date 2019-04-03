@@ -65,6 +65,21 @@ public class CleaningController {
 		return cleaningDays;
 	}
 	
+	@RequestMapping(value = "/rest/next", method = RequestMethod.GET)
+	public @ResponseBody List<CalendarDataBean> getNextCleanedStreets(@RequestParam(required=false) String daymillis) throws Exception {
+
+		Long day_millis = null;
+
+		if(daymillis != null && daymillis.compareTo("") != 0){
+			day_millis = Long.parseLong(daymillis);
+		} else {
+			day_millis = System.currentTimeMillis();
+		}
+		List<CalendarDataBean> cleaningDays = storage.getNextCleanedStreetsInDay(day_millis);
+		return cleaningDays;
+	}
+	
+	
 	@RequestMapping(value = "/rest/search", method = RequestMethod.GET)
 	public @ResponseBody List<StreetBean> searchStreets(@RequestParam(required=true) String searchText,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
