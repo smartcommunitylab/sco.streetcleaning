@@ -226,9 +226,12 @@ public class Utils {
 				String street = calendarCleaning[1];
 				String startingTime = calendarCleaning[9];
 				String endingTime = calendarCleaning[10];
-				String note = null;
-				note = calendarCleaning[5];
-
+				String note = calendarCleaning[5];
+				String lato = calendarCleaning[3];
+				String tratto = calendarCleaning[4];
+				String stopStartingTime = calendarCleaning[11];
+				String stopEndingTime = calendarCleaning[12];
+				
 				long startingTimeMillis = 0L;
 				long endingTimeMillis = 0L;
 				if (startingTime != null && startingTime.compareTo("") != 0) {
@@ -242,6 +245,14 @@ public class Utils {
 																// time adding a
 																// day
 					endingTimeMillis = millisFromItaValueAndDate(dateVal + MILLIS_IN_DAY, endingTime);
+				}
+				long stopStartingTimeMillis = 0L;
+				long stopEndingTimeMillis = 0L;
+				if (stopStartingTime != null && stopStartingTime.compareTo("") != 0) {
+					stopStartingTimeMillis = millisFromItaValueAndDate(dateVal, stopStartingTime);
+				}
+				if (stopEndingTime != null && stopEndingTime.compareTo("") != 0) {
+					stopEndingTimeMillis = millisFromItaValueAndDate(dateVal, stopEndingTime);
 				}
 				// Here I have to find a street and get all polylines;
 				String code = codice + "_" + codiceTratto;
@@ -261,6 +272,10 @@ public class Utils {
 
 				tmp_cal = new CalendarDataBean(street, code, dateVal, startingTimeMillis, endingTimeMillis, note,
 						reference.getCentralCoords(), reference.getPolyline());
+				tmp_cal.setTratto(tratto);
+				tmp_cal.setLato(lato);
+				tmp_cal.setStopStartingTime(stopStartingTimeMillis);
+				tmp_cal.setStopEndingTime(stopEndingTimeMillis);
 				cal_days.add(tmp_cal);
 				// logger.debug(String.format("Calendar cleaning value: %s",
 				// tmp_cal.toString()));

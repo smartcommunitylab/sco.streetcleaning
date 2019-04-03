@@ -17,6 +17,9 @@ public class CleaningCal implements Serializable {
 	private String notes;
 	private List<PointBean> centralCoords;
 	private List<String> polylines;
+	private String lato, tratto;
+	private Long stopStartingTime;
+	private Long stopEndingTime;
 
 	public String getStreetName() {
 		return streetName;
@@ -88,6 +91,38 @@ public class CleaningCal implements Serializable {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getLato() {
+		return lato;
+	}
+
+	public void setLato(String lato) {
+		this.lato = lato;
+	}
+
+	public String getTratto() {
+		return tratto;
+	}
+
+	public void setTratto(String tratto) {
+		this.tratto = tratto;
+	}
+
+	public Long getStopStartingTime() {
+		return stopStartingTime;
+	}
+
+	public void setStopStartingTime(Long stopStartingTime) {
+		this.stopStartingTime = stopStartingTime;
+	}
+
+	public Long getStopEndingTime() {
+		return stopEndingTime;
+	}
+
+	public void setStopEndingTime(Long stopEndingTime) {
+		this.stopEndingTime = stopEndingTime;
 	}
 
 }

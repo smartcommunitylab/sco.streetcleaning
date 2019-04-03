@@ -145,6 +145,10 @@ public class RepositoryManager {
 			cdb.setNotes(cc.getNotes());
 			cdb.setCentralCoords(cc.getCentralCoords());
 			cdb.setPolylines(cc.getPolylines());
+			cdb.setTratto(cc.getTratto());
+			cdb.setLato(cc.getLato());
+			cdb.setStopEndingTime(cc.getStopEndingTime());
+			cdb.setStopStartingTime(cc.getStopStartingTime());
 			calendarStreetList.add(cdb);
 		}
 		return calendarStreetList;
