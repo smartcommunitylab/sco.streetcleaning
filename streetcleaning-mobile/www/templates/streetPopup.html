@@ -4,7 +4,7 @@
     <h3 class="col col-center" style="font-size: 14px;white-space: normal;">{{streetSchedule}}</h3>
 </div> -->
 
-<b>{{ marker.streetName }}</b><span ng-if="marker.lato"> - {{marker.lato}}</span><br>
+<b>{{ marker.streetName }}</b><span ng-if="marker.lato"> - {{marker.lato | translate}}</span><br>
 <span ng-if="marker.tratto">{{marker.tratto}}</span>
 <div class="row" ng-if="marker.startingTime">
     <span class="col col-center">{{ marker.streetSchedule }}</span>

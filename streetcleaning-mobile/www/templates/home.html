@@ -8,15 +8,21 @@
     
     <ion-content scroll="false">
         <div class="row" style="background-color:#e12d20;color: #ffffff;">
-            <!-- <div class="col col-25 tt-day btn" ng-click="prevDate()"><a><i class="icon ion-arrow-left-b"></i></a>
-            </div> -->
+            <div class="col col-20 tt-day btn" ng-click="prevDate()"></div>
             <div class="col tt-day">
                 <div ng-click="selectDate()">{{runningDate | date : 'dd/MM/yyyy'}}</div>
                 <!-- <span>&nbsp;</span><span ng-if="!markers || markers.length == 0"><small>{{'next_cleaning' | translate}} </small><a ng-click="futureDay()"><i class="icon ion-arrow-right-c"></i></a> </span> -->
-                <span ng-click="futureDay()" ><small>{{'next_cleaning' | translate}} </small><a style="vertical-align: middle;"><i class="icon ion-arrow-right-c"></i></a> </span>
             </div>
-            <!-- <div class="col col-25 tt-day btn" ng-click="nextDate()"><a><i class="icon ion-arrow-right-b"></i></a>
-            </div> -->
+            <div class="col col-25 tt-day-btn" ng-click="futureDay()">
+                <div class="row">
+                <div class="col">
+                <span ><small>{{'next_cleaning' | translate}} </small></span>
+                </div>
+                <div class="col text-center">
+                <a><i class="icon ion-arrow-right-b"></i></a>
+                </div>
+                </div>
+            </div>
         </div>
 
         <div class="text-center" ng-if="!!markers && markers.length == 0  && !mapView">
@@ -28,7 +34,7 @@
             <leaflet bounds="bounds" center="center" paths="pathLine" markers="markers" id="scMap" ng-style="mapStyle"></leaflet> <!-- ng-init="initMap()" -->
             <div ng-if="marker" class="marker-card">
                 <div>
-                    <b>{{ marker.streetName }}</b><span ng-if="marker.lato"> - {{marker.lato}}</span><br>
+                    <b>{{ marker.streetName }}</b><span ng-if="marker.lato"> - {{marker.lato | translate}}</span><br>
                     <span ng-if="marker.tratto">{{marker.tratto}}</span>
                     <div class="row" ng-if="marker.startingTime">
                         <span class="col col-center">{{ marker.streetSchedule }}</span>
@@ -50,7 +56,7 @@
                 <ion-list>
                     <ion-item ng-repeat="marker in markers" class="marker-item">
                         <div ng-click="showMarkerDetails(marker, runningDate)">
-                            <b>{{ marker.streetName.toLowerCase() }}</b><span ng-if="marker.lato"> - {{marker.lato}}</span><br>
+                            <b>{{ marker.streetName.toLowerCase() }}</b><span ng-if="marker.lato"> - {{marker.lato | translate}}</span><br>
                             <span ng-if="marker.tratto">{{marker.tratto}}</span>
                             <div class="row" ng-if="marker.startingTime">
                                 <small class="col col-center">{{ marker.streetSchedule }}</small>

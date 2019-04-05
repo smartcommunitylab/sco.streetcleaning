@@ -1,7 +1,7 @@
 angular.module('streetcleaning.controllers.credits', [])
     .controller('CreditsCtrl', function ($scope, $state, $ionicPopup, $timeout, $filter, $translate, Config) {
 
-        if (ionic.Platform.isWebView()) {
+        if (ionic.Platform.isWebView() && cordova.getAppVersion) {
             cordova.getAppVersion(function (version) {
                 $scope.version = "v " + version;
             }, function (error) {

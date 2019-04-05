@@ -1,3 +1,4 @@
+
 angular.module('streetcleaning.services.home', [])
 
     .factory('HomeSrv', function ($q, $http, $window, $filter, $rootScope, $translate, $ionicLoading, $ionicPlatform, MapSrv, StorageSrv, Config) {
@@ -228,6 +229,7 @@ angular.module('streetcleaning.services.home', [])
                     item.formattedDate = formattedDate;
                     item.streetSchedule = $filter('translate')('lbl_cleaning') + ' ' + $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(item.startingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(item.endingTime);
                     item.stopStreetSchedule = $filter('translate')('lbl_stop') + ' ' + $filter('translate')('lbl_start') + ' ' + homeServices.formatTimeHHMM(item.stopStartingTime) + ' ' + $filter('translate')('lbl_end') + ' ' + homeServices.formatTimeHHMM(item.stopEndingTime);
+                    item.favorite = homeServices.isFavoriteStreet(item.streetName);
                     var dateOfMonth = new Date(item.cleaningDay);
                     dateOfMonth.setDate(1);
                     var key = $filter('date')(dateOfMonth, 'yyyy-MM-dd');

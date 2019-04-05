@@ -8,6 +8,12 @@ angular.module('streetcleaning.services.store', [])
             "action": "",
         }
 
+        var streetFavourite = function(street){
+            return '_FAV_'+ street;
+        }
+        var favouriteStreet = function(key){
+            return key.substring(5);
+        }
 
         storageService.getMarkers = function (date) {
             if (!!localStorage[date]) {
@@ -24,11 +30,9 @@ angular.module('streetcleaning.services.store', [])
             var favoriteList = [];
 
             for (var i = 0; i < localStorage.length; i++) {
-                if (localStorage.getItem(localStorage.key(i))) {
-                    if (localStorage.key(i) != "isPrivacyAccepted") {
-                        if (JSON.parse(localStorage.getItem(localStorage.key(i)))) {
-                            favoriteList.push(localStorage.key(i));
-                        }
+                if (localStorage.key(i).indexOf('_FAV_') == 0) {
+                    if (JSON.parse(localStorage.getItem(localStorage.key(i)))) {
+                        favoriteList.push(favouriteStreet(localStorage.key(i)));
                     }
                 }
             }
@@ -43,6 +47,7 @@ angular.module('streetcleaning.services.store', [])
             var deferred = $q.defer();
 
             if (!!streetName) {
+                streetName = streetFavourite(streetName);
                 if (localStorage.getItem(streetName)) {
                     if (JSON.parse(localStorage[streetName])) {
                         localStorage[streetName] = false;
@@ -70,8 +75,8 @@ angular.module('streetcleaning.services.store', [])
             var isFavorite = false;
 
             if (!!streetName) {
-                if (localStorage.getItem(streetName)) {
-                    isFavorite = JSON.parse(localStorage.getItem(streetName));
+                if (localStorage.getItem(streetFavourite(streetName))) {
+                    isFavorite = JSON.parse(localStorage.getItem(streetFavourite(streetName)));
                 }
             }
 

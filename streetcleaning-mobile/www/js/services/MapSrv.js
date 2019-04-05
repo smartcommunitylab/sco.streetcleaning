@@ -5,7 +5,7 @@ angular.module('streetcleaning.services.map', [])
 
     var mapService = {};
     var myLocation = {};
-
+    var locateControl = null;
 
     mapService.getMap = function (mapId) {
         var deferred = $q.defer();
@@ -32,8 +32,12 @@ angular.module('streetcleaning.services.map', [])
     mapService.initMap = function (mapId) {
         
         var deferred = $q.defer();
-        
+        if (!locateControl) {
+            locateControl = L.control.locate();
+        }
+
         leafletData.getMap(mapId).then(function (map) {
+            var isNew = !locateControl || map != locateControl._map;// !cachedMap[mapId];
             cachedMap[mapId] = map;
             L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 type: 'map',
@@ -41,7 +45,9 @@ angular.module('streetcleaning.services.map', [])
                 maxZoom: 18,
                 minZoom: 8,
             }).addTo(map);
-            L.control.locate().addTo(map);
+            if (isNew) {
+                locateControl.addTo(map);
+            }
             deferred.resolve(map);
         },
             function (error) {

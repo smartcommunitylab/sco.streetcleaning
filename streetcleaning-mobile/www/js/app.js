@@ -245,9 +245,14 @@ angular.module('streetcleaning', [
             msg_disclaimer: 'Le informazioni contenute nella app Trento Pulizia Strade hanno un valore puramente informativo. Tali informazioni non dispensano i cittadini dal verificare e rispettare la segnaletica stradale posizionata contestualmente al periodo in cui viene effettuata la pulizia delle strade.',
             lbl_ok_diclaimer: 'HO CAPITO',
             lbl_cancel: 'CHIUDI',
-            next_cleaning: 'Vai alla prossima pulizia',
+            next_cleaning: 'Prossima pulizia',
             lbl_cleaning: 'Pulizia',
-            lbl_stop: 'Divieto di sosta'
+            lbl_stop: 'Divieto di sosta',
+            entrambi: 'entrambi i lati',
+            ovest: 'lato ovest',
+            est: 'lato est',
+            nord: 'lato nord',
+            sud: 'lato sud'
         });
 
         $translateProvider.translations('en', {
@@ -295,10 +300,14 @@ angular.module('streetcleaning', [
             msg_disclaimer: 'The information contained in the Trento Street Cleaning app is of purely informative value. Such information does not dispense citizens from verifying and observing road signs placed at the same time as the road cleaning period is performed.',
             lbl_ok_diclaimer: 'I GOT IT',
             lbl_cancel: 'CANCEL',
-            next_cleaning: 'Go to the next cleaning',
+            next_cleaning: 'Next cleaning',
             lbl_cleaning: 'Cleaning',
-            lbl_stop: 'Parking ban'
-
+            lbl_stop: 'Parking ban',
+            entrambi: 'both sides',
+            ovest: 'west side',
+            est: 'east side',
+            nord: 'north side',
+            sud: 'south side'
         });
 
         $translateProvider.preferredLanguage('en');

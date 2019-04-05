@@ -160,6 +160,11 @@ angular.module('streetcleaning.controllers.home', [])
                     HomeSrv.getMarkers($scope.runningDate).then(successMarkers, failureMarkers);
                 })
             });
+            if ($scope.markers) {
+                $scope.markers.forEach(function(m) {
+                    m.favorite = HomeSrv.isFavoriteStreet(m.streetName);
+                });
+            }
         });
 
         $scope.closePopup = function() {
@@ -312,10 +317,14 @@ angular.module('streetcleaning.controllers.home', [])
 
         $scope.streetName = $state.params.streetName;
 
-        $scope.markFavorite = function (streetName) {
+        $scope.markFavorite = function (obj) {
+            var streetName = typeof obj == 'string' ? obj : obj.streetName;
             Config.loading();
             HomeSrv.addFavorite(streetName).then(function (updated) {
                 $scope.favorite = HomeSrv.isFavoriteStreet(streetName);
+                if (typeof obj == 'object') {
+                    obj.favorite = $scope.favorite;
+                }
                 NotifSrv.update().then(function (success) {
                     Config.loaded();
                 }, function (error) {

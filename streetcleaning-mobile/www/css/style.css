@@ -94,7 +94,7 @@
     white-space: nowrap;
 }
 .tt-day div {
-    line-height: 1.6;
+    line-height: 40px;
 }
 .tt-day small {
     font-size: 75% !important;
@@ -104,8 +104,20 @@
     color: #fff;
 }
 
-.tt-day.btn {
+.tt-day-btn, .tt-day-btn div {
+    padding: 0 !important;
+}
+.tt-day-btn a {
     font-size: 30px;
+    color: #fff;
+}
+.tt-day-btn i {
+    line-height: 40px;
+}
+.tt-day-btn small {
+    font-size: 12px !important;
+    white-space: normal;
+    line-height: 1;
 }
 
 .popup-head {

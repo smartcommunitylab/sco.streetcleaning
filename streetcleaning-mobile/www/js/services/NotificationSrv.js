@@ -12,6 +12,10 @@ angular.module('streetcleaning.services.notification', [])
 
             StorageSrv.getFavoriteMarkers().then(function(favs) {
 
+                if (!window['cordova']) {
+                    deferred.resolve([]);
+                    return;
+                }
                 cordova.plugins.notification.local.cancelAll();
 
                 var i = 0;

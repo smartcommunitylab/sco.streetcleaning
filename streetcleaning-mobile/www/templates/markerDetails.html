@@ -16,7 +16,7 @@
             <ion-item ng-repeat="marker in associatedMap[key]" class="marker-item">
                 <div>
                     <b>{{ marker.formattedDate }}</b><br>
-                    <small ng-if="marker.lato">{{marker.lato}}</small><br>
+                    <small ng-if="marker.lato">{{marker.lato | translate}}</small><br>
                     <small ng-if="marker.tratto">{{marker.tratto}}</small>
                     <div class="row" ng-if="marker.startingTime">
                         <small class="col col-center">{{ marker.streetSchedule }}</small>
@@ -26,14 +26,12 @@
                         <small class="col col-center">{{ marker.stopStreetSchedule }}</small>
                     </div>
                 </div>
-                <div ng-if="marker.favorite" class="marker-item-star" ng-click="markFavorite(marker)">
+                <!-- <div ng-if="marker.favorite" class="marker-item-star" ng-click="markFavorite(marker)">
                     <i class="icon welive-star"></i>
-                    <!--<span>&bigstar;</span>-->
                 </div>
                 <div ng-if="!marker.favorite" class="marker-item-star" ng-click="markFavorite(marker)">
                     <i class="icon welive-star_outline"></i>
-                    <!--<span>&star;</span>-->
-                </div>
+                </div> -->
             </ion-item>
     
             <!-- <ion-item class="marker-detail-tt" ng-repeat="item in associatedMap[key]">
