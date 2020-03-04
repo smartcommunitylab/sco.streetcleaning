@@ -132,6 +132,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 	@PostConstruct
 	public boolean LoadInithialFiles() {
 		boolean loadedOk = true;
+		if (!Boolean.TRUE.toString().equalsIgnoreCase(readFileOnLoad)) return true;
 		try {
 			RepositoryManager mongoRepo = getRepositoryManager();
 
@@ -169,7 +170,7 @@ public class AppConfig extends WebMvcConfigurerAdapter {
 			loadedOk = false;
 			logger.error(e.getMessage());
 		} catch (Exception e2) {
-			// TODO Auto-generated catch block
+			loadedOk = false;
 			e2.printStackTrace();
 		}
 		return loadedOk;
