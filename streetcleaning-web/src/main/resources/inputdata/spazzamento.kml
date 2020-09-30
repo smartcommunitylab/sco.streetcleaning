@@ -44,6 +44,45 @@
       <MultiGeometry><LineString><coordinates>11.11398513937727,46.065532472883 11.115368362512156,46.065656395471294 11.115404981968345,46.066173825063132 11.114525307102172,46.066088495950794 11.114508484840689,46.066022643614978</coordinates></LineString><LineString><coordinates>11.114106579431972,46.06549211424354 11.115365085836906,46.065605902315738 11.115368362512156,46.065656395471294</coordinates></LineString><LineString><coordinates>11.114227485389556,46.065736798229011 11.115381467730977,46.065846321485523</coordinates></LineString><LineString><coordinates>11.114287634039286,46.065870096542646 11.115390643797397,46.065974125255231</coordinates></LineString><LineString><coordinates>11.114378608520225,46.06602504113873 11.114424479446283,46.066097597950311 11.114516053213988,46.066146305364981 11.115405749090357,46.066229238272427 11.115404981968345,46.066173825063132</coordinates></LineString><LineString><coordinates>11.114219592860486,46.065987096091654 11.114397462521131,46.065987687045954 11.114508484840689,46.066022643614978 11.115400207704928,46.066107330067794</coordinates></LineString><LineString><coordinates>11.114170495271001,46.065610499038208 11.115372562352491,46.065715739451626</coordinates></LineString><LineString><coordinates>11.115405749090357,46.066229238272427 11.115506840505546,46.066230072014797 11.115429993264689,46.065609209811605 11.115365085836906,46.065605902315738</coordinates></LineString><LineString><coordinates>11.114198017492821,46.06567149274963 11.115377268229423,46.065782233567425</coordinates></LineString><LineString><coordinates>11.114258579713418,46.065805707942594 11.115385996515984,46.065905563863318</coordinates></LineString><LineString><coordinates>11.11431911410404,46.065939860746376 11.115395505241054,46.066039920933527</coordinates></LineString><LineString><coordinates>11.114141613519729,46.065546492230233 11.114329776869438,46.065963490874395 11.114397462521131,46.065987687045954</coordinates></LineString></MultiGeometry>
   </Placemark>
   <Placemark>
+	<name>VIA FRANCESCO FERRUCCIO</name>
+	<description>VIA FRANCESCO FERRUCCIO</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#spazzamento">
+		<SimpleData name="strada">1110</SimpleData>
+		<SimpleData name="desvia">VIA FRANCESCO FERRUCCIO</SimpleData>
+		<SimpleData name="percorso">7</SimpleData>
+		<SimpleData name="lato">entrambi</SimpleData>
+		<SimpleData name="a_mano">no</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.125904791377186,46.068842286813378 11.125995677447685,46.068845185818844 11.126389582330194,46.068936860162523 11.126544933986409,46.068971860573512 11.126950113931526,46.069037221783695 11.127106465637619,46.069044391393867</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>VIA S. MARIA MADDALENA</name>
+	<description>VIA S. MARIA MADDALENA</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#spazzamento">
+		<SimpleData name="strada">2970</SimpleData>
+		<SimpleData name="desvia">VIA S. MARIA MADDALENA</SimpleData>
+		<SimpleData name="percorso">7</SimpleData>
+		<SimpleData name="lato">entrambi</SimpleData>
+		<SimpleData name="a_mano">no</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.125252915165168,46.06840367194679 11.125355739874156,46.068464942368827 11.125602664877523,46.0686049859344 11.125708370925977,46.068684023339706 11.125881341903074,46.068814191698934 11.125904791377186,46.068842286813378 11.125918587641964,46.068871551600274 11.125925406134202,46.068917777086696 11.125914888031966,46.068990696516678</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
+	<name>VIA L. MARCHETTI</name>
+	<description>VIA L. MARCHETTI</description>
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#spazzamento">
+		<SimpleData name="strada">1750</SimpleData>
+		<SimpleData name="desvia">VIA L. MARCHETTI</SimpleData>
+		<SimpleData name="percorso">7</SimpleData>
+		<SimpleData name="lato">entrambi</SimpleData>
+		<SimpleData name="a_mano">no</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><LineString><coordinates>11.127265372424532,46.069663094392972 11.126524882262714,46.069429367110381 11.126339998532528,46.069359454509765 11.12628090807636,46.069325902498342 11.126209445305674,46.069273229725503 11.125914888031966,46.068990696516678</coordinates></LineString></MultiGeometry>
+  </Placemark>
+  <Placemark>
 	<name>percorso n. 20, VIA B. GIOVANELLI </name>
 	<description>percorso n. 20, VIA B. GIOVANELLI </description>
 	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
@@ -281,7 +320,7 @@
 		<SimpleData name="a_mano">no</SimpleData>
 		<SimpleData name="note"></SimpleData>
 	</SchemaData></ExtendedData>
-      <MultiGeometry><LineString><coordinates>11.131232722422313,46.063882500737151 11.131386445505674,46.063875492770038 11.131968037965727,46.063869141340881 11.132187083155022,46.063869553744155 11.13241168411407,46.063869862028938 11.132445062821011,46.063873739245246 11.133043816015714,46.063957066698705</coordinates></LineString></MultiGeometry>
+      <MultiGeometry><LineString><coordinates>11.131232722422313,46.063882500737151 11.131386445505674,46.063875492770038 11.131968037965727,46.063869141340881 11.132187083155022,46.063869553744155 11.13241168411407,46.063869862028938 11.132445062821011,46.063873739245246 11.132461197343661,46.06424560740642</coordinates></LineString></MultiGeometry>
   </Placemark>
   <Placemark>
 	<name>percorso n. 31, VIA AEROPORTO da incrocio con Via Bolzano alla ferrovia</name>
@@ -4282,21 +4321,6 @@
 		<SimpleData name="note">da incrocio via Chini a incrocio via Gocciadoro</SimpleData>
 	</SchemaData></ExtendedData>
       <MultiGeometry><LineString><coordinates>11.133799786996834,46.05335839144022 11.133776732607375,46.053471328058585 11.133687524466954,46.053716007187909 11.133657399691799,46.053793073899207 11.133622110654496,46.053883737770498 11.133555310435733,46.05401549227804 11.133482561525302,46.054120356390321 11.133381346197883,46.054405761644553</coordinates></LineString></MultiGeometry>
-  </Placemark>
-  <Placemark>
-	<name>percorso n. 19, VIA ZARA tratto Via Zara tra civici 12 e 22</name>
-	<description>percorso n. 19, VIA ZARA tratto Via Zara tra civici 12 e 22</description>
-	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
-	<ExtendedData><SchemaData schemaUrl="#spazzamento">
-		<SimpleData name="strada">3550</SimpleData>
-		<SimpleData name="desvia">VIA ZARA</SimpleData>
-		<SimpleData name="percorso">19</SimpleData>
-		<SimpleData name="lato">entrambi</SimpleData>
-		<SimpleData name="tratto">tratto Via Zara tra civici 12 e 22</SimpleData>
-		<SimpleData name="a_mano">no</SimpleData>
-		<SimpleData name="note">tratto Via Zara tra civici 12 e 22</SimpleData>
-	</SchemaData></ExtendedData>
-      <MultiGeometry><LineString><coordinates>11.132932131500839,46.064310170069753 11.133043816015714,46.063957066698705</coordinates></LineString></MultiGeometry>
   </Placemark>
   <Placemark>
 	<name>percorso n. 32, VIA AEROPORTO da incrocio con Via Bolzano ad incrocio con Piazza Liberta' </name>
