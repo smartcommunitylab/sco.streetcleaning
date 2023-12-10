@@ -1,2 +1,6 @@
-streetcleaning-mobile/www/js/services/LoggingTokenSrv.js
-*.ts
+/target/
+/tmp/
+/.classpath
+/.project
+/.settings/
+/.vscode/

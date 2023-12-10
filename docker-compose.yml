@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo:4.2.6
+    container_name: mongo
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
+  streetcleaning:
+    image: smartcommunitylab/streetcleaning
+    container_name: streetcleaning
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo
+    links:
+      - mongo:mongo
+    env_file: ./docker-configs/app.env
+volumes:
+  mongo-data:
