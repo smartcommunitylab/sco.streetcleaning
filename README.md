@@ -27,7 +27,7 @@ The server is started and listening on port 8080
 
 Build image 
 
-``docker build -t smartcommunitylab/streetcleaning Dockerfile . ``
+``docker build -t smartcommunitylab/streetcleaning . ``
 
 Run image 
 
